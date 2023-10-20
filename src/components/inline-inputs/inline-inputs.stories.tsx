@@ -1,14 +1,31 @@
 import React, { useState } from "react";
-import { ComponentStory } from "@storybook/react";
+import { ArgTypes, Meta, StoryObj } from "@storybook/react";
 
-import InlineInputs from ".";
+import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
+
+import InlineInputs, { InlineInputsProps } from ".";
 import Textbox from "../textbox";
 import Decimal from "../decimal";
 import { Select, Option } from "../select";
 
 import Box from "../box";
 
-export const Default: ComponentStory<typeof InlineInputs> = () => {
+const styledSystemProps = generateStyledSystemProps({
+  margin: true,
+}) as Partial<ArgTypes<InlineInputsProps>>;
+
+const meta: Meta<typeof InlineInputs> = {
+  title: "Inline Inputs",
+  component: InlineInputs,
+  argTypes: {
+    ...styledSystemProps,
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof InlineInputs>;
+
+export const Default: Story = () => {
   let validationProps = {};
   validationProps = {
     hasWarning: true,
@@ -59,10 +76,9 @@ export const Default: ComponentStory<typeof InlineInputs> = () => {
     </InlineInputs>
   );
 };
+Default.storyName = "Default";
 
-export const WithAdaptiveLabelBreakpoint: ComponentStory<
-  typeof InlineInputs
-> = () => {
+export const WithAdaptiveLabelBreakpoint: Story = () => {
   return (
     <Box p={4}>
       <InlineInputs
@@ -79,8 +95,9 @@ export const WithAdaptiveLabelBreakpoint: ComponentStory<
     </Box>
   );
 };
+WithAdaptiveLabelBreakpoint.storyName = "With Adaptive Label Breakpoint";
 
-export const Required: ComponentStory<typeof InlineInputs> = () => {
+export const Required: Story = () => {
   return (
     <InlineInputs
       label="Inline Inputs"
@@ -92,9 +109,10 @@ export const Required: ComponentStory<typeof InlineInputs> = () => {
     </InlineInputs>
   );
 };
+Required.storyName = "Required";
 Required.parameters = { controls: { disable: true } };
 
-export const LabelAlign: ComponentStory<typeof InlineInputs> = () => {
+export const LabelAlign: Story = () => {
   return (
     <Box>
       {(["right", "left"] as const).map((alignment) => (
@@ -111,3 +129,4 @@ export const LabelAlign: ComponentStory<typeof InlineInputs> = () => {
     </Box>
   );
 };
+LabelAlign.storyName = "Label Align";
