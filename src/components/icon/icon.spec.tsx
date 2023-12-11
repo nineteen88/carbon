@@ -1,7 +1,7 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 import { mount, shallow } from "enzyme";
-import { shade } from "polished";
+import shade from "../../style/utils/shade";
 
 import { rootTagTest } from "../../__internal__/utils/helpers/tags/tags-specs";
 import {
@@ -18,10 +18,9 @@ import baseTheme from "../../style/themes/base";
 import browserTypeCheck, {
   isSafari,
 } from "../../__internal__/utils/helpers/browser-type-check";
-import styledColor from "../../style/utils/color";
+import { toColor } from "../../style/utils/color";
 import Tooltip from "../tooltip";
 import { TooltipProvider } from "../../__internal__/tooltip-provider";
-import getColorValue from "../../style/utils/get-color-value";
 import { IconType } from "./icon-type";
 import { TooltipPositions } from "../tooltip/tooltip.config";
 import { TabTitleContext } from "../tabs/__internal__/tab-title/tab-title.component";
@@ -157,17 +156,13 @@ describe("Icon component", () => {
       "#123456",
       "--colorsYang100",
     ];
-    describe.each(correctColors)("when color prop is provided", (color) => {
+    describe.each(correctColors)("when color prop is '%s'", (color) => {
       it("renders properly colored Icon", () => {
         const wrapper = mount(<Icon type="home" color={color} />);
-        const { color: renderedColor } = styledColor({
-          theme: baseTheme,
-          color,
-        });
 
         assertStyleMatch(
           {
-            color: renderedColor,
+            color: toColor(baseTheme, color),
           },
           wrapper.find(StyledIcon)
         );
@@ -175,13 +170,9 @@ describe("Icon component", () => {
 
       it("renders properly colored Icon when hovered", () => {
         const wrapper = mount(<Icon color={color} type="message" />);
-        const { color: renderedColor } = styledColor({
-          theme: baseTheme,
-          color,
-        });
         expect(wrapper.find(StyledIcon)).not.toHaveStyleRule(
           "color",
-          shade(0.2, getColorValue(renderedColor)),
+          shade(toColor(baseTheme, color))(0.2),
           { modifier: ":hover" }
         );
       });
@@ -195,19 +186,15 @@ describe("Icon component", () => {
             tooltipMessage="tooltip message"
           />
         );
-        const { color: renderedColor } = styledColor({
-          theme: baseTheme,
-          color,
-        });
         assertStyleMatch(
           {
-            color: renderedColor,
+            color: toColor(baseTheme, color),
           },
           wrapper.find(StyledIcon)
         );
         assertStyleMatch(
           {
-            backgroundColor: renderedColor,
+            backgroundColor: toColor(baseTheme, color),
           },
           wrapper.find(StyledIcon)
         );
@@ -222,31 +209,21 @@ describe("Icon component", () => {
             tooltipMessage="tooltip message"
           />
         );
-        const { color: renderedColor } = styledColor({
-          theme: baseTheme,
-          color,
-        });
-
         assertStyleMatch(
           {
-            color: shade(0.2, getColorValue(renderedColor)),
+            color: shade(toColor(baseTheme, color))(0.2),
           },
           wrapper.find(StyledIcon),
           { modifier: ":hover" }
         );
       });
     });
-    describe.each(correctColors)("when bg prop is provided", (color) => {
+    describe.each(correctColors)("when bg prop is '%s'", (color) => {
       it("renders properly colored Icon", () => {
         const wrapper = mount(<Icon bg={color} type="message" />);
-        const { backgroundColor } = styledColor({
-          theme: baseTheme,
-          bg: color,
-        });
-
         assertStyleMatch(
           {
-            backgroundColor,
+            backgroundColor: toColor(baseTheme, color),
           },
           wrapper.find(StyledIcon)
         );
@@ -256,71 +233,25 @@ describe("Icon component", () => {
         const wrapper = mount(
           <Icon bg={color} type="message" tooltipMessage="test" />
         );
-        const { backgroundColor } = styledColor({
-          theme: baseTheme,
-          bg: color,
-        });
-
         assertStyleMatch(
           {
-            backgroundColor: shade(0.2, getColorValue(backgroundColor)),
+            backgroundColor: shade(toColor(baseTheme, color))(0.2),
           },
           wrapper.find(StyledIcon),
           { modifier: ":hover" }
         );
       });
     });
-
-    const wrongColors = ["rgb(0,0)", "#ff", "test"];
-    describe.each(wrongColors)("when wrong color prop is provided", (color) => {
-      let consoleSpy: jest.SpyInstance;
-
-      beforeEach(() => {
-        consoleSpy = jest
-          .spyOn(global.console, "error")
-          .mockImplementation(() => {});
-      });
-
-      afterEach(() => {
-        consoleSpy.mockReset();
-      });
-
-      it("throws an error", () => {
-        mount(<Icon color={color} type="message" />);
-        // eslint-disable-next-line no-console
-        expect(console.error).toHaveBeenCalled();
-      });
-    });
-
-    describe.each(wrongColors)("when wrong bg prop is provided", (color) => {
-      let consoleSpy: jest.SpyInstance;
-
-      beforeEach(() => {
-        consoleSpy = jest
-          .spyOn(global.console, "error")
-          .mockImplementation(() => {});
-      });
-
-      afterEach(() => {
-        consoleSpy.mockReset();
-      });
-
-      it("throws an error", () => {
-        mount(<Icon bg={color} type="message" />);
-        // eslint-disable-next-line no-console
-        expect(console.error).toHaveBeenCalled();
-      });
-    });
   });
 
   describe("icon color", () => {
     it("renders proper icon color for disabled state", () => {
-      const wrapper = renderStyles({ disabled: true });
+      const wrapper = mount(<Icon type="message" disabled />);
       assertStyleMatch(
         {
           color: "var(--colorsYin030)",
         },
-        wrapper.toJSON()
+        wrapper.find(StyledIcon)
       );
     });
   });
@@ -328,12 +259,12 @@ describe("Icon component", () => {
   describe("background color", () => {
     describe("when disabled", () => {
       it("renders backgroundColor in a proper color", () => {
-        const wrapper = renderStyles({ disabled: true });
+        const wrapper = mount(<Icon type="message" disabled />);
         assertStyleMatch(
           {
             backgroundColor: "transparent",
           },
-          wrapper.toJSON()
+          wrapper.find(StyledIcon)
         );
       });
     });
@@ -416,7 +347,7 @@ describe("Icon component", () => {
       }
     );
 
-    it('tooltips "position" can be overriden by context', () => {
+    it('tooltips "position" can be overridden by context', () => {
       const wrapper = mount(
         <TooltipProvider tooltipPosition="top">
           <Icon tooltipMessage="foo" type="home" tooltipPosition="left" />
@@ -426,7 +357,7 @@ describe("Icon component", () => {
       expect(wrapper.find(Tooltip).props().position).toBe("top");
     });
 
-    it("tooltips visibility can be overriden by context", () => {
+    it("tooltips visibility can be overridden by context", () => {
       const wrapper = mount(
         <TooltipProvider tooltipVisible>
           <Icon tooltipMessage="foo" type="home" tooltipVisible={false} />

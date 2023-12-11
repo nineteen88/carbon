@@ -144,57 +144,56 @@ const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
       return hasTooltip && tabIndex === undefined ? 0 : tabIndex;
     }, [isInTab, hasTooltip, tabIndex]);
 
-    const styledIconProps = {
-      "aria-hidden": ariaHidden,
-      "aria-label": ariaLabel,
-      bg,
-      bgSize,
-      bgShape,
-      className: className || undefined,
-      color,
-      "data-element": iconType,
-      disabled: disabledFromContext || disabled,
-      fontSize,
-      hasTooltip,
-      id,
-      isInteractive,
-      key: "icon",
-      ref,
-      role,
-      tabIndex: computedTabIndex,
-      type: iconType,
-      ...tagComponent("icon", rest),
-      ...filterStyledSystemMarginProps(rest),
-    };
-
     const shouldShowTooltip = () => {
       return tooltipVisibleFromContext !== undefined
         ? tooltipVisibleFromContext
         : tooltipVisible;
     };
 
-    if (tooltipMessage) {
-      const visible = disabled ? undefined : shouldShowTooltip();
+    const styledIcon = (
+      <StyledIcon
+        aria-hidden={ariaHidden}
+        aria-label={ariaLabel}
+        bg={bg}
+        bgShape={bgShape}
+        bgSize={bgSize}
+        className={className || undefined}
+        color={color}
+        data-element={iconType}
+        disabled={disabledFromContext || disabled}
+        fontSize={fontSize}
+        hasTooltip={hasTooltip}
+        id={id}
+        isInteractive={isInteractive}
+        key="icon"
+        ref={ref}
+        role={role}
+        tabIndex={computedTabIndex}
+        type={iconType}
+        {...tagComponent("icon", rest)}
+        {...filterStyledSystemMarginProps(rest)}
+      />
+    );
 
-      return (
-        <Tooltip
-          message={tooltipMessage}
-          position={tooltipPositionFromContext || tooltipPosition}
-          type={type}
-          id={tooltipId}
-          isVisible={visible}
-          isPartOfInput={isPartOfInput}
-          inputSize={inputSize}
-          bgColor={tooltipBgColor}
-          fontColor={tooltipFontColor}
-          flipOverrides={tooltipFlipOverrides}
-          target={target}
-        >
-          <StyledIcon {...styledIconProps} />
-        </Tooltip>
-      );
-    }
-    return <StyledIcon {...styledIconProps} />;
+    return tooltipMessage ? (
+      <Tooltip
+        message={tooltipMessage}
+        position={tooltipPositionFromContext || tooltipPosition}
+        type={type}
+        id={tooltipId}
+        isVisible={!disabled ? shouldShowTooltip() : undefined}
+        isPartOfInput={isPartOfInput}
+        inputSize={inputSize}
+        bgColor={tooltipBgColor}
+        fontColor={tooltipFontColor}
+        flipOverrides={tooltipFlipOverrides}
+        target={target}
+      >
+        {styledIcon}
+      </Tooltip>
+    ) : (
+      styledIcon
+    );
   }
 );
 

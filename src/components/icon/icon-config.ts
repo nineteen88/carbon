@@ -21,7 +21,7 @@ const dlsConfig = {
     large: "var(--sizing400)",
     "extra-large": "var(--sizing600)",
   },
-};
+} as const;
 
 export const ICON_TOOLTIP_POSITIONS: TooltipPositions[] = [
   "bottom",

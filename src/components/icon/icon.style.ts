@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { shade } from "polished";
 import { margin } from "styled-system";
+import shade from "../../style/utils/shade";
 
 import iconUnicodes from "./icon-unicodes";
 import baseTheme, { ThemeObject } from "../../style/themes/base";
@@ -8,8 +8,7 @@ import iconConfig from "./icon-config";
 import browserTypeCheck, {
   isSafari,
 } from "../../__internal__/utils/helpers/browser-type-check";
-import styledColor from "../../style/utils/color";
-import getColorValue from "../../style/utils/get-color-value";
+import { toColor } from "../../style/utils/color";
 import { IconType } from "./icon-type";
 import addFocusStyling from "../../style/utils/add-focus-styling";
 
@@ -68,110 +67,85 @@ function adjustIconBgSize(fontSize?: FontSize, bgSize?: BgSize) {
 const oldFocusStyling = "outline: 2px solid var(--colorsSemanticFocus500);";
 
 const StyledIcon = styled.span<StyledIconProps & StyledIconInternalProps>`
-  ${({
-    theme,
-    color,
-    bg,
-    isInteractive,
-    bgSize,
-    bgShape,
-    type,
-    fontSize,
-    disabled,
-    hasTooltip,
-  }) => {
-    let finalColor;
-    let finalHoverColor;
-    let bgColor;
-    let bgHoverColor;
+  position: relative;
+  vertical-align: middle;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
 
-    try {
-      if (disabled) {
-        finalColor = "var(--colorsYin030)";
-        finalHoverColor = "var(--colorsYin030)";
-      } else if (color) {
-        const { color: renderedColor } = styledColor({ color, theme });
-        finalColor = renderedColor;
-        finalHoverColor = shade(0.2, getColorValue(renderedColor));
-      } else {
-        finalColor = "var(--colorsYin090)";
-        finalHoverColor = "var(--colorsYin090)";
-      }
+  ${({ fontSize, bgSize }) => css`
+    height: ${adjustIconBgSize(fontSize, bgSize)};
+    width: ${adjustIconBgSize(fontSize, bgSize)};
+  `}
 
-      if (bg) {
-        const { backgroundColor } = styledColor({ bg, theme });
-        bgColor = backgroundColor;
-        bgHoverColor = shade(0.2, getColorValue(backgroundColor));
-      } else {
-        bgColor = "transparent";
-        bgHoverColor = "transparent";
-      }
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e);
-    }
-    return css`
-      position: relative;
-      color: ${finalColor};
-      background-color: ${bgColor};
+  ${({ bgShape }) => css`
+    border-radius: ${bgShape ? iconConfig.backgroundShape[bgShape] : undefined};
+  `}
+
+  ${({ type, fontSize }) => css`
+    &::before {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      font-family: CarbonIcons;
+      content: "${iconUnicodes[type]}";
+      font-style: normal;
+      font-weight: normal;
       vertical-align: middle;
-      align-items: center;
-      display: inline-flex;
-      justify-content: center;
-      height: ${adjustIconBgSize(fontSize, bgSize)};
-      width: ${adjustIconBgSize(fontSize, bgSize)};
-      ${bgShape ? `border-radius: ${iconConfig.backgroundShape[bgShape]}` : ""};
 
-      ${isInteractive &&
+      ${fontSize &&
       css`
-        &:hover {
-          color: ${finalHoverColor};
-          background-color: ${bgHoverColor};
-        }
+        font-size: ${iconConfig.iconSize[fontSize]};
+        line-height: ${iconConfig.iconSize[fontSize]};
       `}
 
-      &::before {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-
-        font-family: CarbonIcons;
-        content: "${iconUnicodes[type]}";
-        font-style: normal;
-        font-weight: normal;
-        vertical-align: middle;
-
-        ${fontSize &&
-        css`
-          font-size: ${iconConfig.iconSize[fontSize]};
-          line-height: ${iconConfig.iconSize[fontSize]};
-        `}
+      ${type === "services" &&
+      browserTypeCheck(window) &&
+      css`
+        margin-top: ${fontSize === "small" ? "-7px" : "-8px"};
+      `}
 
         ${type === "services" &&
-        browserTypeCheck(window) &&
-        css`
-          margin-top: ${fontSize === "small" ? "-7px" : "-8px"};
-        `}
-
-        ${type === "services" &&
-        isSafari(navigator) &&
-        !browserTypeCheck(window) &&
-        css`
-          margin-top: -6px;
-        `}
+      isSafari(navigator) &&
+      !browserTypeCheck(window) &&
+      css`
+        margin-top: -6px;
+      `}
         
         display: block;
+    }
+  `}
+
+  ${({ color, bg, theme, disabled, isInteractive }) => css`
+    color: ${() => {
+      if (disabled) return "var(--colorsYin030)";
+      if (color) return toColor(theme, color);
+      return "var(--colorsYin090)";
+    }};
+    background-color: ${bg ? toColor(theme, bg) : "transparent"};
+
+    ${isInteractive &&
+    css`
+      &:hover {
+        color: ${color
+          ? shade(toColor(theme, color))(0.2)
+          : "var(--colorsYin090)"};
+        background-color: ${bg
+          ? shade(toColor(theme, bg))(0.2)
+          : "transparent"};
       }
+    `}
+  `}
 
-      ${hasTooltip &&
-      `
-        :focus {
-          ${!theme.focusRedesignOptOut ? addFocusStyling() : oldFocusStyling}
-        }
-      `}
+  ${({ hasTooltip, theme }) =>
+    hasTooltip &&
+    css`
+      :focus {
+        ${!theme.focusRedesignOptOut ? addFocusStyling() : oldFocusStyling}
+      }
+    `}
 
-      ${margin}
-    `;
-  }}
+  ${margin}
 `;
 
 StyledIcon.defaultProps = {
