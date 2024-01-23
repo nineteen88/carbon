@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { mount, ReactWrapper } from "enzyme";
+import { mount } from "enzyme";
 import { act } from "react-dom/test-utils";
+import { render as rtlRender, screen } from "@testing-library/react";
 
 import { MenuItem } from "..";
 import MenuFullscreen, { MenuFullscreenProps } from ".";
@@ -10,6 +11,7 @@ import StyledIcon from "../../icon/icon.style";
 import {
   StyledMenuFullscreen,
   StyledMenuFullscreenHeader,
+  StyledMenuModal,
 } from "./menu-full-screen.style";
 import StyledIconButton from "../../icon-button/icon-button.style";
 import Search from "../../search";
@@ -17,36 +19,42 @@ import StyledSearch from "../../search/search.style";
 import StyledSearchButton from "../../search/search-button.style";
 import {
   assertStyleMatch,
-  simulate,
   testStyledSystemPadding,
 } from "../../../__spec_helper__/test-utils";
-import { baseTheme } from "../../../style/themes";
+import CarbonProvider from "../../carbon-provider";
+import { baseTheme, sageTheme } from "../../../style/themes";
 import { StyledMenuItem } from "../menu.style";
 import menuConfigVariants from "../menu.config";
-import Logger from "../../../__internal__/utils/logger";
 import { StyledSubmenu } from "../__internal__/submenu/submenu.style";
 
-// mock Logger.deprecate so that Typography (used for the alert dialog's heading) doesn't trigger a warning while running the tests
-const loggerSpy = jest.spyOn(Logger, "deprecate");
+const render = (ui: React.ReactElement, menuType: MenuType = "light") => {
+  return mount(
+    <CarbonProvider validationRedesignOptIn theme={sageTheme}>
+      <MenuContext.Provider
+        value={{
+          menuType,
+          openSubmenuId: null,
+          inMenu: true,
+          setOpenSubmenuId: () => {},
+        }}
+      >
+        {ui}
+      </MenuContext.Provider>
+    </CarbonProvider>
+  );
+};
 
-const onClose = jest.fn();
-const onClick = jest.fn();
-
-const TestMenu = ({
-  startPosition,
-  isOpen,
-}: Pick<MenuFullscreenProps, "startPosition" | "isOpen">) => (
+const TestMenu = ({ isOpen }: Pick<MenuFullscreenProps, "isOpen">) => (
   <MenuFullscreen
-    startPosition={startPosition}
     isOpen={isOpen}
-    onClose={onClose}
+    onClose={() => {}}
     data-element="bar"
     data-role="baz"
   >
     <MenuItem maxWidth="200px" href="#">
       Menu Item One
     </MenuItem>
-    <MenuItem maxWidth="200px" onClick={onClick} submenu="Menu Item Two">
+    <MenuItem maxWidth="200px" onClick={() => {}} submenu="Menu Item Two">
       <MenuItem maxWidth="200px" href="#">
         Submenu Item One
       </MenuItem>
@@ -73,24 +81,6 @@ const TestMenu = ({
     </MenuItem>
   </MenuFullscreen>
 );
-
-const render = ({
-  menuType = "light",
-  ...props
-}: { menuType?: MenuType } & Partial<MenuFullscreenProps>) => {
-  return mount(
-    <MenuContext.Provider
-      value={{
-        menuType,
-        openSubmenuId: null,
-        inMenu: true,
-        setOpenSubmenuId: () => {},
-      }}
-    >
-      <TestMenu {...props} />
-    </MenuContext.Provider>
-  );
-};
 
 const MockMenuWithSearch = ({
   isOpen,
@@ -119,16 +109,12 @@ const MockMenuWithSearch = ({
   );
 };
 
-const MockMenuWithFalsyValues = ({ isOpen }: { isOpen?: boolean }) => {
-  const showMenuItem = false;
-  return mount(
-    <MenuFullscreen isOpen={isOpen} onClose={() => {}}>
-      <MenuItem maxWidth="200px">Submenu Item One</MenuItem>
-      {false && <MenuItem href="#">Product Item One</MenuItem>}
-      {showMenuItem ? <MenuItem href="#">Product Item Two</MenuItem> : null}
-    </MenuFullscreen>
-  );
-};
+const MockMenuWithFalsyValues = ({ isOpen }: { isOpen?: boolean }) => (
+  <MenuFullscreen isOpen={isOpen} onClose={() => {}}>
+    <MenuItem maxWidth="200px">Submenu Item One</MenuItem>
+    {false && <MenuItem href="#">Product Item One</MenuItem>}
+  </MenuFullscreen>
+);
 
 const UpdatingSubmenu = () => {
   const [counter, setCounter] = useState(0);
@@ -172,51 +158,49 @@ const MockFullScreenMenuWithUpdatingItems = () => {
 };
 
 describe("MenuFullscreen", () => {
-  let wrapper: ReactWrapper;
-
-  beforeAll(() => {
-    loggerSpy.mockImplementation(() => {});
+  afterEach(() => {
+    // manually clean up DOM due to use of React portals
+    window.document.body.innerHTML = "";
   });
 
-  afterAll(() => {
-    loggerSpy.mockRestore();
+  it("by default, menu's root container should not exist", () => {
+    rtlRender(
+      <MenuFullscreen onClose={() => {}}>
+        <MenuItem href="#">Item one</MenuItem>
+      </MenuFullscreen>
+    );
+    expect(screen.queryByRole("dialog")).toBeNull();
   });
 
-  beforeEach(() => {
-    wrapper = render({});
+  it("root container has correct component, element and role data tags when menu is open", () => {
+    rtlRender(<TestMenu isOpen />);
+    const menu = screen.getByRole("dialog");
+
+    expect(menu).toHaveAttribute("data-component", "menu-fullscreen");
+    expect(menu).toHaveAttribute("data-element", "bar");
+    expect(menu).toHaveAttribute("data-role", "baz");
   });
 
-  describe("tags on component", () => {
-    it("includes correct component, element and role data tags", () => {
-      expect(
-        wrapper
-          .find(StyledMenuFullscreen)
-          .getDOMNode()
-          .getAttribute("data-component")
-      ).toEqual("menu-fullscreen");
+  it("root container has correct ARIA properties when menu is open", () => {
+    rtlRender(
+      <CarbonProvider validationRedesignOptIn theme={sageTheme}>
+        <MenuFullscreen isOpen onClose={() => {}} aria-label="My menu" />
+      </CarbonProvider>
+    );
+    const menu = screen.getByRole("dialog");
 
-      expect(
-        wrapper
-          .find(StyledMenuFullscreen)
-          .getDOMNode()
-          .getAttribute("data-element")
-      ).toEqual("bar");
-
-      expect(
-        wrapper
-          .find(StyledMenuFullscreen)
-          .getDOMNode()
-          .getAttribute("data-role")
-      ).toEqual("baz");
-    });
+    expect(menu).toHaveAttribute("role", "dialog");
+    expect(menu).toHaveAttribute("aria-modal", "true");
   });
 
   it("should render children correctly", () => {
+    const wrapper = render(<TestMenu isOpen />);
     expect(wrapper.find(MenuItem).length).toEqual(10);
     expect(wrapper.find(MenuDivider).length).toEqual(5);
   });
 
   it("should set any maxWidth values passed to items to undefined", () => {
+    const wrapper = render(<TestMenu isOpen />);
     const items = wrapper.find(StyledMenuItem);
     items.forEach((item) => {
       assertStyleMatch(
@@ -232,19 +216,22 @@ describe("MenuFullscreen", () => {
     it.each<MenuType>(["light", "white", "dark", "black"])(
       "matches the expected as default",
       (menuType) => {
-        wrapper = render({ menuType });
+        const wrapper = render(<TestMenu isOpen />, menuType);
         assertStyleMatch(
           {
             position: "fixed",
             top: "0",
             bottom: "0",
-            backgroundColor: menuConfigVariants[menuType].background,
             zIndex: `${baseTheme.zIndex.fullScreenModal}`,
-            visibility: "hidden",
-            left: "-100%",
-            transition: "all 0.3s ease",
           },
           wrapper.find(StyledMenuFullscreen)
+        );
+
+        assertStyleMatch(
+          {
+            backgroundColor: menuConfigVariants[menuType].background,
+          },
+          wrapper.find(StyledMenuModal)
         );
 
         ["a", "button", "div"].forEach((el) => {
@@ -252,7 +239,7 @@ describe("MenuFullscreen", () => {
             {
               fontSize: "16px",
             },
-            wrapper.find(StyledMenuFullscreen),
+            wrapper.find(StyledMenuModal),
             { modifier: el }
           );
         });
@@ -281,11 +268,8 @@ describe("MenuFullscreen", () => {
     describe.each<MenuType>(["light", "white", "dark", "black"])(
       "applies the expected styling when `menuType` is %s",
       (menuType) => {
-        beforeEach(() => {
-          wrapper = render({ menuType });
-        });
-
         it("renders a correct item background", () => {
+          const wrapper = render(<TestMenu isOpen />, menuType);
           assertStyleMatch(
             {
               backgroundColor:
@@ -296,6 +280,7 @@ describe("MenuFullscreen", () => {
         });
 
         it("renders a correct icon color", () => {
+          const wrapper = render(<TestMenu isOpen />, menuType);
           const iconColors = {
             light: "var(--colorsYin090)",
             dark: "var(--colorsYang100)",
@@ -312,30 +297,6 @@ describe("MenuFullscreen", () => {
         });
       }
     );
-
-    it("applies the expected styling when `isOpen` is true", () => {
-      wrapper = render({ isOpen: true });
-      assertStyleMatch(
-        {
-          visibility: "visible",
-          left: "0",
-          transition: "all 0.3s ease",
-        },
-        wrapper.find(StyledMenuFullscreen)
-      );
-    });
-
-    it("applies the expected styling when `startPosition` is 'right'", () => {
-      wrapper = render({ isOpen: true, startPosition: "right" });
-      assertStyleMatch(
-        {
-          visibility: "visible",
-          right: "0",
-          transition: "all 0.3s ease",
-        },
-        wrapper.find(StyledMenuFullscreen)
-      );
-    });
 
     describe("menu item padding", () => {
       testStyledSystemPadding(
@@ -384,126 +345,95 @@ describe("MenuFullscreen", () => {
 
   describe("onClose", () => {
     it("calls the onClose callback when close icon button is clicked", () => {
-      wrapper = render({ isOpen: true });
+      const onClose = jest.fn();
+      const wrapper = render(
+        <MenuFullscreen isOpen onClose={onClose}>
+          <MenuItem href="#">Item 1</MenuItem>
+        </MenuFullscreen>
+      );
       wrapper.find("button[aria-label='Close']").simulate("click");
       expect(onClose).toHaveBeenCalled();
     });
 
     it("calls the onClose callback when escape key pressed", () => {
-      wrapper = render({ isOpen: true });
-      simulate.keydown.pressEscape(wrapper.find(StyledMenuFullscreen));
+      const onClose = jest.fn();
+      render(
+        <MenuFullscreen isOpen onClose={onClose}>
+          <MenuItem href="#">Item 1</MenuItem>
+        </MenuFullscreen>
+      );
+      act(() => {
+        document.dispatchEvent(
+          new KeyboardEvent("keyup", {
+            key: "Escape",
+            bubbles: true,
+          })
+        );
+      });
       expect(onClose).toHaveBeenCalled();
     });
   });
 
   describe("onClick", () => {
     it("calls the onClick callback when menu item is clicked", () => {
-      const menuItem = render({ isOpen: true })
-        .find(MenuItem)
-        .at(1)
-        .find("button");
+      const onClick = jest.fn();
+      const wrapper = render(
+        <MenuFullscreen isOpen onClose={() => {}}>
+          <MenuItem onClick={onClick}>Menu Item One</MenuItem>
+        </MenuFullscreen>
+      );
+      const menuItem = wrapper.find(MenuItem).find("button");
       menuItem.simulate("click");
       expect(onClick).toHaveBeenCalled();
     });
   });
 
   describe("focus behaviour", () => {
-    it("focuses the menu wrapper on open of menu", () => {
-      wrapper = mount(<TestMenu />);
-      wrapper.setProps({ isOpen: true });
-      const element = wrapper.find(StyledMenuFullscreen).getDOMNode();
-      const startEvent = new Event("transitionstart", {
-        bubbles: true,
-        cancelable: true,
-      });
-      const endEvent = new Event("transitionend", {
-        bubbles: true,
-        cancelable: true,
-      });
-      element.dispatchEvent(startEvent);
-      element.dispatchEvent(endEvent);
-
-      expect(wrapper.find(StyledMenuFullscreen)).toBeFocused();
+    it("when menu is opened, its root container is focused", () => {
+      rtlRender(<TestMenu isOpen />);
+      expect(screen.getByRole("dialog")).toBeFocused();
     });
 
     describe("when pressing tab key without shift", () => {
       it("does not prevent the browser default behaviour when no Search input with searchButton and no value is rendered", () => {
-        const container = document.createElement("div");
-        container.id = "enzymeContainer";
-        document.body.appendChild(container);
         const preventDefault = jest.fn();
-        wrapper = mount(<TestMenu />, {
-          attachTo: document.getElementById("enzymeContainer"),
-        });
-        wrapper.setProps({ isOpen: true });
+        const wrapper = render(<TestMenu isOpen />);
 
-        const element = wrapper.find(StyledMenuFullscreen).getDOMNode();
-        const startEvent = new Event("transitionstart", {
-          bubbles: true,
-          cancelable: true,
-        });
-        const endEvent = new Event("transitionend", {
-          bubbles: true,
-          cancelable: true,
-        });
-        element.dispatchEvent(startEvent);
-        element.dispatchEvent(endEvent);
-
-        wrapper.find(StyledMenuFullscreen).prop("onKeyDown")({
+        wrapper.find(StyledMenuModal).prop("onKeyDown")({
           key: "Tab",
           preventDefault,
         });
-        wrapper.find(StyledMenuFullscreen).prop("onKeyDown")({
+        wrapper.find(StyledMenuModal).prop("onKeyDown")({
           key: "Tab",
           preventDefault,
         });
         expect(preventDefault).not.toHaveBeenCalled();
-        wrapper.find(StyledMenuFullscreen).prop("onKeyDown")({
+        wrapper.find(StyledMenuModal).prop("onKeyDown")({
           key: "Tab",
           preventDefault,
         });
         expect(preventDefault).not.toHaveBeenCalled();
-        wrapper.unmount();
       });
 
       it("prevents the browser default behaviour when Search input with searchButton and no value rendered", () => {
-        const container = document.createElement("div");
-        container.id = "enzymeContainer";
-        document.body.appendChild(container);
         const preventDefault = jest.fn();
-        wrapper = mount(<MockMenuWithSearch />, {
-          attachTo: document.getElementById("enzymeContainer"),
-        });
-        wrapper.setProps({ isOpen: true });
-        const element = wrapper.find(StyledMenuFullscreen).getDOMNode();
-        const startEvent = new Event("transitionstart", {
-          bubbles: true,
-          cancelable: true,
-        });
-        const endEvent = new Event("transitionend", {
-          bubbles: true,
-          cancelable: true,
-        });
-        element.dispatchEvent(startEvent);
-        element.dispatchEvent(endEvent);
-        wrapper.setProps({ focusInput: true });
+        const wrapper = render(<MockMenuWithSearch isOpen focusInput />);
 
         expect(wrapper.find(StyledSearch).find("input")).toBeFocused();
         expect(wrapper.find(StyledSearchButton).exists()).toBe(true);
-        wrapper.find(StyledMenuFullscreen).prop("onKeyDown")({
+        wrapper.find(StyledMenuModal).prop("onKeyDown")({
           key: "Tab",
           preventDefault,
         });
         expect(preventDefault).toHaveBeenCalled();
         expect(wrapper.find(StyledMenuItem).last().find("a")).toBeFocused();
-        wrapper.unmount();
       });
     });
   });
 
   describe("when clicking outside a submenu", () => {
     it("the app does not crash", () => {
-      wrapper = mount(<TestMenu isOpen />);
+      const wrapper = mount(<TestMenu isOpen />);
 
       const clickOutsideSubmenu = () =>
         act(() => {
@@ -520,7 +450,7 @@ describe("MenuFullscreen", () => {
 
   describe("Menu Divider", () => {
     it("should not render a divider when menu contains a falsy values", () => {
-      wrapper = MockMenuWithFalsyValues({ isOpen: true });
+      const wrapper = render(<MockMenuWithFalsyValues isOpen />);
       expect(wrapper.find(MenuDivider).exists()).toBe(false);
     });
   });
@@ -528,11 +458,13 @@ describe("MenuFullscreen", () => {
   describe("keys of children", () => {
     it("should maintain the state of any child items if items are added or removed", () => {
       jest.useFakeTimers();
-      wrapper = mount(<MockFullScreenMenuWithUpdatingItems />);
+      const wrapper = render(<MockFullScreenMenuWithUpdatingItems />);
+
       act(() => {
         jest.advanceTimersByTime(5000);
       });
       wrapper.update();
+
       expect(wrapper.find(MenuItem).at(6).getDOMNode().textContent).toContain(
         "count 2"
       );
