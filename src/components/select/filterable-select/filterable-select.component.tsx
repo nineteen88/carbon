@@ -215,8 +215,9 @@ export const FilterableSelect = React.forwardRef(
     const updateValues = useCallback(
       (newFilterText: string, isDeleteEvent: boolean) => {
         setSelectedValue((previousValue) => {
-          const match = findElementWithMatchingText(newFilterText, children);
-          const isFilterCleared = isDeleteEvent && newFilterText === "";
+          const trimmed = newFilterText.trimStart();
+          const match = findElementWithMatchingText(trimmed, children);
+          const isFilterCleared = isDeleteEvent && !newFilterText.length;
 
           if (!match || isFilterCleared || match.props.disabled) {
             setTextValue(newFilterText);
@@ -231,12 +232,13 @@ export const FilterableSelect = React.forwardRef(
             return match.props.value;
           }
 
-          triggerChange(match.props.value, false);
+          if (trimmed.length) {
+            triggerChange(match.props.value, false);
+          }
 
           if (
-            match.props.text
-              ?.toLowerCase()
-              .startsWith(newFilterText.toLowerCase())
+            trimmed.length &&
+            match.props.text?.toLowerCase().startsWith(trimmed.toLowerCase())
           ) {
             setTextValue(match.props.text);
           } else {
@@ -270,7 +272,7 @@ export const FilterableSelect = React.forwardRef(
           isClosing ||
           matchingOption.props.text
             ?.toLowerCase()
-            .startsWith(filterText?.toLowerCase())
+            .startsWith(filterText?.toLowerCase().trim())
         ) {
           setTextValue(matchingOption.props.text);
         }
@@ -442,17 +444,17 @@ export const FilterableSelect = React.forwardRef(
     useEffect(() => {
       const textStartsWithFilter = textValue
         ?.toLowerCase()
-        .startsWith(filterText?.toLowerCase());
+        .startsWith(filterText?.trim().toLowerCase());
       const isTextboxActive = !disabled && !readOnly;
 
       if (
         isTextboxActive &&
         textboxRef &&
-        filterText?.length &&
-        textValue?.length > filterText?.length &&
+        filterText?.trimStart().length &&
+        textValue?.length > filterText?.trimStart().length &&
         textStartsWithFilter
       ) {
-        textboxRef.selectionStart = filterText.length;
+        textboxRef.selectionStart = filterText.trimStart().length;
       }
     }, [textValue, filterText, textboxRef, disabled, readOnly]);
 
@@ -638,7 +640,7 @@ export const FilterableSelect = React.forwardRef(
       onSelect: onSelectOption,
       onSelectListClose,
       onMouseDown: handleListMouseDown,
-      filterText,
+      filterText: filterText.trim(),
       highlightedValue,
       noResultsMessage,
       disablePortal,
@@ -660,7 +662,7 @@ export const FilterableSelect = React.forwardRef(
     const selectList = disableDefaultFiltering ? (
       <SelectList {...selectListProps}>{children}</SelectList>
     ) : (
-      <FilterableSelectList {...selectListProps} filterText={filterText}>
+      <FilterableSelectList {...selectListProps}>
         {children}
       </FilterableSelectList>
     );
