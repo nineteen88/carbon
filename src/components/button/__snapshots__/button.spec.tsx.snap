@@ -2529,7 +2529,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   data-component="button"
   disabled={false}
   draggable={false}
-  role="button"
   size="medium"
   type="button"
 >
@@ -5063,7 +5062,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   data-component="button"
   disabled={false}
   draggable={false}
-  role="button"
   size="medium"
   type="button"
 >
