@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import DeprecationWarning from "../../../.storybook/docs-helpers/components/deprecation-warning"
 
@@ -45,16 +45,15 @@ import { Carousel, Slide } from "carbon-react/lib/components/carousel";
 
 ### Default
 
-<Canvas name="default" of={CarouselStories.Default} />
+<Canvas of={CarouselStories.Default} />
 
 ### Without buttons
 
-<Canvas name="without buttons" of={CarouselStories.WithoutButtons} />
+<Canvas of={CarouselStories.WithoutButtons} />
 
 ### Without slideSelectors
 
 <Canvas
-  name="without slideSelectors"
   of={CarouselStories.WithoutSlideSelectors}
 />
 

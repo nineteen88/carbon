@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../../.storybook/utils/translation-keys-table";
 
 import * as OptionStories from "../option/option.stories";
@@ -37,54 +37,51 @@ If you type printable characters in the Textbox, you can filter through the exis
 
 ### Default
 
-<Canvas name="default" of={FilterableSelectStories.Default} />
+<Canvas of={FilterableSelectStories.Default} />
 
 ### List placement
 
 You can use `listPlacement` prop to set the position of the select list relative to the input element.
 
-<Canvas name="list placement" of={FilterableSelectStories.ListPlacement} />
+<Canvas of={FilterableSelectStories.ListPlacement} />
 
 ### List height
 
 You can use `listMaxHeight` prop to override default max height value of select list.
 
-<Canvas name="list height" of={FilterableSelectStories.ListHeight} />
+<Canvas of={FilterableSelectStories.ListHeight} />
 
 ### Controlled Usage
 
-<Canvas name="controlled" of={FilterableSelectStories.Controlled} />
+<Canvas of={FilterableSelectStories.Controlled} />
 
 ### Open on focus
 
-<Canvas name="openOnFocus" of={FilterableSelectStories.OpenOnFocus} />
+<Canvas of={FilterableSelectStories.OpenOnFocus} />
 
 ### Disabled
 
-<Canvas name="disabled" of={FilterableSelectStories.Disabled} />
+<Canvas of={FilterableSelectStories.Disabled} />
 
 ### Read Only
 
-<Canvas name="readonly" of={FilterableSelectStories.Readonly} />
+<Canvas of={FilterableSelectStories.Readonly} />
 
 ### With disabled portal
 
 <Canvas
-  name="withDisabledPortal"
   of={FilterableSelectStories.WithDisabledPortal}
 />
 
 ### With multiple columns
 
 <Canvas
-  name="with multiple columns"
   of={FilterableSelectStories.WithMultipleColumns}
 />
 
 ### With multiple columns and nested tags/components
 
 <Canvas
-  name="with multiple columns and nested"
   of={FilterableSelectStories.WithMultipleColumnsAndNested}
 />
 
@@ -95,7 +92,6 @@ Default Action Button will be rendered when the `listActionButton` prop is set t
 A custom `Button` Component could be passed as the `listActionButton` value.
 
 <Canvas
-  name="with action button"
   of={FilterableSelectStories.WithActionButton}
 />
 
@@ -104,7 +100,6 @@ A custom `Button` Component could be passed as the `listActionButton` value.
 When `isLoading` prop is passed, a loader will be appended at the end of the Select List. That functionality could be used to load the options asynchronously.
 
 <Canvas
-  name="with isLoading prop"
   of={FilterableSelectStories.WithIsLoadingProp}
 />
 
@@ -114,7 +109,6 @@ The `isLoading` prop in combination with the `onListScrollBottom` prop can be us
 This prop will be called every time a user scrolls to the bottom of the list.
 
 <Canvas
-  name="with infinite scroll"
   of={FilterableSelectStories.WithInfiniteScroll}
 />
 
@@ -123,7 +117,6 @@ This prop will be called every time a user scrolls to the bottom of the list.
 In this example the `maxWidth` prop is 50%.
 
 <Canvas
-  name="with custom maxWidth"
   of={FilterableSelectStories.WithCustomMaxWidth}
 />
 
@@ -131,7 +124,7 @@ In this example the `maxWidth` prop is 50%.
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={FilterableSelectStories.Required} />
+<Canvas of={FilterableSelectStories.Required} />
 
 ### With object as value
 
@@ -140,14 +133,12 @@ When the `id` property is set, objects will be compared based on that property (
 If there is no `id` prop specified on an object, then the exact objects will be compared.
 
 <Canvas
-  name="with object as value"
   of={FilterableSelectStories.WithObjectAsValue}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={FilterableSelectStories.ValidationsStringNewDesign}
 />
 
@@ -159,7 +150,7 @@ This allows an unlimited amount of children to be passed with little impact on r
 By default this will render 5 not-currently-visible options into the DOM on either side of the currently-visible ones - this value can
 be customised if desired using the `virtualScrollOverscan` prop. Higher values will make scrolling smoother but may negatively impact performance.
 
-<Canvas name="virtualised" of={FilterableSelectStories.Virtualised} />
+<Canvas of={FilterableSelectStories.Virtualised} />
 
 ### Selection confirmed
 
@@ -168,7 +159,6 @@ Select input. For those that need to trigger further actions when the user makes
 a `selectionConfirmed` property on the emitted event when the enter key is pressed or an option is clicked.
 
 <Canvas
-  name="selection confirmed"
   of={FilterableSelectStories.SelectionConfirmedStory}
 />
 

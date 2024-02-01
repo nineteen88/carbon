@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Card, CardRow, CardFooter, CardColumn, CardProps } from ".";
@@ -17,7 +17,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<CardProps>>;
+});
 
 const meta: Meta<typeof Card> = {
   title: "Card",

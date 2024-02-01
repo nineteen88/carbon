@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as FlatTableHeadStories from "./flat-table-head/flat-table-head.stories";
 import * as FlatTableBodyStories from "./flat-table-body/flat-table-body.stories";
@@ -72,14 +72,14 @@ const FlatTableCellWrapper = ({ customProp, ...rest }) => {
 
 ### Default
 
-<Canvas name="default" of={FlatTableStories.DefaultStory} />
+<Canvas of={FlatTableStories.DefaultStory} />
 
 ### With row headers
 
 By default the `FlatTableRowHeader`'s `stickyAlignment` prop is set to `left`.
 Any preceding cells will automatically also be made sticky as seen in the example below.
 
-<Canvas name="with row header" of={FlatTableStories.WithRowHeader} />
+<Canvas of={FlatTableStories.WithRowHeader} />
 
 ### Using row headers to create left and right hand side sticky columns
 
@@ -90,7 +90,6 @@ By default the left hand side columns have the prop set to `left`.
 It is important to ensure any left hand side sticky cells are defined in the `table` before the right hand side ones.
 
 <Canvas
-  name="with multiple row headers"
   of={FlatTableStories.WithMultipleRowHeaders}
 />
 
@@ -99,7 +98,6 @@ It is important to ensure any left hand side sticky cells are defined in the `ta
 To allow horizontal scrolling, set the `width` and `overflowX` props as shown below. An `aria-label` should be added to give the table an accessible name.
 
 <Canvas
-  name="with horizontal scrolling"
   of={FlatTableStories.HorizontalScrolling}
 />
 
@@ -108,7 +106,6 @@ To allow horizontal scrolling, set the `width` and `overflowX` props as shown be
 Padding can be set on each cell individually by using the spacing props syntax. Check prop tables at the bottom of this document for more information.
 
 <Canvas
-  name="with custom cell paddings"
   of={FlatTableStories.WithCustomCellPaddings}
 />
 
@@ -118,7 +115,6 @@ Column width can be set by passing number as a `width` prop to the column header
 **Column width can't be smaller than the sum of horizontal cell padding and content width.**
 
 <Canvas
-  name="with custom column width"
   of={FlatTableStories.WithCustomColumnWidth}
 />
 
@@ -127,35 +123,30 @@ Column width can be set by passing number as a `width` prop to the column header
 Setting a custom background color will also override hover, highlight and row selection colors.
 
 <Canvas
-  name="with custom row background color"
   of={FlatTableStories.WithCustomRowBackgroundColor}
 />
 
 ### With custom horizontal border size
 
 <Canvas
-  name="with custom horizontal border size"
   of={FlatTableStories.WithCustomHorizontalBorderSize}
 />
 
 ### With custom horizontal border color
 
 <Canvas
-  name="with custom horizontal border color"
   of={FlatTableStories.WithCustomHorizontalBorderColor}
 />
 
 ### With custom vertical borders
 
 <Canvas
-  name="with custom vertical borders"
   of={FlatTableStories.WithCustomVerticalBorders}
 />
 
 ### With alternative header background
 
 <Canvas
-  name="with alternative header background"
   of={FlatTableStories.WithAlternativeHeaderBackground}
 />
 
@@ -167,7 +158,6 @@ is a string. However, if the passed children are not a string it is possible to 
 `title` string.
 
 <Canvas
-  name="with truncated cell content"
   of={FlatTableStories.WithTruncatedCellContent}
 />
 
@@ -175,27 +165,25 @@ is a string. However, if the passed children are not a string it is possible to 
 
 It is possible to have one or any number of header rows set to sticky.
 
-<Canvas name="with sticky head" of={FlatTableStories.WithStickyHead} />
+<Canvas of={FlatTableStories.WithStickyHead} />
 
 ### With stickyHead, rowspan and colspan
 
 Is it possible to combine the `stickyHead` prop along with the `rowSpan` and `colspan`props.
 
 <Canvas
-  name="with stickyHead rowspan and colspan"
   of={FlatTableStories.WithStickyHeadRowSpanAndColspan}
 />
 
 ### With stickyFooter prop set to true
 
-<Canvas name="with sticky footer" of={FlatTableStories.WithStickyFooter} />
+<Canvas of={FlatTableStories.WithStickyFooter} />
 
 In this example of FlatTable with `stickyFooter`, FlatTable has been placed inside of a `div` with a height
 of `220px`. There is not enough data to fill the flatTable but the style remains consistent and the footer
 remains sticky.
 
 <Canvas
-  name="with sticky footer inside of larger div"
   of={FlatTableStories.WithStickyFooterInsideOfLargerDiv}
 />
 
@@ -203,27 +191,27 @@ remains sticky.
 
 By using the `hasMaxHeight` prop you can automatically apply a max-height of 100% to the FlatTable.
 
-<Canvas name="with hasMaxHeight" of={FlatTableStories.WithHasMaxHeight} />
+<Canvas of={FlatTableStories.WithHasMaxHeight} />
 
 ### With clickable rows
 
-<Canvas name="with clickable rows" of={FlatTableStories.WithClickableRows} />
+<Canvas of={FlatTableStories.WithClickableRows} />
 
 ### With zebra stripes
 
-<Canvas name="zebra" of={FlatTableStories.Zebra} />
+<Canvas of={FlatTableStories.Zebra} />
 
 ### With sorting headers
 
-<Canvas name="with sorting headers" of={FlatTableStories.WithSortingHeaders} />
+<Canvas of={FlatTableStories.WithSortingHeaders} />
 
 ### With a cell spanning the whole row
 
-<Canvas name="with colspan" of={FlatTableStories.WithColspan} />
+<Canvas of={FlatTableStories.WithColspan} />
 
 ### With a cell spanning the whole column
 
-<Canvas name="with rowspan" of={FlatTableStories.WithRowspan} />
+<Canvas of={FlatTableStories.WithRowspan} />
 
 ### With Selectable Rows
 
@@ -237,20 +225,19 @@ If a given action is available for some, but not all, selected rows, then the ac
 
 Where icons are used for batch actions, they have text labels too, or tooltips to make their function clear. There are always confirmation dialogs for destructive actions, or those difficult to undo.
 
-<Canvas name="selectable rows" of={FlatTableStories.WithSelectableRows} />
+<Canvas of={FlatTableStories.WithSelectableRows} />
 
 ### With Highlightable Rows
 
 It is possible to utilise the selected and onClick props on the FlatTableRow to highlight single rows of data.
 
-<Canvas name="highlightable rows" of={FlatTableStories.WithHighlightableRows} />
+<Canvas of={FlatTableStories.WithHighlightableRows} />
 
 ### With Selectable and Highlightable Rows
 
 It is also possible to integrate selection of multiple rows and the highlighting of single rows.
 
 <Canvas
-  name="selectable and highlightable rows"
   of={FlatTableStories.WithSelectableAndHighlightableRows}
 />
 
@@ -260,7 +247,7 @@ If pagination is needed, this can be shown at the bottom of the table.
 
 Balance performance concerns with the convenience of the user being able to see more data - we suggest giving the user the option of showing 25, 50, and 100 table rows before pagination, with a default of 50. Whatever the user selects, make this sticky per user, per table, and between sessions.
 
-<Canvas name="paginated" of={FlatTableStories.Paginated} />
+<Canvas of={FlatTableStories.Paginated} />
 
 ### Paginated with sticky header
 
@@ -270,30 +257,28 @@ it is accounted for in the overflow. To avoid this it is possible to use the `pl
 of the button control.
 
 <Canvas
-  name="paginated with sticky header"
   of={FlatTableStories.PaginatedWithStickyHeader}
 />
 
 ### When a child of Sidebar
 
 <Canvas
-  name="when a child of sidebar"
   of={FlatTableStories.WhenAChildOfSidebar}
 />
 
 ## Table Cell Sizes
 
-<Canvas name="sizes" of={FlatTableStories.Sizes} />
+<Canvas of={FlatTableStories.Sizes} />
 
 ## Draggable rows
 
-<Canvas name="with draggable rows" of={FlatTableStories.WithDraggableRows} />
+<Canvas of={FlatTableStories.WithDraggableRows} />
 
 ## Wrapping FlatTableRowHeaders
 
 The `FlatTableRow` relies on specific child composition to identify sticky columns. If you need to wrap the `FlatTableRowHeader` you will need to set the `displayName` of the wrapper to `FlatTableRowHeader.displayName`.
 
-<Canvas name="wrapping row headers" of={FlatTableStories.WrappingRowHeaders} />
+<Canvas of={FlatTableStories.WrappingRowHeaders} />
 
 ## Props
 

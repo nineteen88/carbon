@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import styled from "styled-components";
 
@@ -21,14 +21,14 @@ import {
   FlatTableRow,
   FlatTableCell,
 } from "../flat-table";
-import VerticalDivider, { VerticalDividerProps } from ".";
+import VerticalDivider from ".";
 
 const styledSystemProps = generateStyledSystemProps(
   {
     spacing: true,
   },
   { p: "3" }
-) as Partial<ArgTypes<VerticalDividerProps>>;
+);
 
 const meta: Meta<typeof VerticalDivider> = {
   title: "Vertical Divider",

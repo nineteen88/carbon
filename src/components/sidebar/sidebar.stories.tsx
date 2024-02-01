@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -11,14 +11,14 @@ import Textbox from "../textbox";
 import Box from "../box";
 import Dialog from "../dialog";
 import DialogFullScreen from "../confirm";
-import Sidebar, { SidebarProps } from ".";
+import Sidebar from ".";
 
 import isChromatic from "../../../.storybook/isChromatic";
 
 const styledSystemProps = generateStyledSystemProps({
   padding: true,
   width: true,
-}) as Partial<ArgTypes<SidebarProps>>;
+});
 
 const meta: Meta<typeof Sidebar> = {
   title: "Sidebar",

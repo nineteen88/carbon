@@ -1,7 +1,7 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import ButtonMinor, { ButtonMinorProps } from ".";
+import ButtonMinor from ".";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -10,7 +10,7 @@ const styledSystemProps = generateStyledSystemProps(
     spacing: true,
   },
   { pt: "1px", pb: "1px", px: "24px" }
-) as Partial<ArgTypes<ButtonMinorProps>>;
+);
 
 const meta: Meta<typeof ButtonMinor> = {
   title: "Button Minor",

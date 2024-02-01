@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
-import { Checkbox, CheckboxGroup, CheckboxProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import { Checkbox, CheckboxGroup } from ".";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<CheckboxProps>>;
+});
 
 const meta: Meta<typeof Checkbox> = {
   title: "Checkbox",

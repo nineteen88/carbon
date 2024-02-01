@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import { SimpleColorPicker, SimpleColor, SimpleColorPickerProps } from ".";
+import { SimpleColorPicker, SimpleColor } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SimpleColorPickerProps>>;
+});
 
 const meta: Meta<typeof SimpleColorPicker> = {
   title: "Simple Color Picker",

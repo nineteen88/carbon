@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box";
 import Button from "../button";
-import Search, { SearchEvent, SearchProps } from ".";
+import Search, { SearchEvent } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SearchProps>>;
+});
 
 const meta: Meta<typeof Search> = {
   title: "Search",
@@ -65,6 +65,13 @@ export const DefaultWithColourBackground: Story = () => {
   return <Search placeholder="Search..." defaultValue="" />;
 };
 DefaultWithColourBackground.storyName = "Default with Colour Background";
+DefaultWithColourBackground.decorators = [
+  (MyStory) => (
+    <div style={{ backgroundColor: "#e6ebed" }}>
+      <MyStory />
+    </div>
+  ),
+];
 
 export const WithSearchButtonAndColourBackground: Story = () => {
   return (
@@ -77,6 +84,13 @@ export const WithSearchButtonAndColourBackground: Story = () => {
 };
 WithSearchButtonAndColourBackground.storyName =
   "With Search Button and Colour Background";
+WithSearchButtonAndColourBackground.decorators = [
+  (MyStory) => (
+    <div style={{ backgroundColor: "#e6ebed" }}>
+      <MyStory />
+    </div>
+  ),
+];
 
 export const CustomWidthUsingPx: Story = () => {
   return <Search placeholder="Search..." defaultValue="" searchWidth="375px" />;

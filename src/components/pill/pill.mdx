@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 
 import * as PillStories from "./pill.stories";
@@ -34,7 +34,7 @@ import Pill from "carbon-react/lib/components/pill";
 
 ### Default
 
-<Canvas name="default" of={PillStories.Default} />
+<Canvas of={PillStories.Default} />
 
 ### Wrapped
 
@@ -43,14 +43,14 @@ and `maxWidth` props. It is also possible to hyphenate the words but you may nee
 the hyphens using `&shy;` if they are not automatically added: this is because the rules for adding them are
 language-specific and support for every `lang` attrribute is not universal.
 
-<Canvas name="wrapped" of={PillStories.Wrapped} />
+<Canvas of={PillStories.Wrapped} />
 
 ### With remove button
 
 When a callback in the onDelete prop is provided, a remove button will be rendered
 and click on it will trigger that callback.
 
-<Canvas name="with remove button" of={PillStories.WithRemoveButton} />
+<Canvas of={PillStories.WithRemoveButton} />
 
 ### With custom remove button aria-label
 
@@ -58,26 +58,26 @@ By default the aria-label of the remove button will be set to "remove pill".
 That attribute could be customized to increase accessibility by providing unique button descriptions
 in the `ariaLabelOfRemoveButton` prop.
 
-<Canvas name="with custom remove button aria-label" of={PillStories.WithCustomRemoveButtonAriaLabel} />
+<Canvas of={PillStories.WithCustomRemoveButtonAriaLabel} />
 
 ### Status Pills
 
 An automatic indicator of status, styled with utility colours to carry meaning.
 
-<Canvas name="status" of={PillStories.Status} />
+<Canvas of={PillStories.Status} />
 
 ### Tag Pills
 
 Applied by the user, and indicate something in common. Change the theme to see the available colours.
 
-<Canvas name="tag" of={PillStories.Tag} />
+<Canvas of={PillStories.Tag} />
 
 ### Custom colors
 
 It's possible to change the color of the Pill by using the `borderColor` prop. It will override `colorVariant` value.
 See <LinkTo kind="Documentation/Colors" name="page" story="page">Colors</LinkTo> for more information.
 
-<Canvas name="custom colors" of={PillStories.CustomColors} />
+<Canvas of={PillStories.CustomColors} />
 
 ### Dark background
 

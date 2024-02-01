@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as TooltipStories from "./tooltip.stories";
 
@@ -44,13 +44,13 @@ must support `forwardRef`. By default the Tooltip does not need to be controlled
 is focused or hovered. The default `position` is "top" and `size` is "M". The `message` prop is the text displayed in the
 tooltip and it and the `children` prop are required.
 
-<Canvas name="default" of={TooltipStories.Default} />
+<Canvas of={TooltipStories.Default} />
 
 ### Controlled
 
 The Tooltip can also be controlled via the `isVisible` prop.
 
-<Canvas name="controlled" of={TooltipStories.Controlled} />
+<Canvas of={TooltipStories.Controlled} />
 
 ### Positioning
 
@@ -59,7 +59,7 @@ in this position it will attempt to flip and dynamically place itself in the opp
 the target element when a user scrolls. The flipping and tracking features can be seen by adjusting the window size
 (ideally in the canvas tab) and scrolling.
 
-<Canvas name="positioning" of={TooltipStories.Positioning} />
+<Canvas of={TooltipStories.Positioning} />
 
 ### Overriding the default flip behaviour
 
@@ -71,27 +71,26 @@ Tooltip "bottom" intitially, then flip to "right" when there is not enough room 
 when there is no space to render to the right anymore.
 
 <Canvas
-  name="flip behaviour overrides"
   of={TooltipStories.FlipBehaviourOverrides}
 />
 
 ### Large tooltip
 
-<Canvas name="large tooltip" of={TooltipStories.LargeTooltip} />
+<Canvas of={TooltipStories.LargeTooltip} />
 
 ### Types
 
 The `Tooltip` can be rendered as two different `type`s which will alter the colour of the background: "error"
 or if no value is passed it will default to a black background.
 
-<Canvas name="types" of={TooltipStories.Types} />
+<Canvas of={TooltipStories.Types} />
 
 ### Color overrides
 
 The `Tooltip` background and font color can be overridden via the `bgColor` and `fontColor` props and accept any valid
 css value. Any values passed to the `bgColor` prop will override the color applied by the `type`
 
-<Canvas name="color overrides" of={TooltipStories.ColorOverrides} />
+<Canvas of={TooltipStories.ColorOverrides} />
 
 ## Props
 

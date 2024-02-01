@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -7,11 +7,11 @@ import Box from "../box";
 import Button from "../button";
 import { GridContainer, GridItem } from "../grid";
 import Typography from "../typography";
-import Pod, { PodProps } from ".";
+import Pod from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<PodProps>>;
+});
 
 const meta: Meta<typeof Pod> = {
   title: "Pod",

@@ -1,16 +1,16 @@
 import React, { useState, useRef } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../../.storybook/utils/styled-system-props";
 
 import Button from "../../button";
 import CarbonProvider from "../../carbon-provider";
 import Box from "../../box";
-import { MultiSelect, MultiSelectProps, Option, OptionRow } from "..";
+import { MultiSelect, Option, OptionRow } from "..";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<MultiSelectProps>>;
+});
 
 const meta: Meta<typeof MultiSelect> = {
   title: "Select/MultiSelect",

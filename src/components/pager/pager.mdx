@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as PagerStories from "./pager.stories.tsx";
@@ -50,7 +50,7 @@ are instead hidden. This prop can be used in conjunction with all other `Pager` 
 
 ### With disabled Page Size Selection
 
-<Canvas name="disabled page size" of={PagerStories.DisabledPageSize} />
+<Canvas of={PagerStories.DisabledPageSize} />
 
 ### Hiding Pager elements
 
@@ -59,7 +59,7 @@ default: in order for them to be hidden you must pass `false` to the correspondi
 In the example below the `First` and `Last` buttons and `totalRecords` label have been hidden by setting the
 `showFirstAndLastButtons` and `showTotalRecords` props to false.
 
-<Canvas name="hiding pager elements" of={PagerStories.HidingPagerElements} />
+<Canvas of={PagerStories.HidingPagerElements} />
 
 ### Smart elements
 
@@ -67,20 +67,19 @@ The examples below demonstrate the `Pager`'s smart functionality. In the first t
 and as such the navigation buttons are not neccessary and therefore not rendered. In the second example there are only enough
 records for two pages, the `First` and `Last` buttons are not needed and as a result will not render.
 
-<Canvas name="smart functionality" of={PagerStories.SmartFunctionality} />
+<Canvas of={PagerStories.SmartFunctionality} />
 
 ### Loading state
 
 When no totalRecords provided.
 
-<Canvas name="loading state" of={PagerStories.LoadingState} />
+<Canvas of={PagerStories.LoadingState} />
 
 ### Custom pageSizeSelectionOptions
 
 Show custom page size selection options.
 
 <Canvas
-  name="page size selection options"
   of={PagerStories.PageSizeSelectionOptions}
 />
 
@@ -88,11 +87,11 @@ Show custom page size selection options.
 
 Due to the fact that it is last page, next and last links are disabled.
 
-<Canvas name="current page last page" of={PagerStories.CurrentPageLastPage} />
+<Canvas of={PagerStories.CurrentPageLastPage} />
 
 ### With currentPage pre-set to page 5
 
-<Canvas name="current page" of={PagerStories.CurrentPage} />
+<Canvas of={PagerStories.CurrentPage} />
 
 ### Custom responsive example
 
@@ -101,7 +100,6 @@ conditionally render the internal elements as the screen size is adjusted. This 
 using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="using custom responsive settings"
   of={PagerStories.UsingCustomResponsiveSettings}
 />
 

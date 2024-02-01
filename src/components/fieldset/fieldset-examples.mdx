@@ -1,38 +1,40 @@
 import { Meta, Canvas } from "@storybook/addon-docs";
 
-import * as stories from "./fieldset-examples.stories";
+import * as FieldsetExamplesStories from "./fieldset-examples.stories";
 
 <Meta
   title="Fieldset/Address Fieldset Examples"
   parameters={{ info: { disable: true } }}
+  of={FieldsetExamplesStories}
+  name="Fieldset Examples"
 />
 
 ### Canada
 
 Address Fieldset for Canada.
 
-<Canvas name="Canada" story={stories.Canada} />
+<Canvas story={FieldsetExamplesStories.Canada} />
 
 ### EU
 
 Address Fieldset for EU.
 
-<Canvas name="EU" story={stories.EU} />
+<Canvas story={FieldsetExamplesStories.EU} />
 
 ### UK and Ireland
 
 Address Fieldset for UK and Ireland.
 
-<Canvas name="UK and Ireland" story={stories.UkAndIreland} />
+<Canvas story={FieldsetExamplesStories.UkAndIreland} />
 
 ### United States
 
 Address Fieldset for United States.
 
-<Canvas name="United States" story={stories.UnitedStates} />
+<Canvas story={FieldsetExamplesStories.UnitedStates} />
 
 ### Other
 
 Address Fieldset for other countries.
 
-<Canvas name="Other" story={stories.Other} />
+<Canvas story={FieldsetExamplesStories.Other} />

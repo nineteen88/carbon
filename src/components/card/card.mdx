@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as CardStories from "./card.stories";
 import * as CardColumnStories from "./card-column/card-column.stories";
@@ -45,23 +45,23 @@ import {
 
 ### Default - medium spacing
 
-<Canvas name="default" of={CardStories.DefaultStory} />
+<Canvas of={CardStories.DefaultStory} />
 
 ### Small spacing
 
-<Canvas name="small spacing" of={CardStories.SmallSpacing} />
+<Canvas of={CardStories.SmallSpacing} />
 
 ### Large spacing
 
-<Canvas name="large spacing" of={CardStories.LargeSpacing} />
+<Canvas of={CardStories.LargeSpacing} />
 
 ### With large roundness on corners
 
-<Canvas name="large roundness" of={CardStories.WithExtraRoundness} />
+<Canvas of={CardStories.WithExtraRoundness} />
 
 ### With width provided
 
-<Canvas name="with width provided" of={CardStories.WithWidthProvided} />
+<Canvas of={CardStories.WithWidthProvided} />
 
 ### Interactive
 
@@ -70,40 +70,37 @@ Passing just an `onClick` prop will render a `button` element within the `Card`.
 Passing an `href` (with or without an `onClick`) will render an `a`nchor element.
 Setting the `draggable` prop will negate both `onClick` and `href` prop values and will render a `div` instead.
 
-<Canvas name="interactive" of={CardStories.Interactive} />
+<Canvas of={CardStories.Interactive} />
 
 ### With custom box shadow
 
-<Canvas name="custom box shadow" of={CardStories.WithCustomBoxShadow} />
+<Canvas of={CardStories.WithCustomBoxShadow} />
 
 ### Different `<CardRow />` padding
 
 <Canvas
-  name="different CardRow padding"
   of={CardStories.DifferentCardRowPadding}
 />
 
 ### Different `<CardFooter />` padding
 
 <Canvas
-  name="different CardFooter padding"
   of={CardStories.DifferentCardFooterPadding}
 />
 
 ### More `<CardFooter />` examples
 
 <Canvas
-  name="more examples of CardFooter"
   of={CardStories.MoreExamplesOfCardFooter}
 />
 
 ## With string as child
 
-<Canvas name="with string as child" of={CardStories.WithStringAsChild} />
+<Canvas of={CardStories.WithStringAsChild} />
 
 ## With custom height
 
-<Canvas name="with custom height" of={CardStories.WithCustomHeight} />
+<Canvas of={CardStories.WithCustomHeight} />
 
 ## With draggable
 
@@ -116,7 +113,7 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 ```
 
-<Canvas name="with draggable" of={CardStories.WithDraggable} />
+<Canvas of={CardStories.WithDraggable} />
 
 ## Props
 

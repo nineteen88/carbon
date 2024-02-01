@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as DecimalStories from "./decimal.stories";
@@ -29,75 +29,74 @@ import Decimal from "carbon-react/lib/components/decimal";
 
 ### Default
 
-<Canvas name="default" of={DecimalStories.DefaultStory} />
+<Canvas of={DecimalStories.DefaultStory} />
 
 ### Sizes
 
-<Canvas name="sizes" of={DecimalStories.Sizes} />
+<Canvas of={DecimalStories.Sizes} />
 
 ### Disabled
 
-<Canvas name="disabled" of={DecimalStories.Disabled} />
+<Canvas of={DecimalStories.Disabled} />
 
 ### Prefix
 
-<Canvas name="prefix" of={DecimalStories.Prefix} />
+<Canvas of={DecimalStories.Prefix} />
 
 ### LabelAlign
 
-<Canvas name="labelAlign" of={DecimalStories.LabelAlign} />
+<Canvas of={DecimalStories.LabelAlign} />
 
 ### ReadOnly
 
-<Canvas name="readOnly" of={DecimalStories.ReadOnly} />
+<Canvas of={DecimalStories.ReadOnly} />
 
 ### Empty
 
-<Canvas name="empty" of={DecimalStories.Empty} />
+<Canvas of={DecimalStories.Empty} />
 
 ### With custom precision
 
-<Canvas name="with custom precision" of={DecimalStories.WithCustomPrecision} />
+<Canvas of={DecimalStories.WithCustomPrecision} />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={DecimalStories.LabelInline} />
+<Canvas of={DecimalStories.LabelInline} />
 
 ### With custom labelWidth and inputWidth
 
 <Canvas
-  name="with custom labelWidth and inputWidth"
   of={DecimalStories.WithCustomLabelWidthAndInputWidth}
 />
 
 ### With custom maxWidth
 
-<Canvas name="with custom maxWidth" of={DecimalStories.WithCustomMaxWidth} />
+<Canvas of={DecimalStories.WithCustomMaxWidth} />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={DecimalStories.WithFieldHelp} />
+<Canvas of={DecimalStories.WithFieldHelp} />
 
 ### With inputHint
 
-<Canvas name="with inputHint" story={DecimalStories.WithInputHint} />
+<Canvas story={DecimalStories.WithInputHint} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={DecimalStories.WithLabelHelp} />
+<Canvas of={DecimalStories.WithLabelHelp} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={DecimalStories.Required} />
+<Canvas of={DecimalStories.Required} />
 
 ### Left aligned
 
 You can use the `align` prop to choose how the the characters inside the component align.
 In this example, `align` has been assigned the value `left`.
 
-<Canvas name="left aligned" of={DecimalStories.LeftAligned} />
+<Canvas of={DecimalStories.LeftAligned} />
 
 ### Validations
 
@@ -112,41 +111,36 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={DecimalStories.ValidationsStringComponent}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={DecimalStories.ValidationsTooltip}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={DecimalStories.ValidationsStringLabel}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={DecimalStories.ValidationsTooltipLabel}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={DecimalStories.ValidationsRedesign}
 />
 
 #### As a boolean
 
-<Canvas name="validations - boolean" of={DecimalStories.ValidationsBoolean} />
+<Canvas of={DecimalStories.ValidationsBoolean} />
 
 ## Props
 

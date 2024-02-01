@@ -1,14 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import Box from "../box";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import Typography, { List, ListItem, TypographyProps } from ".";
+import Typography, { List, ListItem } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<TypographyProps>>;
+});
 
 const meta: Meta<typeof Typography> = {
   title: "Typography",

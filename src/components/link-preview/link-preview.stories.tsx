@@ -1,21 +1,13 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import { action } from "@storybook/addon-actions";
-import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import LinkPreview, { LinkPreviewProps } from ".";
-
-const styledSystemProps = generateStyledSystemProps({
-  margin: true,
-}) as Partial<ArgTypes<LinkPreviewProps>>;
+import LinkPreview from ".";
 
 const meta: Meta<typeof LinkPreview> = {
   title: "Link Preview",
   component: LinkPreview,
-  argTypes: {
-    ...styledSystemProps,
-  },
 };
 
 export default meta;

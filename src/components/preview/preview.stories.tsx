@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Button from "../button";
-import Preview, { PreviewProps } from "./preview.component";
+import Preview from "./preview.component";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<PreviewProps>>;
+});
 
 const meta: Meta<typeof Preview> = {
   title: "Preview",

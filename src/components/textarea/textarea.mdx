@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as TextareaStories from "./textarea.stories";
@@ -40,34 +40,34 @@ import Textarea from "carbon-react/lib/components/textarea";
 
 ### Default
 
-<Canvas name="default" of={TextareaStories.DefaultStory} />
+<Canvas of={TextareaStories.DefaultStory} />
 
 ### Disabled
 
-<Canvas name="disabled" of={TextareaStories.DisabledStory} />
+<Canvas of={TextareaStories.DisabledStory} />
 
 ### Label Align
 
-<Canvas name="label Align" of={TextareaStories.LabelAlignStory} />
+<Canvas of={TextareaStories.LabelAlignStory} />
 
 ### ReadOnly
 
-<Canvas name="readOnly" of={TextareaStories.ReadOnlyStory} />
+<Canvas of={TextareaStories.ReadOnlyStory} />
 
 ### AutoFocus
 
-<Canvas name="autoFocus" of={TextareaStories.AutoFocusStory} />
+<Canvas of={TextareaStories.AutoFocusStory} />
 
 ### Expandable
 
-<Canvas name="expandable" of={TextareaStories.ExpandableStory} />
+<Canvas of={TextareaStories.ExpandableStory} />
 
 ### With characterLimit
 
 If you use the `inputHint` prop to provide the user with a hint before the input, please use a full stop `.` at the end,
 as it forces a pause before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="with characterLimit" of={TextareaStories.CharacterLimitStory} />
+<Canvas of={TextareaStories.CharacterLimitStory} />
 
 ### with characterLimit - with translations
 
@@ -79,45 +79,43 @@ is over/under the set `characterLimit`. Please see below how this has been achie
 Include the formatted number count wherever makes sense for the language you're translating too.
 
 <Canvas
-  name="with characterLimit with translations"
   of={TextareaStories.TranslationsCharacterLimitStory}
 />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={TextareaStories.LabelInlineStory} />
+<Canvas of={TextareaStories.LabelInlineStory} />
 
 ### With custom labelWidth and inputWidth
 
 <Canvas
-  name="with custom labelWidth and inputWidth"
   of={TextareaStories.CustomWidthStory}
 />
 
 ### With custom maxWidth
 
-<Canvas name="with maxWidth" of={TextareaStories.MaxWidthStory} />
+<Canvas of={TextareaStories.MaxWidthStory} />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={TextareaStories.FieldHelpStory} />
+<Canvas of={TextareaStories.FieldHelpStory} />
 
 ### With inputHint
 
 When the `inputHint` prop is passed, please use a full stop `.` at the end. This forces a pause
 before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="with inputHint" story={TextareaStories.InputHintStory} />
+<Canvas story={TextareaStories.InputHintStory} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={TextareaStories.LabelHelpStory} />
+<Canvas of={TextareaStories.LabelHelpStory} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={TextareaStories.RequiredStory} />
+<Canvas of={TextareaStories.RequiredStory} />
 
 ### Validations
 
@@ -132,42 +130,36 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={TextareaStories.ValidationStringStory}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={TextareaStories.ValidationStringPositionStory}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={TextareaStories.ValidationLabelStory}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={TextareaStories.ValidationLabelPositionStory}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={TextareaStories.NewDesignValidationStory}
 />
 
 #### As a boolean
 
 <Canvas
-  name="validations - boolean"
   of={TextareaStories.ValidationBooleanStory}
 />
 

@@ -1,15 +1,15 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import Loader, { LoaderProps } from ".";
+import Loader from ".";
 import Button from "../button/button.component";
 import Box from "../box";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<LoaderProps>>;
+});
 
 const meta: Meta<typeof Loader> = {
   title: "Loader",

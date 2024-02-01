@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as ButtonStories from "../button/button.stories.tsx";
 import * as MultiActionButtonStories from "./multi-action-button.stories.tsx";
@@ -36,57 +36,54 @@ import MultiActionButton from "carbon-react/lib/components/multi-action-button";
 
 ### Default
 
-<Canvas name="default" of={MultiActionButtonStories.DefaultStory} />
+<Canvas of={MultiActionButtonStories.DefaultStory} />
 
 ### Disabled
 
-<Canvas name="disabled" of={MultiActionButtonStories.Disabled} />
+<Canvas of={MultiActionButtonStories.Disabled} />
 
 ### Custom width
 
 Numbers from 0-1 are converted to percentage widths. Numbers greater than 1 are converted to pixel values.
 String values are passed as raw CSS values. `size` prop can still be used to set desired height.
 
-<Canvas name="custom width" of={MultiActionButtonStories.CustomWidth} />
+<Canvas of={MultiActionButtonStories.CustomWidth} />
 
 ### Button types
 
-<Canvas name="button types" of={MultiActionButtonStories.ButtonTypes} />
+<Canvas of={MultiActionButtonStories.ButtonTypes} />
 
 ### Child Button types
 
 Buttons used as a content of `MultiActionButton` can be of any type.
 
 <Canvas
-  name="child button types"
   of={MultiActionButtonStories.ChildButtonTypes}
 />
 
 ### Sizes
 
-<Canvas name="sizes" of={MultiActionButtonStories.Sizes} />
+<Canvas of={MultiActionButtonStories.Sizes} />
 
 ### Alignment
 
-<Canvas name="align" of={MultiActionButtonStories.Alignment} />
+<Canvas of={MultiActionButtonStories.Alignment} />
 
 ### Subtext
 
 Subtext only works when `size` is `large`
 
-<Canvas name="subtext" of={MultiActionButtonStories.Subtext} />
+<Canvas of={MultiActionButtonStories.Subtext} />
 
 ## In overflow: hidden container
 
 <Canvas
-  name="in overflow hidden container"
   of={MultiActionButtonStories.InOverflowHiddenContainer}
 />
 
 ## When children buttons render icons
 
 <Canvas
-  name="when children buttons render icons"
   of={MultiActionButtonStories.WithChildrenButtonsWithIcons}
 />
 

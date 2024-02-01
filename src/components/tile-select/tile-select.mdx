@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as TileSelectGroupStories from "./tile-select-group/tile-select-group.stories";
@@ -41,7 +41,7 @@ By default, when grouped with the `TileSelectGroup`, this component operates in 
 In this mode all input props like `onChange`, `onBlur`, `name` and currently selected `value` are meant to be passed on the `TileSelectGroup`.
 These props are then internally distributed on each of the `TileSelects` making the whole composed group act like a single form field.
 
-<Canvas name="default" of={TileSelectStories.Default} />
+<Canvas of={TileSelectStories.Default} />
 
 #### Custom action button
 
@@ -49,7 +49,6 @@ It is possible to overide the default action button via the `customActionButton`
 access to the `onClick` functionality.
 
 <Canvas
-  name="with custom action button"
   of={TileSelectStories.WithCustomActionButton}
 />
 
@@ -58,7 +57,6 @@ access to the `onClick` functionality.
 It is possible to render an additional adornment next to the action button through the `actionButtonAdornment` prop.
 
 <Canvas
-  name="with action button adornment"
   of={TileSelectStories.WithActionButtonAdornment}
 />
 
@@ -70,7 +68,7 @@ In multi select mode all input props like `onChange`, `onBlur`, `name`, `value` 
 
 In this mode `TileSelectGroup` serves only a visual purpose - it only renders `legend` and `description` props and applies spacing to each of the `TileSelects`
 
-<Canvas name="multi Select" of={TileSelectStories.MultiSelect} />
+<Canvas of={TileSelectStories.MultiSelect} />
 
 ### Single tile
 
@@ -78,20 +76,19 @@ In this mode `TileSelectGroup` serves only a visual purpose - it only renders `l
 
 Same as in multi select example grouped by `TileSelectGroup`, `onChange`, `onBlur`, `name`, `value` and `checked` are meant to be passed directly on the `TileSelect`.
 
-<Canvas name="single tile" of={TileSelectStories.SingleTile} />
+<Canvas of={TileSelectStories.SingleTile} />
 
 ### With a footer
 
 To render a `footer` pass anything renderable to the prop like in the example below.
 
-<Canvas name="with a footer" of={TileSelectStories.WithAFooter} />
+<Canvas of={TileSelectStories.WithAFooter} />
 
 ### With a prefix adornment
 
 To render a prefixed adornment in the top left corner of the `TileSelect` you can pass any node in via the `prefixAdornment` prop.
 
 <Canvas
-  name="with a prefix adornment"
   of={TileSelectStories.WithAPrefixAdornment}
 />
 
@@ -101,7 +98,6 @@ It is possible to render an additional row of information or content between the
 any node to the `additionalInformation` prop.
 
 <Canvas
-  name="with additional information"
   of={TileSelectStories.WithAdditionalInformation}
 />
 
@@ -112,7 +108,6 @@ and a use the `accordionControl` render prop to supply the control for the expan
 `accordionExpanded` prop.
 
 <Canvas
-  name="with accordion footer"
   of={TileSelectStories.WithAccordionFooter}
 />
 
@@ -121,7 +116,7 @@ and a use the `accordionControl` render prop to supply the control for the expan
 The `TileSelect` and `TileSelectGroup` components support the custom margin spacing (see prop table below). The modifiers
 support being passed either a number between 1 and 8 that is then multiplied by `8px` or any valid CSS string.
 
-<Canvas name="with custom spacing" of={TileSelectStories.WithCustomSpacing} />
+<Canvas of={TileSelectStories.WithCustomSpacing} />
 
 ## Props
 

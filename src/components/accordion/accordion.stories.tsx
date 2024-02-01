@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
-import { Accordion, AccordionGroup, AccordionProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import { Accordion, AccordionGroup } from ".";
 import Box from "../box/box.component";
 import Button from "../button/button.component";
 import { Checkbox } from "../checkbox";
@@ -23,7 +23,7 @@ type Validations = keyof ValidationObject;
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<AccordionProps>>;
+});
 
 const meta: Meta<typeof Accordion> = {
   title: "Accordion",

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as VerticalMenuTriggerStories from "./vertical-menu-trigger/vertical-menu-trigger.stories";
@@ -40,12 +40,11 @@ import {
 
 ### Default
 
-<Canvas name="default" of={VerticalMenuStories.Default} />
+<Canvas of={VerticalMenuStories.Default} />
 
 ### With custom width and height
 
 <Canvas
-  name="custom width and height"
   of={VerticalMenuStories.CustomWidthAndHeight}
 />
 
@@ -54,29 +53,29 @@ import {
 The `adornment` prop of `VerticalMenuItem` component can be used to pass a component that will be rendered on the right hand side of the title.
 This prop also accepts a render function which accepts `isOpen` as a parameter. This can be used to conditionally render an icon based on the open state of the menu.
 
-<Canvas name="adornment" of={VerticalMenuStories.Adornment} />
+<Canvas of={VerticalMenuStories.Adornment} />
 
 ### Active
 
 Same as `adornment`, the `active` prop of `VerticalMenuItem` component can be used to pass a boolean value to indicate if the menu item is active or not.
 This prop also accepts a render function which accepts `isOpen` as a parameter.
 
-<Canvas name="active" of={VerticalMenuStories.Active} />
+<Canvas of={VerticalMenuStories.Active} />
 
 ### Custom item padding
 
-<Canvas name="custom item padding" of={VerticalMenuStories.CustomItemPadding} />
+<Canvas of={VerticalMenuStories.CustomItemPadding} />
 
 ### Custom item height
 
-<Canvas name="custom item height" of={VerticalMenuStories.CustomItemHeight} />
+<Canvas of={VerticalMenuStories.CustomItemHeight} />
 
 ### With custom component
 
 The `component` prop of `VerticalMenuItem` component can be used to pass a custom component.
 It can be used to render the item as a `Link` component from a router library like `react-router`.
 
-<Canvas name="custom component" of={VerticalMenuStories.CustomComponent} />
+<Canvas of={VerticalMenuStories.CustomComponent} />
 
 ### Full Screen
 
@@ -84,7 +83,7 @@ This story is best viewed in the `canvas` view and by adjusting the size of the 
 trigger when the screen size is smaller than `1200px`. Also take note that in full screen mode the `VerticalMenuItems` are always open.
 The `VerticalMenuTrigger` component is intended to be used to trigger opening the `VerticalMenuFullScreen`.
 
-<Canvas name="full screen" of={VerticalMenuStories.FullScreen} />
+<Canvas of={VerticalMenuStories.FullScreen} />
 
 ## Props
 

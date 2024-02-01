@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import React from "react";
-import { ComponentStory } from "@storybook/react";
+
+import Box from "../box";
 import { RadioButtonGroup, RadioButton } from ".";
 import { RadioButtonGroupProps } from "./radio-button-group/radio-button-group.component";
 import { RadioButtonProps } from "./radio-button.component";
 import Typography from "../typography";
 
-export const Required: ComponentStory<typeof RadioButton> = () => (
+export const Required = () => (
   <RadioButtonGroup name="required" legend="Radio group legend" required>
     <RadioButton id="radio-1" value="radio1" label="Radio Option 1" />
     <RadioButton id="radio-2" value="radio2" label="Radio Option 2" />
@@ -14,9 +15,7 @@ export const Required: ComponentStory<typeof RadioButton> = () => (
   </RadioButtonGroup>
 );
 
-export const WithValidationsOnButtons: ComponentStory<
-  typeof RadioButton
-> = () => (
+export const WithValidationsOnButtons = () => (
   <RadioButtonGroup
     name="validations-on-buttons-group"
     onChange={() => console.log("change")}
@@ -44,9 +43,7 @@ export const WithValidationsOnButtons: ComponentStory<
   </RadioButtonGroup>
 );
 
-export const WithValidationsOnRadioGroup: ComponentStory<
-  typeof RadioButton
-> = () => (
+export const WithValidationsOnRadioGroup = () => (
   <RadioButtonGroup
     name="validations-on-group"
     onChange={() => console.log("change")}
@@ -71,7 +68,7 @@ export const WithValidationsOnRadioGroup: ComponentStory<
   </RadioButtonGroup>
 );
 
-export const WithTooltipPosition: ComponentStory<typeof RadioButton> = () => (
+export const WithTooltipPosition = () => (
   <RadioButtonGroup
     name="tooltip-position"
     onChange={() => console.log("change")}
@@ -87,9 +84,7 @@ export const WithTooltipPosition: ComponentStory<typeof RadioButton> = () => (
   </RadioButtonGroup>
 );
 
-export const WithTooltipPositionOnRadioGroup: ComponentStory<
-  typeof RadioButton
-> = () => (
+export const WithTooltipPositionOnRadioGroup = () => (
   <RadioButtonGroup
     name="validations-on-group-group-tooltip-position-override"
     onChange={() => console.log("change")}
@@ -120,13 +115,7 @@ const radioContainerWidth = 400;
 export const RadioButtonComponent = (props: Partial<RadioButtonProps>) => {
   const [isChecked, setIsChecked] = React.useState(false);
   return (
-    <div
-      style={{
-        marginTop: "64px",
-        marginLeft: "64px",
-        width: radioContainerWidth,
-      }}
-    >
+    <Box mt="64px" ml="64px" width={radioContainerWidth}>
       <RadioButton
         id="radio-1"
         value="radio1"
@@ -135,7 +124,7 @@ export const RadioButtonComponent = (props: Partial<RadioButtonProps>) => {
         onChange={(e) => setIsChecked(e.target.checked)}
         {...props}
       />
-    </div>
+    </Box>
   );
 };
 
@@ -144,12 +133,7 @@ export const RadioButtonGroupComponent = ({
   ...props
 }: Partial<RadioButtonGroupProps>) => {
   return (
-    <div
-      style={{
-        marginTop: "64px",
-        marginLeft: "64px",
-      }}
-    >
+    <Box mt="64px" ml="64px">
       <RadioButtonGroup
         name="radiobuttongroup"
         legend="Radio group legend"
@@ -161,7 +145,7 @@ export const RadioButtonGroupComponent = ({
 
         <>{children}</>
       </RadioButtonGroup>
-    </div>
+    </Box>
   );
 };
 

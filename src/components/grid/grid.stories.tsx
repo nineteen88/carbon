@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import Box from "../box";
 import { Dd, Dl, Dt } from "../definition-list";
 import Link from "../link";
@@ -7,12 +7,12 @@ import Button from "../button";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import GridContainer from "./grid-container";
-import GridItem, { GridItemProps } from "./grid-item";
+import GridItem from "./grid-item";
 import Pod from "../pod";
 
 const styledSystemProps = generateStyledSystemProps({
   padding: true,
-}) as Partial<ArgTypes<GridItemProps>>;
+});
 
 const meta: Meta = {
   title: "Grid",

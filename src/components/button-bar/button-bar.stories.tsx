@@ -1,7 +1,7 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import ButtonBar, { ButtonBarProps } from ".";
+import ButtonBar from ".";
 import Button from "../button";
 import ButtonMinor from "../button-minor";
 
@@ -14,7 +14,7 @@ const styledSystemProps = generateStyledSystemProps(
     spacing: true,
   },
   { pt: "1px", pb: "1px", px: "24px" }
-) as Partial<ArgTypes<ButtonBarProps>>;
+);
 
 const meta: Meta<typeof ButtonBar> = {
   title: "Button Bar",

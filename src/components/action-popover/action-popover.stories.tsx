@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import {
   ActionPopover,
   ActionPopoverDivider,
   ActionPopoverItem,
   ActionPopoverMenu,
   ActionPopoverMenuButton,
-  ActionPopoverProps,
 } from ".";
 import Link from "../link";
 import Box from "../box";
@@ -26,7 +25,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<ActionPopoverProps>>;
+});
 
 const meta: Meta<typeof ActionPopover> = {
   title: "Action Popover",
@@ -336,9 +335,6 @@ export const SubmenuPositionedRight: Story = () => {
   );
 };
 SubmenuPositionedRight.storyName = "Sub Menu Positioned Right";
-SubmenuPositionedRight.parameters = {
-  docs: { disable: true },
-};
 
 export const MenuOpeningAbove: Story = () => {
   return (
@@ -482,9 +478,6 @@ export const KeyboardNavigationRightAlignedSubmenu: Story = () => {
 };
 KeyboardNavigationRightAlignedSubmenu.storyName =
   "Keyboard Navigation Right Aligned Submenu";
-KeyboardNavigationRightAlignedSubmenu.parameters = {
-  docs: { disable: true },
-};
 
 export const AdditionalOptions: Story = () => {
   return (

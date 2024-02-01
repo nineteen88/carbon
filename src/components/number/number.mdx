@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as NumberStories from "./number.stories.tsx";
 
@@ -28,57 +28,56 @@ import Number from "carbon-react/lib/components/number";
 
 ### Default
 
-<Canvas name="default" of={NumberStories.Default} />
+<Canvas of={NumberStories.Default} />
 
 ### Sizes
 
-<Canvas name="sizes" of={NumberStories.Sizes} />
+<Canvas of={NumberStories.Sizes} />
 
 ### Disabled
 
-<Canvas name="disabled" of={NumberStories.Disabled} />
+<Canvas of={NumberStories.Disabled} />
 
 ### ReadOnly
 
-<Canvas name="readOnly" of={NumberStories.ReadOnly} />
+<Canvas of={NumberStories.ReadOnly} />
 
 ### AutoFocus
 
-<Canvas name="autoFocus" of={NumberStories.AutoFocus} />
+<Canvas of={NumberStories.AutoFocus} />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={NumberStories.WithLabelInline} />
+<Canvas of={NumberStories.WithLabelInline} />
 
 ### With label Align
 
-<Canvas name="with labelAlign" of={NumberStories.WithLabelAlign} />
+<Canvas of={NumberStories.WithLabelAlign} />
 
 ### With custom labelWidth and inputWidth
 
 <Canvas
-  name="with custom labelWidth and inputWidth"
   of={NumberStories.WithCustomLabelWidthAndInputWidth}
 />
 
 ### With custom maxWidth
 
-<Canvas name="with custom maxWidth" of={NumberStories.WithCustomMaxWidth} />
+<Canvas of={NumberStories.WithCustomMaxWidth} />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={NumberStories.WithFieldHelp} />
+<Canvas of={NumberStories.WithFieldHelp} />
 
 ### with inputHint
 
 When the `inputHint` prop is passed, please use a full stop `.` at the end. This forces a pause 
 before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="with inputHint" story={NumberStories.WithInputHint} />
+<Canvas story={NumberStories.WithInputHint} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={NumberStories.WithLabelHelp} />
+<Canvas of={NumberStories.WithLabelHelp} />
 
 ### Validations
 

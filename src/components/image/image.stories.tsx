@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import Image, { ImageProps } from ".";
+import Image from ".";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
@@ -18,7 +18,7 @@ const styledSystemProps = generateStyledSystemProps({
   margin: true,
   layout: true,
   background: true,
-}) as Partial<ArgTypes<ImageProps>>;
+});
 
 const meta: Meta<typeof Image> = {
   title: "Image",
@@ -138,7 +138,7 @@ export const DecorativeStory: Story = () => {
 DecorativeStory.storyName = "Decorative";
 DecorativeStory.parameters = { info: { disable: true } };
 
-export const ImageWithPosition: StoryFn = () => (
+export const ImageWithPosition: Story = () => (
   <Image
     m={3}
     height="700px"
@@ -157,4 +157,5 @@ export const ImageWithPosition: StoryFn = () => (
     </Box>
   </Image>
 );
+ImageWithPosition.storyName = "Image With Position";
 ImageWithPosition.parameters = { info: { disable: true } };

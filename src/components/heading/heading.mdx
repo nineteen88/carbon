@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as HeadingStories from "./heading.stories";
 
@@ -32,55 +32,51 @@ import Heading from "carbon-react/lib/components/heading";
 
 ### Default
 
-<Canvas name="default" of={HeadingStories.Default} />
+<Canvas of={HeadingStories.Default} />
 
 ### Heading with headingType
 
 The `headingType` prop sets the HTML heading element which is rendered on the page. It can take values `"h1"` up to `"h5"`.
 
-<Canvas name="with headingType" of={HeadingStories.WithHeadingType} />
+<Canvas of={HeadingStories.WithHeadingType} />
 
 ### Heading without Divider
 
-<Canvas name="without Divider" of={HeadingStories.WithoutDivider} />
+<Canvas of={HeadingStories.WithoutDivider} />
 
 ### Heading with Subheader
 
-<Canvas name="with subheader" of={HeadingStories.WithSubheader} />
+<Canvas of={HeadingStories.WithSubheader} />
 
 ### Heading with Pill
 
-<Canvas name="with pill" of={HeadingStories.WithPill} />
+<Canvas of={HeadingStories.WithPill} />
 
 ### Heading with multiple Pills
 
-<Canvas name="with multiple pills" of={HeadingStories.WithMultiplePills} />
+<Canvas of={HeadingStories.WithMultiplePills} />
 
 ### Heading with Pill and Subheader
 
 <Canvas
-  name="with pill and subheader"
   of={HeadingStories.WithPillAndSubheader}
 />
 
 ### Heading with Subheader and Separator
 
 <Canvas
-  name="with subheader and separator"
   of={HeadingStories.WithSubheaderSeperator}
 />
 
 ### Heading with Pill, Subheader and Separator
 
 <Canvas
-  name="with pill, subheader and separator"
   of={HeadingStories.WithPillSubheaderSeperator}
 />
 
 ### Heading with Subheader and Children
 
 <Canvas
-  name="with subheader and children"
   of={HeadingStories.WithSubheaderChildren}
 />
 
@@ -89,25 +85,24 @@ The `headingType` prop sets the HTML heading element which is rendered on the pa
 In this example, the Heading component has the Tile component and the Definition List component rendered inside.
 
 <Canvas
-  name="with children as component"
   of={HeadingStories.WithChildrenComponent}
 />
 
 ### Heading with Help
 
-<Canvas name="with help" of={HeadingStories.WithHelp} />
+<Canvas of={HeadingStories.WithHelp} />
 
 ### Heading with Help and Pill
 
-<Canvas name="with help and pill" of={HeadingStories.WithHelpPill} />
+<Canvas of={HeadingStories.WithHelpPill} />
 
 ### Heading with Help and Help Link
 
-<Canvas name="with help link" of={HeadingStories.WithHelpLink} />
+<Canvas of={HeadingStories.WithHelpLink} />
 
 ### Heading with Back Link
 
-<Canvas name="with back link" of={HeadingStories.WithBackLink} />
+<Canvas of={HeadingStories.WithBackLink} />
 
 ## Props
 

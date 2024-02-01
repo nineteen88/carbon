@@ -1,10 +1,10 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import { Dl, Dt, Dd, DlProps } from ".";
+import { Dl, Dt, Dd } from ".";
 import Icon from "../icon";
 
 import Box from "../box";
@@ -14,7 +14,7 @@ import Typography from "../typography";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<DlProps>>;
+});
 
 const meta: Meta<typeof Dl> = {
   title: "Definition List",

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as GridContainerStories from "./grid-container/grid-container.stories";
 import * as GridItemStories from "./grid-item/grid-item.stories";
@@ -93,7 +93,6 @@ Gutters for the `GridItem` are set automatically in the CSS, following the value
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="default"
   of={GridStories.Default}
 />
 
@@ -102,7 +101,6 @@ This example is best viewed in the Canvas tab using full-screen mode with device
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="justify"
   of={GridStories.Justify}
 />
 
@@ -111,7 +109,6 @@ This example is best viewed in the Canvas tab using full-screen mode with device
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="align"
   of={GridStories.Align}
 />
 
@@ -120,7 +117,6 @@ This example is best viewed in the Canvas tab using full-screen mode with device
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="custom spacings"
   of={GridStories.CustomSpacing}
 />
 
@@ -129,7 +125,6 @@ This example is best viewed in the Canvas tab using full-screen mode with device
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation. Note how the order and position of each `GridItem`, responds according to an array of `responsiveSettings` allowing reordering and respositioning as required.
 
 <Canvas
-  name="responsive-settings"
   of={GridStories.ResponsiveSettings}
 />
 
@@ -138,7 +133,6 @@ This example is best viewed in the Canvas tab using full-screen mode with device
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
 <Canvas
-  name="subgrid"
   of={GridStories.SubGrid}
 />
 

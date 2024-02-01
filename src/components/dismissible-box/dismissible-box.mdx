@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as DismissibleBoxStories from "./dismissible-box.stories";
 
@@ -29,11 +29,11 @@ import DismissibleBox from "carbon-react/lib/components/dismissible-box";
 
 ### Default - Light variant
 
-<Canvas name="light variant" of={DismissibleBoxStories.DefaultLightVariant} />
+<Canvas of={DismissibleBoxStories.DefaultLightVariant} />
 
 ### Dark variant
 
-<Canvas name="dark variant" of={DismissibleBoxStories.DefaultDarkVariant} />
+<Canvas of={DismissibleBoxStories.DefaultDarkVariant} />
 
 ### With no left border highlight
 
@@ -41,7 +41,6 @@ By default the component will be rendered with a thicker left border highlight, 
 of this functionality.
 
 <Canvas
-  name="with no left border highlight"
   of={DismissibleBoxStories.WithNoLeftBorderHighlight}
 />
 
@@ -49,7 +48,7 @@ of this functionality.
 
 It is also possible to override the `width` of the component: by default it will fill any available space.
 
-<Canvas name="width overridden" of={DismissibleBoxStories.WidthOverridden} />
+<Canvas of={DismissibleBoxStories.WidthOverridden} />
 
 ## Props
 

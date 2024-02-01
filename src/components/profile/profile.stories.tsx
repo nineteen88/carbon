@@ -1,22 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
-import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box";
-import Profile, { ProfileProps } from ".";
-
-const styledSystemProps = generateStyledSystemProps({
-  margin: true,
-}) as Partial<ArgTypes<ProfileProps>>;
+import Profile from ".";
 
 const meta: Meta<typeof Profile> = {
   title: "Profile",
   component: Profile,
-  argTypes: {
-    ...styledSystemProps,
-  },
 };
 
 export default meta;

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import { Default } from "./duelling-picklist-test.stories";
 import * as PickListStories from "./picklist/picklist.stories";
@@ -59,7 +59,7 @@ import {
 
 Example of composed Duelling Picklist components with order preservation and search implemented.
 
-<Canvas name="default" of={Default} />
+<Canvas of={Default} />
 
 ### Alternative search placement
 
@@ -74,31 +74,31 @@ The `Search` component can be placed outside of the picklist controls and positi
 
 Picklist items can be organised into selectable groups. Whole groups can be moved from one list to another at once, or group items can be moved individually.
 
-<Canvas name="grouped" of={DuellingPicklistStories.Grouped} />
+<Canvas of={DuellingPicklistStories.Grouped} />
 
 ### In Dialog
 
 Same as above but as a children of `Dialog` component.
 
-<Canvas name="in dialog" of={DuellingPicklistStories.InDialog} />
+<Canvas of={DuellingPicklistStories.InDialog} />
 
 ## PicklistItem Examples
 
 ### Add item
 
-<Canvas name="add item" of={DuellingPicklistStories.AddItem} />
+<Canvas of={DuellingPicklistStories.AddItem} />
 
 ### Remove item
 
-<Canvas name="remove item" of={DuellingPicklistStories.RemoveItem} />
+<Canvas of={DuellingPicklistStories.RemoveItem} />
 
 ### Locked
 
-<Canvas name="locked" of={DuellingPicklistStories.Locked} />
+<Canvas of={DuellingPicklistStories.Locked} />
 
 ### Custom tooltip message
 
-<Canvas name="custom tooltip message" of={DuellingPicklistStories.CustomTooltipMessage} />
+<Canvas of={DuellingPicklistStories.CustomTooltipMessage} />
 
 ## Props:
 

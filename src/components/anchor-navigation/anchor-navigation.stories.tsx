@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
 
+import Box from "../box";
 import Textbox from "../textbox";
 import Button from "../button";
 import DialogFullScreen from "../dialog-full-screen";
@@ -23,9 +24,10 @@ interface ContentProps {
   title: string;
   noTextbox?: boolean;
 }
-const Content = ({ title, noTextbox }: ContentProps) => (
-  <>
-    <div>
+
+export const DefaultStory: Story = () => {
+  const Content = ({ title, noTextbox }: ContentProps) => (
+    <Box>
       <h2>{title}</h2>
       {!noTextbox && <Textbox label={title} />}
       <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
@@ -34,11 +36,9 @@ const Content = ({ title, noTextbox }: ContentProps) => (
       <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
       <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
       <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
-    </div>
-  </>
-);
+    </Box>
+  );
 
-export const DefaultStory: Story = () => {
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
   const ref3 = useRef<HTMLDivElement>(null);
@@ -58,31 +58,44 @@ export const DefaultStory: Story = () => {
         </>
       }
     >
-      <div ref={ref1}>
+      <Box ref={ref1}>
         <Content title="First section" />
-      </div>
+      </Box>
       <AnchorSectionDivider />
-      <div ref={ref2}>
+      <Box ref={ref2}>
         <Content title="Second section" />
-      </div>
+      </Box>
       <AnchorSectionDivider />
-      <div ref={ref3}>
+      <Box ref={ref3}>
         <Content noTextbox title="Third section" />
-      </div>
+      </Box>
       <AnchorSectionDivider />
-      <div ref={ref4}>
+      <Box ref={ref4}>
         <Content title="Fourth section" />
-      </div>
+      </Box>
       <AnchorSectionDivider />
-      <div ref={ref5}>
+      <Box ref={ref5}>
         <Content title="Fifth section" />
-      </div>
+      </Box>
     </AnchorNavigation>
   );
 };
 DefaultStory.storyName = "Default";
 
 export const InFullScreenDialogStory: Story = () => {
+  const Content = ({ title, noTextbox }: ContentProps) => (
+    <Box>
+      <h2>{title}</h2>
+      {!noTextbox && <Textbox label={title} />}
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+      <p style={{ marginTop: 30, marginBottom: 30 }}>Content</p>
+    </Box>
+  );
+
   const [isOpen, setIsOpen] = useState(false);
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
@@ -111,25 +124,25 @@ export const InFullScreenDialogStory: Story = () => {
             </>
           }
         >
-          <div ref={ref1}>
+          <Box ref={ref1}>
             <Content title="First section" />
-          </div>
+          </Box>
           <AnchorSectionDivider />
-          <div ref={ref2}>
+          <Box ref={ref2}>
             <Content title="Second section" />
-          </div>
+          </Box>
           <AnchorSectionDivider />
-          <div ref={ref3}>
+          <Box ref={ref3}>
             <Content noTextbox title="Third section" />
-          </div>
+          </Box>
           <AnchorSectionDivider />
-          <div ref={ref4}>
+          <Box ref={ref4}>
             <Content title="Fourth section" />
-          </div>
+          </Box>
           <AnchorSectionDivider />
-          <div ref={ref5}>
+          <Box ref={ref5}>
             <Content title="Fifth section" />
-          </div>
+          </Box>
         </AnchorNavigation>
       </DialogFullScreen>
     </>

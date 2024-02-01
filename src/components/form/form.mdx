@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as FormStories from "./form.stories";
@@ -36,36 +36,34 @@ import Form from "carbon-react/lib/components/form";
 When `stickyFooter` prop is set as true, footer becomes stickied to the bottom of the screen when necessary - this also works in `Dialog` and `DialogFullScreen`
 
 <Canvas
-  name="default with sticky footer"
   of={FormStories.DefaultWithStickyFooter}
 />
 
 ### Full Width Buttons
 
-<Canvas name="with full width buttons" of={FormStories.WithFullWidthButtons} />
+<Canvas of={FormStories.WithFullWidthButtons} />
 
 ### With different spacing
 
 When `fieldSpacing` prop is given a value, the vertical spacing between the form fields is changed (margin bottom on each field), the value of the prop multiplied by the base theme `8px` spacing value. The default is value `3` which is therefore `24px`. This can be overriden on a specific field if needed.
 
-<Canvas name="with different spacing" of={FormStories.WithDifferentSpacing} />
+<Canvas of={FormStories.WithDifferentSpacing} />
 
 ### Override spacing on one field
 
 A child component (which uses `FormField`) can be given a `mb` prop which overrides the bottom margin for that particular field. This uses the same base theme `8px` multiplier as the Form `fieldSpacing` prop.
 
-<Canvas name="override field spacing" of={FormStories.OverrideFieldSpacing} />
+<Canvas of={FormStories.OverrideFieldSpacing} />
 
 ### Validations
 
 When either `errorCount` or `warningCount` or both are provided, summary with the number of errors and/or warnings is rendered wrapping the save button.
 
-<Canvas name="with errors summary" of={FormStories.WithErrorsSummary} />
+<Canvas of={FormStories.WithErrorsSummary} />
 
-<Canvas name="with warnings summary" of={FormStories.WithWarningsSummary} />
+<Canvas of={FormStories.WithWarningsSummary} />
 
 <Canvas
-  name="with both errors and warnings summary"
   of={FormStories.WithBothErrorsAndWarningsSummary}
 />
 
@@ -73,12 +71,11 @@ When either `errorCount` or `warningCount` or both are provided, summary with th
 
 Additional buttons can be passed using `leftSideButtons` and `rightSideButtons` props.
 
-<Canvas name="with additional buttons" of={FormStories.WithAdditionalButtons} />
+<Canvas of={FormStories.WithAdditionalButtons} />
 
 When `buttonAlignment` prop is set as `left`, buttons are aligned to the left side.
 
 <Canvas
-  name="with buttons aligned to the left"
   of={FormStories.WithButtonsAlignedToTheLeft}
 />
 
@@ -86,12 +83,11 @@ When `buttonAlignment` prop is set as `left`, buttons are aligned to the left si
 
 It is possible to render `Form` as a content of `Dialog` component.
 
-<Canvas name="in Dialog" of={FormStories.InDialog} />
+<Canvas of={FormStories.InDialog} />
 
 #### With sticky footer
 
 <Canvas
-  name="in Dialog with sticky footer"
   of={FormStories.InDialogWithStickyFooter}
 />
 
@@ -99,12 +95,11 @@ It is possible to render `Form` as a content of `Dialog` component.
 
 It is possible to render `Form` as a content of `DialogFullScreen` component.
 
-<Canvas name="in DialogFullScreen" of={FormStories.InDialogFullScreen} />
+<Canvas of={FormStories.InDialogFullScreen} />
 
 #### With sticky footer
 
 <Canvas
-  name="in DialogFullScreen with sticky footer"
   of={FormStories.InDialogFullScreenWithStickyFooter}
 />
 
@@ -118,15 +113,15 @@ If a component doesn't have an inline labels on the left (see the Checkboxes bel
 
 Please click on "Show code" below to see how to set these components up for alignment.
 
-<Canvas name="form alignment example" of={FormStories.FormAlignmentExample} />
+<Canvas of={FormStories.FormAlignmentExample} />
 
 ### With labels inline
 
-<Canvas name="with labels inline" of={FormStories.WithLabelsInline} />
+<Canvas of={FormStories.WithLabelsInline} />
 
 ### With custom footer padding
 
-<Canvas name="custom footer padding" of={FormStories.WithCustomFooterPadding} />
+<Canvas of={FormStories.WithCustomFooterPadding} />
 
 ## Props
 

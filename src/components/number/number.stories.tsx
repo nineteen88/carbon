@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -7,7 +7,7 @@ import Number, { NumberProps } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<NumberProps>>;
+});
 
 const meta: Meta<typeof Number> = {
   title: "Number Input",

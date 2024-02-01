@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as DraggableItemStories from "./draggable-item/draggable-item.stories.tsx";
 import * as DraggableStories from "./draggable.stories.tsx";
@@ -51,19 +51,17 @@ import {
 
 ### Simple text as a content
 
-<Canvas name="default" of={DraggableStories.DefaultStory} />
+<Canvas of={DraggableStories.DefaultStory} />
 
 ### Other components as children
 
 <Canvas
-  name="components as children"
   of={DraggableStories.ComponentsAsChildrenStory}
 />
 
 ### With getOrder callback
 
 <Canvas
-  name="with getOrder callback"
   of={DraggableStories.GetOrderCallbackStory}
 />
 

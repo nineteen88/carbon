@@ -3,13 +3,13 @@ import FlatTableCheckbox from "./flat-table-checkbox.component";
 
 /**
  * This file is used primarily as a means to generate the props table.
- * It contains the tag: ["isHidden"] so that it is not included in the sidebar.
+ * It contains the tag: ["hideInSidebar"] so that it is not included in the sidebar.
  */
 
 const meta: Meta<typeof FlatTableCheckbox> = {
   title: "Flat Table Checkbox",
   component: FlatTableCheckbox,
-  tags: ["isHidden"],
+  tags: ["hideInSidebar"],
 };
 
 export default meta;

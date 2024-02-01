@@ -1,16 +1,16 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import Icon, { IconProps } from ".";
+import Icon from ".";
 import Box from "../box";
 
 import { ICONS } from "./icon-config";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<IconProps>>;
+});
 
 const meta: Meta<typeof Icon> = {
   title: "Icon",

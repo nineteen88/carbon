@@ -1,16 +1,16 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Button from "../button";
 import Box from "../box";
 import { Accordion } from "../accordion";
-import SplitButton, { SplitButtonProps } from ".";
+import SplitButton from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SplitButtonProps>>;
+});
 
 const meta: Meta<typeof SplitButton> = {
   title: "Split Button",

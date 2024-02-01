@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -8,11 +8,11 @@ import { Checkbox } from "../checkbox";
 import Pill from "../pill";
 import Icon from "../icon";
 import Box from "../box";
-import { Tabs, Tab, TabsProps } from ".";
+import { Tabs, Tab } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<TabsProps>>;
+});
 
 const meta: Meta<typeof Tabs> = {
   title: "Tabs",

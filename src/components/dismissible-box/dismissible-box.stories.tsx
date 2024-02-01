@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -9,11 +9,11 @@ import VerticalDivider from "../vertical-divider";
 import Image from "../image";
 import point from "../../../.assets/point.svg";
 
-import DismissibleBox, { DismissibleBoxProps } from ".";
+import DismissibleBox from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<DismissibleBoxProps>>;
+});
 
 const meta: Meta<typeof DismissibleBox> = {
   title: "Dismissible Box",

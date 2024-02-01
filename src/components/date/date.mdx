@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as DateStories from "./date.stories";
@@ -46,53 +46,53 @@ with a target value containing a `formattedValue` and `rawValue`. The `rawValue`
 in the backend and for running validations: it will either return a valid ISO string or null. The `formattedValue` should
 be used to set the input value like in the example below, although the component can be initialised with an ISO formatted string.
 
-<Canvas name="default" of={DateStories.Default} />
+<Canvas of={DateStories.Default} />
 
 ### Sizes
 
-<Canvas name="sizes" of={DateStories.Sizes} />
+<Canvas of={DateStories.Sizes} />
 
 ### AutoFocus
 
-<Canvas name="autoFocus" of={DateStories.AutoFocus} />
+<Canvas of={DateStories.AutoFocus} />
 
 ### Disabled
 
-<Canvas name="disabled" of={DateStories.Disabled} />
+<Canvas of={DateStories.Disabled} />
 
 ### ReadOnly
 
-<Canvas name="readOnly" of={DateStories.ReadOnly} />
+<Canvas of={DateStories.ReadOnly} />
 
 ### Empty
 
-<Canvas name="empty" of={DateStories.Empty} />
+<Canvas of={DateStories.Empty} />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={DateStories.WithLabelInline} />
+<Canvas of={DateStories.WithLabelInline} />
 
 ### With custom width
 
-<Canvas name="with custom width" of={DateStories.WithCustomWidth} />
+<Canvas of={DateStories.WithCustomWidth} />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={DateStories.WithFieldHelp} />
+<Canvas of={DateStories.WithFieldHelp} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={DateStories.WithLabelHelp} />
+<Canvas of={DateStories.WithLabelHelp} />
 
 ### With disabled portal
 
-<Canvas name="with disabled portal" of={DateStories.WithDisabledPortal} />
+<Canvas of={DateStories.WithDisabledPortal} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={DateStories.Required} />
+<Canvas of={DateStories.Required} />
 
 ### Validations
 
@@ -107,48 +107,42 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={DateStories.ValidationsStringComponent}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={DateStories.ValidationsStringWithTooltipPositionOverriddenComponent}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={DateStories.ValidationsStringLabel}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={DateStories.ValidationsStringWithTooltipPositionOverriddenLabel}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={DateStories.ValidationsStringNewDesign}
 />
 
 #### As a boolean
 
-<Canvas name="validations - boolean" of={DateStories.ValidationsBoolean} />
+<Canvas of={DateStories.ValidationsBoolean} />
 
 #### Example implementation
 
 The example below will display an error if an invalid date or a date with a year value less than 2020 is passed to the input.
 
 <Canvas
-  name="validations - example implementation"
   of={DateStories.ValidationsExampleImplementation}
 />
 
@@ -158,7 +152,6 @@ The examples below illustrate how to override the locale passed into the Date co
 the German (`de`) locale whilst the second is for a Chinese (`zh-CN`) locale. Required locales can be imported like so `import { de, zhCN } from 'carbon-react/lib/locales/date-fns-locales';`
 
 <Canvas
-  name="locale override - example implementation"
   of={DateStories.LocaleOverrideExampleImplementation}
 />
 

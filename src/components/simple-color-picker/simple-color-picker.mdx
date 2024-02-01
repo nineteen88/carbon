@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as SimpleColorStories from "./simple-color/simple-color.stories.tsx";
 import * as SimpleColorPickerStories from "./simple-color-picker.stories.tsx";
@@ -38,21 +38,21 @@ import SimpleColorPicker from "carbon-react/lib/components/simple-color-picker";
 
 ### Default
 
-<Canvas name="default" of={SimpleColorPickerStories.Default} />
+<Canvas of={SimpleColorPickerStories.Default} />
 
 ### Disabled
 
-<Canvas name="disabled" of={SimpleColorPickerStories.Disabled} />
+<Canvas of={SimpleColorPickerStories.Disabled} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={SimpleColorPickerStories.Required} />
+<Canvas of={SimpleColorPickerStories.Required} />
 
 #### With margin
 
-<Canvas name="with margin" of={SimpleColorPickerStories.WithMargin} />
+<Canvas of={SimpleColorPickerStories.WithMargin} />
 
 ### Validations
 

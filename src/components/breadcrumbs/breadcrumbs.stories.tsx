@@ -1,13 +1,13 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import { Breadcrumbs, BreadcrumbsProps } from ".";
+import { Breadcrumbs } from ".";
 import { Crumb } from "./crumb";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<BreadcrumbsProps>>;
+});
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: "Breadcrumbs",

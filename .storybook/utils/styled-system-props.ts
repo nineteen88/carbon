@@ -1,4 +1,4 @@
-import { ArgsTable as Props } from "@storybook/addon-docs";
+import { ArgTypes } from "@storybook/react";
 import {
   SpaceProps,
   LayoutProps,
@@ -61,14 +61,6 @@ interface Mapping {
 
 type Conditional = boolean | ((props: any) => boolean);
 
-interface SBType {
-  name: string;
-}
-
-interface SBScalarType {
-  name: string;
-}
-
 interface PropType {
   control?: ControlType | { type: ControlType };
   description?: string;
@@ -77,14 +69,16 @@ interface PropType {
   name?: string;
   options?: string[];
   table?: Table;
-  type?: SBType | SBScalarType["name"];
+  type?: string | { name: string };
 }
 
 type Props = {
   [key: string]: PropType;
 };
 
-const generateStyledSystemMarginProps = (defaults: StyledSystemDefaults) => {
+const generateStyledSystemMarginProps = (
+  defaults: StyledSystemDefaults
+): ArgTypes[] => {
   return [
     {
       m: {
@@ -304,7 +298,6 @@ const generateStyledSystemColorProps = (defaults: StyledSystemDefaults) => {
         control: "text",
         description:
           "Color, design token, theme value or any valid CSS string.",
-        //required: false,
         table: {
           category: "Styled System Props",
           subcategory: "Color",
@@ -318,7 +311,6 @@ const generateStyledSystemColorProps = (defaults: StyledSystemDefaults) => {
         control: "text",
         description:
           "Background, design token, theme value or any valid CSS string.",
-        // required: false,
         table: {
           category: "Styled System Props",
           subcategory: "Color",
@@ -333,7 +325,6 @@ const generateStyledSystemColorProps = (defaults: StyledSystemDefaults) => {
       bg: {
         control: "text",
         description: "Shorthand for backgroundColor",
-        // required: false,
         table: {
           category: "Styled System Props",
           subcategory: "Color",
@@ -348,7 +339,6 @@ const generateStyledSystemColorProps = (defaults: StyledSystemDefaults) => {
       opacity: {
         control: "text",
         description: "Any decimal between 0 and 1.0",
-        // required: false,
         table: {
           category: "Styled System Props",
           subcategory: "Color",
@@ -1005,7 +995,7 @@ const generateStyledSystemPositionProps = (defaults: StyledSystemDefaults) => {
 const generateStyledSystemProps = (
   props: StyledSystemProps,
   defaults?: StyledSystemDefaults
-): StyledSystemProps => {
+): ArgTypes<StyledSystemProps> => {
   const {
     spacing,
     margin,

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as ContentStories from "./content.stories.tsx";
 
@@ -31,19 +31,19 @@ import Content from "carbon-react/lib/components/content";
 
 ### Default content
 
-<Canvas name="default" of={ContentStories.DefaultStory} />
+<Canvas of={ContentStories.DefaultStory} />
 
 ### Inline content
 
-<Canvas name="inline" of={ContentStories.InlineContent} />
+<Canvas of={ContentStories.InlineContent} />
 
 ### Custom title
 
-<Canvas name="custom title" of={ContentStories.CustomTitle} />
+<Canvas of={ContentStories.CustomTitle} />
 
 ### Secondary styling
 
-<Canvas name="secondary styling" of={ContentStories.SecondaryStyling} />
+<Canvas of={ContentStories.SecondaryStyling} />
 
 ## Props
 

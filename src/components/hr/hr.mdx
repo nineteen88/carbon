@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as HrStories from "./hr.stories";
 
@@ -28,22 +28,21 @@ import Hr from "carbon-react/lib/components/hr";
 
 By default the hr is 100% width and has top and bottom margins of 24px.
 
-<Canvas name="default" of={HrStories.Default} />
+<Canvas of={HrStories.Default} />
 
 ### With different vertical spacing
 
 The `mb` and `mt` props set the vertical spacing. These props are mulitipliers and are therefore multiplied by the base theme spacing which is `8px`. The default for both is `3` and therefore `24px`.
 
-<Canvas name="different spacing" of={HrStories.DifferentSpacing} />
+<Canvas of={HrStories.DifferentSpacing} />
 
 ### Inside a form
 
-<Canvas name="Inside a form" of={HrStories.InsideForm} />
+<Canvas of={HrStories.InsideForm} />
 
 ### Inside a form with inline labels
 
 <Canvas
-  name="Inside a form with inline labels"
   of={HrStories.InsideFormInlineLabels}
 />
 
@@ -52,7 +51,6 @@ The `mb` and `mt` props set the vertical spacing. These props are mulitipliers a
 The left and right margins can be set to 0 below a screen width breakpoint. This can be switched on with the `adaptiveMxBreakpoint` prop by passing in a number corresponding to a px value screen width.
 
 <Canvas
-  name="Enabling adaptive behaviour"
   of={HrStories.EnablingAdaptiveBehaviour}
 />
 

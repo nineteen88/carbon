@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import {
   EditorState,
@@ -17,11 +17,11 @@ import {
 } from "../action-popover";
 import LinkPreview from "../link-preview";
 import Box from "../box";
-import Note, { NoteProps } from "./note.component";
+import Note from "./note.component";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<NoteProps>>;
+});
 
 const meta: Meta<typeof Note> = {
   title: "Note",

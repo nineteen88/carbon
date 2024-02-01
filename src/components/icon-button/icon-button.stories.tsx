@@ -1,14 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import IconButton, { IconButtonProps } from ".";
+import IconButton from ".";
 import Icon from "../icon";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<IconButtonProps>>;
+});
 
 const meta: Meta<typeof IconButton> = {
   title: "Icon Button",

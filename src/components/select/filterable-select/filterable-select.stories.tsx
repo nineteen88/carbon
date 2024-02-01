@@ -1,5 +1,5 @@
 import React, { useState, useRef, useMemo, useCallback } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../../.storybook/utils/styled-system-props";
 
@@ -12,14 +12,13 @@ import Typography from "../../typography";
 import {
   CustomSelectChangeEvent,
   FilterableSelect,
-  FilterableSelectProps,
   Option,
   OptionRow,
 } from "..";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<FilterableSelectProps>>;
+});
 
 const meta: Meta<typeof FilterableSelect> = {
   title: "Select/Filterable",

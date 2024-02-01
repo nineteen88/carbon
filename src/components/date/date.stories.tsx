@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
-import DateInput, { DateChangeEvent, DateInputProps } from "./date.component";
+import DateInput, { DateChangeEvent } from "./date.component";
 import Box from "../box";
 import Button from "../button";
 import I18nProvider from "../i18n-provider";
@@ -12,7 +12,7 @@ import { zhCN, de } from "../../locales/date-fns-locales";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<DateInputProps>>;
+});
 
 const meta: Meta<typeof DateInput> = {
   title: "Date Input",

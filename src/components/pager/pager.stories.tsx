@@ -12,25 +12,6 @@ const meta: Meta<typeof Pager> = {
 export default meta;
 type Story = StoryObj<typeof Pager>;
 
-export const DefaultStory: Story = {
-  render: (args: PagerProps) => {
-    return <Pager {...args} />;
-  },
-  args: {
-    totalRecords: "100",
-    showPageSizeSelection: false,
-    currentPage: "1",
-    pageSizeSelectionOptions: [
-      { id: "1", name: 1 },
-      { id: "10", name: 10 },
-      { id: "25", name: 25 },
-      { id: "50", name: 50 },
-      { id: "100", name: 100 },
-    ],
-  },
-  name: "Default",
-};
-
 export const Default: Story = (args: PagerProps) => {
   return <Pager {...args} />;
 };

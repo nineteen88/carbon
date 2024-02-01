@@ -94,8 +94,8 @@
         ]
       }
     ],
-    /* These rules have been added to allow us to upgrade during Storybook upgrae
-     * but all rules (and potentially the old ones) will need to be looked at */
+    /* TODO: (FE-6306) - These rules have been added to allow us to
+     * upgrade Storybook, but all rules will need to be looked at */
     "no-restricted-exports": "off",
     "default-param-last": "off",
     "react/no-unstable-nested-components": "off",
@@ -166,7 +166,7 @@
           { "allow": ["arrowFunctions"] }
         ],
         "react/function-component-definition": [
-          2,
+          "error",
           {
             "namedComponents": "arrow-function",
             "unnamedComponents": "arrow-function"
@@ -186,15 +186,12 @@
       "files": ["*.stories.tsx"],
       "rules": {
         "react/function-component-definition": [
-          2,
+          "error",
           {
             "namedComponents": "arrow-function",
             "unnamedComponents": "arrow-function"
           }
-        ],
-        "react/jsx-no-useless-fragment": "off",
-        "react/no-unstable-nested-components": "off",
-        "react/jsx-no-constructed-context-values": "off"
+        ]
       }
     },
     {
@@ -239,7 +236,7 @@
         "no-return-await": "warn",
         "no-return-assign": "warn",
         "no-await-in-loop": "warn",
-        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-floating-promises": "error"
       }
     }
   ]

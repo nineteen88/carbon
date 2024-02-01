@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
@@ -8,7 +8,7 @@ import Switch, { SwitchProps } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SwitchProps>>;
+});
 
 const meta: Meta<typeof Switch> = {
   title: "Switch",

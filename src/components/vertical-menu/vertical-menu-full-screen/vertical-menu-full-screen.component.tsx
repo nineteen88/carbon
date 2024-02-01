@@ -55,8 +55,6 @@ export const VerticalMenuFullScreen = ({
     [onClose]
   );
 
-  const contextValue = React.useMemo(() => ({ isFullScreen: true }), []);
-
   // TODO remove this as part of FE-5650
   if (!isOpen) return null;
 
@@ -94,7 +92,9 @@ export const VerticalMenuFullScreen = ({
               />
             </IconButton>
           </Box>
-          <VerticalMenuFullScreenContext.Provider value={contextValue}>
+          <VerticalMenuFullScreenContext.Provider
+            value={{ isFullScreen: true }}
+          >
             <StyledList>{children}</StyledList>
           </VerticalMenuFullScreenContext.Provider>
         </StyledVerticalMenuFullScreen>

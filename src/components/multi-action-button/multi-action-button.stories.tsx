@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -11,7 +11,7 @@ import { Accordion } from "../accordion";
 const styledSystemProps = generateStyledSystemProps({
   width: true,
   margin: true,
-}) as Partial<ArgTypes<MultiActionButtonProps>>;
+});
 
 const meta: Meta<typeof MultiActionButton> = {
   title: "Multi Action Button",

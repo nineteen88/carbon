@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as MessageStories from "./message.stories";
@@ -52,29 +52,29 @@ Various types are available:
 
 Message variant is `info` by default
 
-<Canvas name="default" of={MessageStories.Default} />
+<Canvas of={MessageStories.Default} />
 
 ### showCloseIcon
 
 When the `showCloseIcon` is `false` the close icon will not be rendered, and padding with be equal on both sides.
 
-<Canvas name="showCloseIcon" of={MessageStories.ShowCloseIcon} />
+<Canvas of={MessageStories.ShowCloseIcon} />
 
 ### Neutral
 
-<Canvas name="neutral" of={MessageStories.Neutral} />
+<Canvas of={MessageStories.Neutral} />
 
 ### Error
 
-<Canvas name="error" of={MessageStories.Error} />
+<Canvas of={MessageStories.Error} />
 
 ### Success
 
-<Canvas name="success" of={MessageStories.Success} />
+<Canvas of={MessageStories.Success} />
 
 ### Warning
 
-<Canvas name="warning" of={MessageStories.Warning} />
+<Canvas of={MessageStories.Warning} />
 
 ### Transparent
 
@@ -84,7 +84,7 @@ When the `showCloseIcon` is `false` the close icon will not be rendered, and pad
 
 It is also possible to use the `List`, `ListItem` and `Typography` components to render content other than plain text in a `Message`.
 
-<Canvas name="with rich content" of={MessageStories.WithRichContent} />
+<Canvas of={MessageStories.WithRichContent} />
 
 ### With margin
 
@@ -93,13 +93,13 @@ To see a full list of available margin props, please visit the props table at th
 
 [Visit Props Table](#props)
 
-<Canvas name="with margin" of={MessageStories.WithMargin} />
+<Canvas of={MessageStories.WithMargin} />
 
 ### With focus
 
 Since it is possible to pass a ref to this component, it is also possible to programmatically focus the component.
 
-<Canvas name="with focus" of={MessageStories.WithFocus} />
+<Canvas of={MessageStories.WithFocus} />
 
 ## Props
 

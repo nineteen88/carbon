@@ -1,14 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box";
-import Portrait, { PortraitProps } from ".";
+import Portrait from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<PortraitProps>>;
+});
 
 const meta: Meta<typeof Portrait> = {
   title: "Portrait",

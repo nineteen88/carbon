@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
@@ -49,7 +49,7 @@ By default an anchor element will be rendered.
 
 `target` and `rel` props will be passed down to the anchor element when provided.
 
-<Canvas name="default" of={LinkStories.DefaultStory} />
+<Canvas of={LinkStories.DefaultStory} />
 
 ### Disabled
 
@@ -57,13 +57,13 @@ Setting the `disabled` prop to true disables the link.
 
 **Please note**: To disable an anchor, the `href` prop must not be defined.
 
-<Canvas name="with disabled" of={LinkStories.WithDisabled} />
+<Canvas of={LinkStories.WithDisabled} />
 
 ### Icon
 
 The `icon` prop allows you to render an icon.
 
-<Canvas name="with icon" of={LinkStories.WithIcon} />
+<Canvas of={LinkStories.WithIcon} />
 
 #### Icon Align
 
@@ -71,7 +71,7 @@ The `iconAlign` prop allows you to control if the icon renders to left or right 
 
 **Please note**: To be used only when the `icon` prop is defined.
 
-<Canvas name="with iconAlign" of={LinkStories.WithIconAlign} />
+<Canvas of={LinkStories.WithIconAlign} />
 
 #### Tooltip
 
@@ -79,7 +79,7 @@ By rendering an icon and providing a string to the `tooltipMessage` prop, a tool
 
 **Please note**: To be used only when the `icon` prop is defined.
 
-<Canvas name="with tooltip" of={LinkStories.WithTooltip} />
+<Canvas of={LinkStories.WithTooltip} />
 
 ### isSkipLink
 
@@ -88,7 +88,7 @@ The `Skip Link` has been created to allow users to use keyboard controls to skip
 It allows a user to jump into the main content without going through the whole `Menu` component, button by button.
 To show how it works, press the TAB key and you will be able to see how `Skip Link` will displays.
 
-<Canvas name="with isSkipLink" of={LinkStories.WithIsSkipLink} />
+<Canvas of={LinkStories.WithIsSkipLink} />
 
 ### onClick
 
@@ -100,26 +100,26 @@ instead so that the styles match the semantics. If the `onClick` function perfor
 HTML `<a>` tag is used instead. See for example our [React Router docs](?path=/docs/documentation-usage-with-routing--page), where we use `Link` with `onClick` to
 perform client-side routing, but still provide the `href` to render an HTML link rather than a button.
 
-<Canvas name="with onClick" of={LinkStories.WithOnClick} />
+<Canvas of={LinkStories.WithOnClick} />
 
 ### variants
 
 Setting the `variant` prop to either `negative` or `neutral` enables overriding of the `default` styling of the `Link` component.
 
-<Canvas name="variants" of={LinkStories.Variants} />
+<Canvas of={LinkStories.Variants} />
 
 ### On a dark background
 
 When the `Link` component is rendered on a dark background, the `isDarkBackground` prop can be used to update the colour styling
 to ensure there is enough contrast.
 
-<Canvas name="on a dark background" of={LinkStories.OnADarkBackground} />
+<Canvas of={LinkStories.OnADarkBackground} />
 
 ### Link that wraps
 
 Just as with a native HTML anchor element, `Link` components will wrap onto the next line if they contain long text.
 
-<Canvas name="link that wraps" of={LinkStories.Wrapping} />
+<Canvas of={LinkStories.Wrapping} />
 
 ## Props
 

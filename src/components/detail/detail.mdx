@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as DetailStories from "./detail.stories.tsx"
 
@@ -30,19 +30,19 @@ import Detail from "carbon-react/lib/components/detail";
 
 This is an example of how the Detail component will look in its default format.
 
-<Canvas name="default" of={DetailStories.Default} />
+<Canvas of={DetailStories.Default} />
 
 ### Detail with a Footnote
 
 Detail can also have a footnote by using the `footnote` prop.
 
-<Canvas name="with Footnote" of={DetailStories.DetailWithFootnote} />
+<Canvas of={DetailStories.DetailWithFootnote} />
 
 ### Default with Icon
 
 Detail can also have an icon that renders to the left.
 
-<Canvas name="with icon" of={DetailStories.DetailWithIcon} />
+<Canvas of={DetailStories.DetailWithIcon} />
 
 ### Inside of Components
 
@@ -50,13 +50,13 @@ Detail can also have an icon that renders to the left.
 
 Detail can be nested inside of components. Inside of this example it is nested inside of the `Card` component.
 
-<Canvas name="inside of card" of={DetailStories.DetailInsideCard} />
+<Canvas of={DetailStories.DetailInsideCard} />
 
 #### Inside of Tile
 
 In this example, Detail is nested inside of the `Tile` component.
 
-<Canvas name="inside of tile" of={DetailStories.DetailInsideTile} />
+<Canvas of={DetailStories.DetailInsideTile} />
 
 ## Props
 

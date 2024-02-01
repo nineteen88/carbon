@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as PreviewStories from "./preview.stories";
 
@@ -28,23 +28,23 @@ import Preview from "carbon-react/lib/components/preview";
 
 ### Default
 
-<Canvas name="default" of={PreviewStories.Default} />
+<Canvas of={PreviewStories.Default} />
 
 ### Preview with Lines
 
-<Canvas name="with Lines" of={PreviewStories.WithLines} />
+<Canvas of={PreviewStories.WithLines} />
 
 ### Preview with Children
 
-<Canvas name="with Children" of={PreviewStories.WithChildren} />
+<Canvas of={PreviewStories.WithChildren} />
 
 ### Preview with Custom Width
 
-<Canvas name="with Width" of={PreviewStories.WithWidth} />
+<Canvas of={PreviewStories.WithWidth} />
 
 ### Preview with Custom Height
 
-<Canvas name="with Height" of={PreviewStories.WithHeight} />
+<Canvas of={PreviewStories.WithHeight} />
 
 ## Props
 

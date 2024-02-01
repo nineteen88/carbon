@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as ButtonMinorStories from "./button-minor.stories";
 
@@ -40,114 +40,105 @@ import ButtonMinor from "carbon-react/lib/components/button-minor";
 
 For the single most prominent call to action on the page (e.g. Save, Submit, Continue).
 
-<Canvas name="primary" of={ButtonMinorStories.PrimaryButton} />
+<Canvas of={ButtonMinorStories.PrimaryButton} />
 
 Primary buttons can be destructive.
 
 <Canvas
-  name="primary/destructive"
   of={ButtonMinorStories.PrimaryDestructiveButton}
 />
 
 Primary buttons can be disabled.
 
-<Canvas name="primary/disabled" of={ButtonMinorStories.PrimaryDisabledButton} />
+<Canvas of={ButtonMinorStories.PrimaryDisabledButton} />
 
 Primary buttons can have an icon positioned before or after the text.
 
-<Canvas name="primary/icon" of={ButtonMinorStories.PrimaryIconButton} />
+<Canvas of={ButtonMinorStories.PrimaryIconButton} />
 
 Primary buttons can be `fullWidth`.
 
 <Canvas
-  name="primary/full-width"
   of={ButtonMinorStories.PrimaryFullWidthButton}
 />
 
 Primary buttons can be set into `noWrap` mode to prevent text wrapping.
 
-<Canvas name="primary/noWrap" of={ButtonMinorStories.PrimaryNoWrapButton} />
+<Canvas of={ButtonMinorStories.PrimaryNoWrapButton} />
 
 ### Secondary Buttons
 
 Less prominent, there can be multiple secondary buttons on a page.
 Secondary buttons are transparent, rather than white.
 
-<Canvas name="secondary" of={ButtonMinorStories.SecondaryButton} />
+<Canvas of={ButtonMinorStories.SecondaryButton} />
 
 Secondary buttons can be destructive.
 
 <Canvas
-  name="secondary/destructive"
   of={ButtonMinorStories.SecondaryDestructiveButton}
 />
 Secondary buttons can be disabled.
 
 <Canvas
-  name="secondary/disabled"
   of={ButtonMinorStories.SecondaryDisabledButton}
 />
 
 Secondary buttons can have an icon positioned before or after the text.
 
-<Canvas name="secondary/icon" of={ButtonMinorStories.SecondaryIconButton} />
+<Canvas of={ButtonMinorStories.SecondaryIconButton} />
 
 Secondary buttons can be `fullWidth`.
 
 <Canvas
-  name="secondary/full-width"
   of={ButtonMinorStories.SecondaryFullWidthButton}
 />
 
 Secondary buttons can be set into `noWrap` mode to prevent text wrapping.
 
-<Canvas name="secondary/noWrap" of={ButtonMinorStories.SecondaryNoWrapButton} />
+<Canvas of={ButtonMinorStories.SecondaryNoWrapButton} />
 
 ### Tertiary Buttons
 
 Tertiary Buttons or 'ghost' buttons are used for reversing actions, like 'Cancel' or 'Back'.
 
-<Canvas name="tertiary" of={ButtonMinorStories.TertiaryButton} />
+<Canvas of={ButtonMinorStories.TertiaryButton} />
 
 Tertiary buttons can be destructive.
 
 <Canvas
-  name="tertiary/destructive"
   of={ButtonMinorStories.TertiaryDestructiveButton}
 />
 
 Tertiary buttons can be disabled.
 
 <Canvas
-  name="tertiary/disabled"
   of={ButtonMinorStories.TertiaryDisabledButton}
 />
 
 Tertiary buttons can have an icon positioned before or after the text.
 
-<Canvas name="tertiary/icon" of={ButtonMinorStories.TertiaryIconButton} />
+<Canvas of={ButtonMinorStories.TertiaryIconButton} />
 
 Tertiary buttons can be `fullWidth`.
 
 <Canvas
-  name="tertiary/full-width"
   of={ButtonMinorStories.TertiaryFullWidthButton}
 />
 
 Tertiary buttons can be set to `noWrap` mode to prevent text wrapping.
 
-<Canvas name="tertiary/noWrap" of={ButtonMinorStories.TertiaryNoWrapButton} />
+<Canvas of={ButtonMinorStories.TertiaryNoWrapButton} />
 
 ### Icon Only Button
 
 Buttons can be rendered with just an icon.
 
-<Canvas name="icon only button" of={ButtonMinorStories.IconOnlyButton} />
+<Canvas of={ButtonMinorStories.IconOnlyButton} />
 
 Icon only buttons can also display a tooltip message when the icon is hovered over. This can be acheived by passing a string to the `iconTooltipMessage` prop.
 
 <Canvas
-  name="icon only button with tooltip"
   of={ButtonMinorStories.IconOnlyWithTooltipButton}
 />
 

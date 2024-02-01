@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as FieldsetStories from "./fieldset.stories";
 
@@ -25,31 +25,31 @@ import Fieldset from "carbon-react/lib/components/fieldset";
 
 ### Default
 
-<Canvas name="default" of={FieldsetStories.Default} />
+<Canvas of={FieldsetStories.Default} />
 
 ### Fieldset in Form
 
-<Canvas name="in form - basic" of={FieldsetStories.InFormBasic} />
+<Canvas of={FieldsetStories.InFormBasic} />
 
 ### `fieldSpacing`
 
 You can manipulate the spacings beetwen `Fieldset` components by passing `fieldSpacing` prop into `Form` component
 
-<Canvas name="in form - fieldSpacing" of={FieldsetStories.InFormFieldSpacing} />
+<Canvas of={FieldsetStories.InFormFieldSpacing} />
 
 ### Validations
 
 #### As a string
 
-<Canvas name="validations - string - component" of={FieldsetStories.ValidationsStringComponent} />
+<Canvas of={FieldsetStories.ValidationsStringComponent} />
 
 #### As a string, displayed on label
 
-<Canvas name="validations - string - label" of={FieldsetStories.ValidationsStringLabel} />
+<Canvas of={FieldsetStories.ValidationsStringLabel} />
 
 #### As a boolean
 
-<Canvas name="validations - boolean" of={FieldsetStories.ValidationsBoolean} />
+<Canvas of={FieldsetStories.ValidationsBoolean} />
 
 ## Props
 

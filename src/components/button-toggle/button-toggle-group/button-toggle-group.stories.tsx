@@ -8,7 +8,7 @@ import Box from "../../box";
 const meta: Meta<typeof ButtonToggleGroup> = {
   title: "ButtonToggleGroup",
   component: ButtonToggleGroup,
-  tags: ["isHidden"],
+  tags: ["hideInSidebar"],
 };
 
 export default meta;

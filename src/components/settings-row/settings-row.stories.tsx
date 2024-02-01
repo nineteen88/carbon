@@ -1,13 +1,13 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import SettingsRow, { SettingsRowProps } from ".";
+import SettingsRow from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SettingsRowProps>>;
+});
 
 const meta: Meta<typeof SettingsRow> = {
   title: "Settings Row",

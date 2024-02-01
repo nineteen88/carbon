@@ -4,15 +4,9 @@ const projectRoot = path.resolve(__dirname, "../");
 const ignoreTests = process.env.IGNORE_TESTS === "true";
 const isChromatic = !ignoreTests;
 const getStories = () =>
-  glob.sync(`${projectRoot}/src/**/*.@(mdx)`, {
+  glob.sync(`${projectRoot}/src/**/*.{mdx,stories.@(js|jsx|ts|tsx)}`, {
     ...(ignoreTests && {
-      ignore: `${projectRoot}/src/**/*.stories.@(js|mdx|tsx)`,
-    }),
-  });
-const getCSFStories = () =>
-  glob.sync(`${projectRoot}/src/**/*.stories.@(jsx|tsx)`, {
-    ...(ignoreTests && {
-      ignore: `${projectRoot}/src/**/*-test.stories.@(js|mdx|tsx)`,
+      ignore: `${projectRoot}/src/**/*-test.stories.@(js|jsx|ts|tsx)`,
     }),
   });
 module.exports = {
@@ -21,7 +15,6 @@ module.exports = {
     "../docs/*.mdx",
     "../docs/*.stories.tsx",
     ...getStories(),
-    ...getCSFStories(),
   ],
   core: {
     disableTelemetry: true,
@@ -32,10 +25,8 @@ module.exports = {
     "@storybook/addon-controls",
     "@storybook/addon-viewport",
     "@storybook/addon-a11y",
-    "@storybook/addon-google-analytics",
     "@storybook/addon-links",
     "@storybook/addon-toolbars",
-    "@storybook/addon-mdx-gfm",
   ],
   staticDirs: ["../.assets", "../logo"],
   webpackFinal: async (config, { configType }) => {
@@ -46,17 +37,18 @@ module.exports = {
       extensions: [".js", ".tsx", ".ts"],
     };
 
-    // Find the rule that matches the condition
-    const fontRule = config.module.rules.find((rule) =>
+    // Finds the rule for woff2 files and modifies the file-loader to preserve the original filenames to allow us to preload them
+    const fontRuleIndex = config.module.rules.findIndex((rule) =>
       rule.test.toString().includes("woff2")
     );
-    if (fontRule && Array.isArray(fontRule.use)) {
-      // Update the name property for the appropriate loader in the use array
-      fontRule.use.forEach((loader) => {
-        if (loader.loader && loader.loader.includes("file-loader")) {
-          loader.options.name = "static/media/[name].[ext]";
-        }
-      });
+    if (fontRuleIndex !== -1) {
+      config.module.rules[fontRuleIndex] = {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|png)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "static/media/[name][ext]",
+        },
+      };
     }
 
     return config;

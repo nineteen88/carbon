@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
 import I18nProvider from "../i18n-provider";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box";
-import Textbox, { TextboxProps } from ".";
+import Textbox from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<TextboxProps>>;
+});
 
 const meta: Meta<typeof Textbox> = {
   title: "Textbox",
@@ -127,6 +127,7 @@ export const Margins: Story = () => {
   };
   return <Textbox label="Textbox" value={state} onChange={setValue} m={4} />;
 };
+Margins.storyName = "Margins";
 
 export const AutoFocus: Story = () => {
   return (
@@ -136,7 +137,7 @@ export const AutoFocus: Story = () => {
     </Box>
   );
 };
-Margins.storyName = "Margins";
+AutoFocus.storyName = "Auto Focus";
 AutoFocus.parameters = { chromatic: { disableSnapshot: true } };
 
 export const Disabled: Story = () => {

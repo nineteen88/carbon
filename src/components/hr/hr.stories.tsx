@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import Hr, { HrProps } from ".";
+import Hr from ".";
 import Form from "../form";
 import Textbox from "../textbox";
 import Button from "../button";
@@ -14,7 +14,7 @@ const styledSystemProps = generateStyledSystemProps(
     margin: true,
   },
   { mt: "3", mb: "3" }
-) as Partial<ArgTypes<HrProps>>;
+);
 
 const meta: Meta<typeof Hr> = {
   title: "Hr",

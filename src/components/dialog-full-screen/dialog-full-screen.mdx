@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as DialogFullScreenStories from "./dialog-full-screen.stories";
@@ -38,7 +38,7 @@ import DialogFullScreen from "carbon-react/lib/components/dialog-full-screen";
 
 ### Default
 
-<Canvas name="default" of={DialogFullScreenStories.Default} />
+<Canvas of={DialogFullScreenStories.Default} />
 
 ### With complex example
 
@@ -46,38 +46,34 @@ If you want to use more than one group of `Tabs` remember to put `selectedTabId`
 to have a possibility to manage active `Tabs` group
 
 <Canvas
-  name="with complex example"
   of={DialogFullScreenStories.WithComplexExample}
 />
 
 ### With disableContentPadding
 
 <Canvas
-  name="with disableContentPadding"
   of={DialogFullScreenStories.WithDisableContentPadding}
 />
 
 ### With header children
 
 <Canvas
-  name="with header children"
   of={DialogFullScreenStories.WithHeaderChildren}
 />
 
 ### With help
 
-<Canvas name="with help" of={DialogFullScreenStories.WithHelp} />
+<Canvas of={DialogFullScreenStories.WithHelp} />
 
 ### With hideable header children
 
 <Canvas
-  name="with hideable header children"
   of={DialogFullScreenStories.WithHideableHeaderChildren}
 />
 
 ### With `Box`
 
-<Canvas name="with box" of={DialogFullScreenStories.WithBox} />
+<Canvas of={DialogFullScreenStories.WithBox} />
 
 ### Overriding the first focused element
 
@@ -88,7 +84,6 @@ you want to focus supports `autoFocus` then the you can override the default beh
 and setting the `autoFocus` on the element you wish to be focused instead (click the second button to see an example).
 
 <Canvas
-  name="focusing a different first element"
   of={DialogFullScreenStories.FocusingADifferentFirstElement}
 />
 
@@ -98,7 +93,6 @@ Using the `focusableContainers` prop allows elements that are not DOM children o
 This may occasionally be useful with things like Toasts where they persist on the page until dismissed by clicking a close icon.
 
 <Canvas
-  name="other focusable containers"
   of={DialogFullScreenStories.OtherFocusableContainers}
 />
 
@@ -111,7 +105,6 @@ modal is treated as top set the `topModalOverride` prop. Please note that in the
 set on multiple modals, the last one mounted with it will be treated as top.
 
 <Canvas
-  name="top modal override"
   of={DialogFullScreenStories.TopModalOverride}
 />
 

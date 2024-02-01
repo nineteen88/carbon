@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import InlineInputs, { InlineInputsProps } from ".";
+import InlineInputs from ".";
 import Textbox from "../textbox";
 import Decimal from "../decimal";
 import { Select, Option } from "../select";
@@ -12,7 +12,7 @@ import Box from "../box";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<InlineInputsProps>>;
+});
 
 const meta: Meta<typeof InlineInputs> = {
   title: "Inline Inputs",

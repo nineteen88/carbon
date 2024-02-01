@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as LoaderBarStories from "./loader-bar.stories.tsx";
@@ -44,19 +44,19 @@ import LoaderBar from "carbon-react/lib/components/loader-bar";
 
 This example of the LoaderBar component demonstrates how it will appear as default.
 
-<Canvas name="default" of={LoaderBarStories.DefaultStory} />
+<Canvas of={LoaderBarStories.DefaultStory} />
 
 ### Small bar
 
 This is an example of a small LoaderBar component.
 
-<Canvas name="small" of={LoaderBarStories.SmallStoryLoaderbar} />
+<Canvas of={LoaderBarStories.SmallStoryLoaderbar} />
 
 ### Large bar
 
 This is an example of a large LoaderBar component.
 
-<Canvas name="large" of={LoaderBarStories.LargeStoryLoaderbar} />
+<Canvas of={LoaderBarStories.LargeStoryLoaderbar} />
 
 ## Props
 

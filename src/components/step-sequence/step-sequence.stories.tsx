@@ -1,15 +1,15 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
 import Box from "../box";
-import { StepSequence, StepSequenceItem, StepSequenceProps } from ".";
+import { StepSequence, StepSequenceItem } from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<StepSequenceProps>>;
+});
 
 const meta: Meta<typeof StepSequence> = {
   title: "Step Sequence",

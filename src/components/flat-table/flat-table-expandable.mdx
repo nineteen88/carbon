@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as FlatTableRowStories from "./flat-table-row/flat-table-row.stories";
 import * as FlatTableExpandableStories from "./flat-table-expandable.stories";
@@ -17,7 +17,7 @@ import * as FlatTableExpandableStories from "./flat-table-expandable.stories";
 
 Flat table rows can be made expandable, with any number of sub rows.
 
-<Canvas name="default" of={FlatTableExpandableStories.DefaultStory} />
+<Canvas of={FlatTableExpandableStories.DefaultStory} />
 
 ### Keyboard accessible subrows
 
@@ -25,7 +25,6 @@ In order to make the subrows keyboard accessible you will need to pass a callbac
 below.
 
 <Canvas
-  name="keyboard accessible subrows"
   of={FlatTableExpandableStories.KeyboardAccessibleSubRows}
 />
 
@@ -34,7 +33,6 @@ below.
 Only clicking on the first column can expand the row with this option set.
 
 <Canvas
-  name="expandable by first column only"
   of={FlatTableExpandableStories.ExpandableByFirstColumnOnly}
 />
 
@@ -43,7 +41,6 @@ Only clicking on the first column can expand the row with this option set.
 Set the rows to be open by default.
 
 <Canvas
-  name="initially expanded"
   of={FlatTableExpandableStories.InitiallyExpanded}
 />
 
@@ -54,7 +51,7 @@ right hand side sticky column. To set a column to be sticky on the left hand sid
 `stickyAlignment` prop to `left` (this is the default value) and for the right hand side sticky
 columns set the prop to `right`.
 
-<Canvas name="row headers" of={FlatTableExpandableStories.RowHeaders} />
+<Canvas of={FlatTableExpandableStories.RowHeaders} />
 
 ### With row headers with custom paddings
 
@@ -62,7 +59,6 @@ Rows with row headers can also be made expandable and can also have custom paddi
 In this example `Child one` has `pl={8}` and `Child two` has `pl={5}` as well as having an icon.
 
 <Canvas
-  name="row headers with custom paddings"
   of={FlatTableExpandableStories.RowHeadersWithCustomPaddings}
 />
 
@@ -70,14 +66,13 @@ In this example `Child one` has `pl={8}` and `Child two` has `pl={5}` as well as
 
 Tables with pagination can have expandable rows.
 
-<Canvas name="paginated" of={FlatTableExpandableStories.Paginated} />
+<Canvas of={FlatTableExpandableStories.Paginated} />
 
 ### With parent and children selectable
 
 By writing your own selectable logic, both parent and child rows can be made selectable.
 
 <Canvas
-  name="both parent and children selectable"
   of={FlatTableExpandableStories.BothParentAndChildrenSelectable}
 />
 
@@ -86,7 +81,6 @@ By writing your own selectable logic, both parent and child rows can be made sel
 By writing your own selectable logic, the parent rows only can be made selectable.
 
 <Canvas
-  name="parent only selectable"
   of={FlatTableExpandableStories.ParentOnlySelectable}
 />
 
@@ -95,7 +89,6 @@ By writing your own selectable logic, the parent rows only can be made selectabl
 By writing your own selectable logic, the child rows only can be made selectable.
 
 <Canvas
-  name="children only selectable"
   of={FlatTableExpandableStories.ChildrenOnlySelectable}
 />
 
@@ -105,17 +98,16 @@ In order to achieve the content truncation when using the `expandable` feature y
 truncated styling applied, this is because of the caret icon that is rendered within the cell.
 
 <Canvas
-  name="truncated cell content"
   of={FlatTableExpandableStories.TruncatedCellContent}
 />
 
 ### Controlled
 
-<Canvas name="controlled" of={FlatTableExpandableStories.Controlled} />
+<Canvas of={FlatTableExpandableStories.Controlled} />
 
 ### Table Sizes
 
-<Canvas name="sizes" of={FlatTableExpandableStories.Sizes} />
+<Canvas of={FlatTableExpandableStories.Sizes} />
 
 ## Props
 

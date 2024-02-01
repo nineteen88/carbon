@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
@@ -40,17 +40,17 @@ import FileInput from "carbon-react/lib/components/file-input";
 
 ### Default
 
-<Canvas name="default" of={FileInputStories.Default} />
+<Canvas of={FileInputStories.Default} />
 
 ### With inputHint
 
-<Canvas name="with inputHint" of={FileInputStories.WithInputHint} />
+<Canvas of={FileInputStories.WithInputHint} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={FileInputStories.Required} />
+<Canvas of={FileInputStories.Required} />
 
 ### Size variations
 
@@ -62,17 +62,17 @@ explanatory text, or to match the precise width/height of a particular design. E
 
 #### Increased height
 
-<Canvas name="increased height" of={FileInputStories.IncreasedHeight} />
+<Canvas of={FileInputStories.IncreasedHeight} />
 
 #### Both height and width increased
 
-<Canvas name="increased width and height" of={FileInputStories.IncreasedBoth} />
+<Canvas of={FileInputStories.IncreasedBoth} />
 
 #### Full width example
 
 Note that any valid CSS values can be used for these props, and that you can therefore set the `maxWidth` to `"100%"` to fill out the entire container width:
 
-<Canvas name="100% width" of={FileInputStories.FullWidth} />
+<Canvas of={FileInputStories.FullWidth} />
 
 #### Responsive increased width example
 
@@ -82,7 +82,6 @@ ensure no horizontal overflow, and the <LinkTo kind="documentation-hooks-useMedi
 smaller screen-sizes, as illustratred below:
 
 <Canvas
-  name="increased width - responsive"
   of={FileInputStories.IncreasedWidthResponsive}
 />
 
@@ -93,7 +92,7 @@ One common variation is to have the text vertically stacked below the button, wi
 provided - so `maxHeight` should not be used in conjunction with `isVertical`. (A sufficiently large `maxHeight` will make the component lay out vertically
 anyway.)
 
-<Canvas name="vertical" of={FileInputStories.Vertical} />
+<Canvas of={FileInputStories.Vertical} />
 
 ### Validations
 
@@ -107,7 +106,7 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 
 NOTE: old-style tooltip validation is not supported for this component - no matter whether the nearest wrapping `CarbonProvider` sets the `validationRedesignOptIn` flag or not.
 
-<Canvas name="validations" of={FileInputStories.Validation} />
+<Canvas of={FileInputStories.Validation} />
 
 ### Accept
 
@@ -115,19 +114,18 @@ The `accept` prop is passed directly to the underlying HTML `<input type="file">
 
 Please see the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept) for more details on this attribute. Note that it does not prevent the user
 from uploading a file of the incorrect type, for example via drag and drop - so you might still want to use the `onChange` prop to add an error message as soon as an
-inappropriate file is added. And of course nothing takes away the need for validation on the server side. However the `accept` prop is still recommended to guide the user
+inappropriate file is added. And of course nothing takes away the need for validation on the server side. However the `accept` prop is still recommended to guide the user -
+when selecting a file via the "select file" button, the operating system's file picker will either highlight the appropriate files, or make it impossible to select
+incorrect ones.
 
-- when selecting a file via the "select file" button, the operating system's file picker will either highlight the appropriate files, or make it impossible to select
-  incorrect ones.
-
-<Canvas name="accept" of={FileInputStories.Accept} />
+<Canvas of={FileInputStories.Accept} />
 
 ### Validation of file type
 
 Here is a simple example showing how the `onChange` and `error` props can be used in conjunction with `accept` to warn the user if they have chosen an inappropriate
 file.
 
-<Canvas name="validation example" of={FileInputStories.FileTypeValidation} />
+<Canvas of={FileInputStories.FileTypeValidation} />
 
 ### Tracking upload status
 
@@ -152,7 +150,6 @@ browser freeze or even crash. If your application needs to process large files o
 [reading the file into an ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsArrayBuffer) and processing that piece-by-piece.
 
 <Canvas
-  name="tracking upload status on client side"
   of={FileInputStories.UploadStatusClient}
 />
 
@@ -163,7 +160,6 @@ This simple example mocks the progress (and the possibility of errors, such as n
 alternative endpoint for the upload progress, or use WebSocket messages sent from the server to update progress.
 
 <Canvas
-  name="tracking upload status alternative"
   of={FileInputStories.UploadStatusAlternative}
 />
 
@@ -174,7 +170,6 @@ animated <LinkTo kind="LoaderBar" story="default">LoaderBar</LinkTo> component, 
 that a <LinkTo kind="ProgressBar" story="default">ProgressBar</LinkTo> as it does when `progress` is provided.
 
 <Canvas
-  name="with loader animation"
   of={FileInputStories.UploadStatusNoProgress}
 />
 

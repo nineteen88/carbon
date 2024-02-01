@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryFn, StoryObj } from "@storybook/react";
+import { Meta, StoryFn, StoryObj } from "@storybook/react";
 
 import GroupedCharacter, { GroupedCharacterProps, CustomEvent } from ".";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
@@ -7,7 +7,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<GroupedCharacterProps>>;
+});
 
 const meta: Meta<typeof GroupedCharacter> = {
   title: "Grouped Character",

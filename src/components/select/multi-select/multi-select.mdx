@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import TranslationKeysTable from "../../../../.storybook/utils/translation-keys-table";
 
@@ -37,44 +37,43 @@ If you type printable characters in the Textbox, you can filter through the exis
 
 ### Default
 
-<Canvas name="default" of={MultiSelectStories.Default} />
+<Canvas of={MultiSelectStories.Default} />
 
 ### List placement
 
 You can use `listPlacement` prop to set the position of the select list relative to the input element.
 
-<Canvas name="list placement" of={MultiSelectStories.ListPlacement} />
+<Canvas of={MultiSelectStories.ListPlacement} />
 
 ### List height
 
 You can use `listMaxHeight` prop to override default max height value of select list.
 
-<Canvas name="list height" of={MultiSelectStories.ListHeight} />
+<Canvas of={MultiSelectStories.ListHeight} />
 
 ### Controlled Usage
 
-<Canvas name="controlled" of={MultiSelectStories.Controlled} />
+<Canvas of={MultiSelectStories.Controlled} />
 
 ### Open on focus
 
-<Canvas name="openOnFocus" of={MultiSelectStories.OpenOnFocus} />
+<Canvas of={MultiSelectStories.OpenOnFocus} />
 
 ### Disabled
 
-<Canvas name="disabled" of={MultiSelectStories.Disabled} />
+<Canvas of={MultiSelectStories.Disabled} />
 
 ### Read Only
 
-<Canvas name="readonly" of={MultiSelectStories.Readonly} />
+<Canvas of={MultiSelectStories.Readonly} />
 
 ### With disabled portal
 
-<Canvas name="withDisabledPortal" of={MultiSelectStories.WithDisabledPortal} />
+<Canvas of={MultiSelectStories.WithDisabledPortal} />
 
 ### With multiple columns:
 
 <Canvas
-  name="with multiple columns"
   of={MultiSelectStories.WithMultipleColumns}
 />
 
@@ -82,7 +81,7 @@ You can use `listMaxHeight` prop to override default max height value of select 
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={MultiSelectStories.Required} />
+<Canvas of={MultiSelectStories.Required} />
 
 ### With object as value
 
@@ -90,13 +89,13 @@ Option values could be passed as objects, useful when custom data is associated 
 When the `id` property is set, objects will be compared based on that property (could be used when the list is recreated after an API call).
 If there is no `id` prop specified on an object, then the exact objects will be compared.
 
-<Canvas name="with object as value" of={MultiSelectStories.WithObjectAsValue} />
+<Canvas of={MultiSelectStories.WithObjectAsValue} />
 
 ### With isLoading prop
 
 When `isLoading` prop is passed, a loader will be appended at the end of the Select List. That functionality could be used to load the options asynchronously.
 
-<Canvas name="with isLoading prop" of={MultiSelectStories.WithIsLoadingProp} />
+<Canvas of={MultiSelectStories.WithIsLoadingProp} />
 
 ### Custom colored Pills
 
@@ -105,7 +104,6 @@ It's possible to change the appearance of the selected Pills by using the `borde
 See <LinkTo kind="Documentation/Colors" name="page" story="page">Colors</LinkTo> for more information on usable colors
 
 <Canvas
-  name="with custom colored pills"
   of={MultiSelectStories.WithCustomColoredPills}
 />
 
@@ -114,14 +112,12 @@ See <LinkTo kind="Documentation/Colors" name="page" story="page">Colors</LinkTo>
 In this example the `maxWidth` prop is 50%.
 
 <Canvas
-  name="with custom maxWidth"
   of={MultiSelectStories.WithCustomMaxWidth}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={MultiSelectStories.ValidationsStringNewDesign}
 />
 
@@ -130,7 +126,7 @@ In this example the `maxWidth` prop is 50%.
 By default the Pill text will wrap when it overflows the input width, you can override this by
 setting the `wrapPillText` prop to false.
 
-<Canvas name="pills with long text" of={MultiSelectStories.PillsWithLongText} />
+<Canvas of={MultiSelectStories.PillsWithLongText} />
 
 ### Virtual scrolling
 
@@ -140,7 +136,7 @@ This allows an unlimited amount of children to be passed with little impact on r
 By default this will render 5 not-currently-visible options into the DOM on either side of the currently-visible ones - this value can
 be customised if desired using the `virtualScrollOverscan` prop. Higher values will make scrolling smoother but may negatively impact performance.
 
-<Canvas name="virtualised" of={MultiSelectStories.Virtualised} />
+<Canvas of={MultiSelectStories.Virtualised} />
 
 ## Props
 

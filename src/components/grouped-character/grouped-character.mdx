@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as GroupedCharacterStories from "./grouped-character.stories";
 
@@ -30,73 +30,70 @@ import GroupedCharacter from "carbon-react/lib/components/grouped-character";
 
 ### Default
 
-<Canvas name="default" of={GroupedCharacterStories.DefaultStory} />
+<Canvas of={GroupedCharacterStories.DefaultStory} />
 
 ### Sizes
 
-<Canvas name="sizes" of={GroupedCharacterStories.Sizes} />
+<Canvas of={GroupedCharacterStories.Sizes} />
 
 ### AutoFocus
 
-<Canvas name="autoFocus" of={GroupedCharacterStories.AutoFocus} />
+<Canvas of={GroupedCharacterStories.AutoFocus} />
 
 ### LabelAlign
 
-<Canvas name="labelAlign" of={GroupedCharacterStories.LabelAlign} />
+<Canvas of={GroupedCharacterStories.LabelAlign} />
 
 ### Disabled
 
-<Canvas name="disabled" of={GroupedCharacterStories.Disabled} />
+<Canvas of={GroupedCharacterStories.Disabled} />
 
 ### Various separators
 
 <Canvas
-  name="various separators"
   of={GroupedCharacterStories.VariousSeparators}
 />
 
 ### Various groups
 
-<Canvas name="various groups" of={GroupedCharacterStories.VariousGroups} />
+<Canvas of={GroupedCharacterStories.VariousGroups} />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={GroupedCharacterStories.LabelInline} />
+<Canvas of={GroupedCharacterStories.LabelInline} />
 
 ### With custom labelWidth and inputWidth
 
 <Canvas
-  name="with custom labelWidth and inputWidth"
   of={GroupedCharacterStories.LabelInputWidth}
 />
 
 ### With custom maxWidth
 
 <Canvas
-  name="with custom maxWidth"
   of={GroupedCharacterStories.WithCustomMaxWidth}
 />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={GroupedCharacterStories.FieldHelp} />
+<Canvas of={GroupedCharacterStories.FieldHelp} />
 
 ### with inputHint
 
 When the `inputHint` prop is passed, please use a full stop `.` at the end. This forces a pause
 before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="with inputHint" story={GroupedCharacterStories.InputHint} />
+<Canvas story={GroupedCharacterStories.InputHint} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={GroupedCharacterStories.LabelHelp} />
+<Canvas of={GroupedCharacterStories.LabelHelp} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={GroupedCharacterStories.Required} />
+<Canvas of={GroupedCharacterStories.Required} />
 
 ### Validations
 
@@ -111,42 +108,36 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={GroupedCharacterStories.ValidationsStringComponent}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={GroupedCharacterStories.ValidationsTooltip}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={GroupedCharacterStories.ValidationsStringLabel}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={GroupedCharacterStories.ValidationsTooltipLabel}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={GroupedCharacterStories.ValidationsRedesign}
 />
 
 #### As a boolean
 
 <Canvas
-  name="validations - boolean"
   of={GroupedCharacterStories.ValidationsBoolean}
 />
 

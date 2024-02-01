@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import LinkTo from "@storybook/addon-links/react";
 
@@ -33,7 +33,7 @@ It's possible to change the text position, using the spacing props. See the prop
 
 It's also possible to create ordered and unordered lists using the `List`, `ListItem` helpers. These components are syntactic sugar around the `Typography` component and accept the same props.
 
-<Canvas name="variants" of={TypographyStories.VariantsStory} />
+<Canvas of={TypographyStories.VariantsStory} />
 
 ## Example of truncate
 
@@ -41,7 +41,7 @@ The `truncate` prop is a boolean prop that automatically applies the styles requ
 
 This prop will only work with block level elements, so ensure `display="block"` or similar is set to enable this functionality.
 
-<Canvas name="truncate" of={TypographyStories.TruncateStory} />
+<Canvas of={TypographyStories.TruncateStory} />
 
 ## Recommended body text colors
 
@@ -60,7 +60,7 @@ This prop will only work with block level elements, so ensure `display="block"` 
 
 The `screenReaderOnly` prop is a boolean prop that will make the Typography component visually hidden and only available for screen readers.
 
-<Canvas name="screenReaderOnly" of={TypographyStories.ScreenReaderOnlyStory} />
+<Canvas of={TypographyStories.ScreenReaderOnlyStory} />
 
 ## Props
 

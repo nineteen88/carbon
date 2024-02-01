@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useRef, useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import Message, { MessageProps } from ".";
+import Message from ".";
 import Button from "../button";
 import Typography, { List, ListItem } from "../typography";
 import Box from "../box";
@@ -11,7 +11,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<MessageProps>>;
+});
 
 const meta: Meta<typeof Message> = {
   title: "Message",

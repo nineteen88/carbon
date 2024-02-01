@@ -1,0 +1,43 @@
+import { Meta, Canvas } from "@storybook/addon-docs";
+import * as ContentTestStories from "./content-test.stories.tsx";
+
+<Meta
+  title="Content/Test"
+  parameters={{
+    info: { disable: true },
+    chromatic: {
+      disableSnapshot: true,
+    },
+  }}
+  argTypes={{
+    variant: {
+      options: ["primary", "secondary"],
+      control: {
+        type: "select",
+      },
+    },
+    align: {
+      options: ["left", "center", "right"],
+      control: {
+        type: "select",
+      },
+    },
+  }}
+/>
+
+# Content
+
+### Default
+
+<Canvas
+  args={{
+    children: "An example of some content.",
+    title: "Content Component",
+    variant: undefined,
+    inline: false,
+    align: undefined,
+    titleWidth: "",
+    bodyFullWidth: false,
+  }}
+  of={ContentTestStories.DefaultStory}
+></Canvas>

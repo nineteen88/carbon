@@ -4,7 +4,7 @@ import { Checkbox, CheckboxGroup } from ".";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
 
 const meta: Meta<typeof Checkbox> = {
-  title: "Checkbox",
+  title: "Checkbox/Validations",
   component: Checkbox,
 };
 

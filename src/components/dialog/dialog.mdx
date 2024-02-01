@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
@@ -49,17 +49,17 @@ import Dialog from "carbon-react/lib/components/dialog";
 
 ### Default
 
-<Canvas name="default" of={DialogStories.DefaultStory} />
+<Canvas of={DialogStories.DefaultStory} />
 
 ### Editable
 
 When mixing editable and non-editable content, you can use the <LinkTo kind="Box" story="page">Box</LinkTo> component to highlight the fields that can be changed.
 
-<Canvas name="editable" of={DialogStories.Editable} />
+<Canvas of={DialogStories.Editable} />
 
 ### With help
 
-<Canvas name="with help" of={DialogStories.WithHelp} />
+<Canvas of={DialogStories.WithHelp} />
 
 ### Overriding the first focused element
 
@@ -70,7 +70,6 @@ you want to focus supports `autoFocus` then the you can override the default beh
 and setting the `autoFocus` on the element you wish to be focused instead (click the second button to see an example).
 
 <Canvas
-  name="focusing a different first element"
   of={DialogStories.FocusingADifferentFirstElement}
 />
 
@@ -78,14 +77,13 @@ and setting the `autoFocus` on the element you wish to be focused instead (click
 
 For situations where content cannot be rendered immediately, such as content dependent on data from an external API, conditional rendering and the `Loader` component can be used to create a loading pattern:
 
-<Canvas name="loading content" of={DialogStories.LoadingContent} />
+<Canvas of={DialogStories.LoadingContent} />
 
 Note in the previous example, the first `Textbox` in the loaded content has autofocus, which is recommended so assistive technology users are informed of the updated content.
 
 Alternatively, focus can be programmatically moved back to the `Dialog` if the title or subtitle has been updated as part of a content change. Most screen readers will then announce the new title indicating to users that the dialog has changed:
 
 <Canvas
-  name="refocusing dialog using ref handle"
   of={DialogStories.UsingHandle}
 />
 
@@ -112,7 +110,6 @@ Using the `contentPadding` prop will enable the padding of the `Dialog` content 
 set the padding to 0. Please see the [table below](#props) for more information about the values accepted by this prop.
 
 <Canvas
-  name="overriding content padding"
   of={DialogStories.OverridingContentPadding}
 />
 
@@ -122,13 +119,12 @@ Using the `focusableContainers` prop allows elements that are not DOM children o
 This may occasionally be useful with things like Toasts where they persist on the page until dismissed by clicking a close icon.
 
 <Canvas
-  name="other focusable containers"
   of={DialogStories.OtherFocusableContainers}
 />
 
 ### Responsive Example
 
-<Canvas name="responsive" of={DialogStories.Responsive} />
+<Canvas of={DialogStories.Responsive} />
 
 ### Top modal override
 
@@ -138,13 +134,13 @@ create unexpected issues if the loading of the dialogs isn't synchronous. In ord
 modal is treated as top set the `topModalOverride` prop. Please note that in the scenario where this prop is
 set on multiple modals, the last one mounted with it will be treated as top.
 
-<Canvas name="top modal override" of={DialogStories.TopModalOverride} />
+<Canvas of={DialogStories.TopModalOverride} />
 
 ### With grey background
 
 Please note that setting the background color to grey may cause color contrast accessibility issues.
 
-<Canvas name="with grey background" story={DialogStories.GreyBackground} />
+<Canvas story={DialogStories.GreyBackground} />
 
 ## Props
 

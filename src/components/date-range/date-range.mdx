@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as DateRangeStories from "./date-range.stories";
@@ -39,11 +39,11 @@ import DateRange from "carbon-react/lib/components/date-range";
 
 ### Default
 
-<Canvas name="default" of={DateRangeStories.DefaultStory} />
+<Canvas of={DateRangeStories.DefaultStory} />
 
 ### LabelsInline
 
-<Canvas name="labelsInline" of={DateRangeStories.LabelsInline} />
+<Canvas of={DateRangeStories.LabelsInline} />
 
 ### Validations
 
@@ -58,28 +58,24 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={DateRangeStories.ValidationsStringComponent}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={DateRangeStories.ValidationsStringWithTooltipPositionOverriddenComponent}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={DateRangeStories.ValidationsStringLabel}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={DateRangeStories.ValidationsStringWithTooltipPositionOverriddenLabel}
 />
 
@@ -90,19 +86,18 @@ should remain aligned but labels may no longer be when a string wraps. Label tex
 exceed the input widht will also wrap to a new line.
 
 <Canvas
-  name="validations - string - new design"
   of={DateRangeStories.ValidationsStringNewDesign}
 />
 
 #### As a boolean
 
-<Canvas name="validations - boolean" of={DateRangeStories.ValidationsBoolean} />
+<Canvas of={DateRangeStories.ValidationsBoolean} />
 
 ### Allow Empty Value
 
 You can pass prop `allowEmptyValue` to start and end `DateInput` using `startDateProps` and `endDateProps`.
 
-<Canvas name="allowEmptyValue" of={DateRangeStories.AllowEmptyValue} />
+<Canvas of={DateRangeStories.AllowEmptyValue} />
 
 ### Locale override
 
@@ -110,7 +105,6 @@ The examples below illustrates how to override the locale passed into the DateRa
 the French locale. Required locales can be imported like so `import { fr } from 'carbon-react/lib/locales/date-fns-locales';`
 
 <Canvas
-  name="locale override - example implementation"
   of={DateRangeStories.LocaleOverrideExampleImplementation}
 />
 

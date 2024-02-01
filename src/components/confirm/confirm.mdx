@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as ConfirmStories from "./confirm.stories";
 
@@ -39,57 +39,55 @@ import Confirm from "carbon-react/lib/components/confirm";
 
 ### Default
 
-<Canvas name="default" of={ConfirmStories.Default} />
+<Canvas of={ConfirmStories.Default} />
 
 ### Single action
 
-<Canvas name="single action" of={ConfirmStories.SingleAction} />
+<Canvas of={ConfirmStories.SingleAction} />
 
 ### Destructive cancel button
 
 <Canvas
-  name="cancelButtonDestructive"
   of={ConfirmStories.CancelButtonDestructive}
 />
 
 ### Destructive confirm button
 
 <Canvas
-  name="confirmButtonDestructive"
   of={ConfirmStories.ConfirmButtonDestructive}
 />
 
 ### Disable confirm button
 
-<Canvas name="disableConfirm" of={ConfirmStories.DisableConfirm} />
+<Canvas of={ConfirmStories.DisableConfirm} />
 
 ### Disable cancel button
 
-<Canvas name="disableCancel" of={ConfirmStories.DisableCancel} />
+<Canvas of={ConfirmStories.DisableCancel} />
 
 ### Change cancel button type
 
 Allows to set variant which is supported in `<Button />` and it will be applied to the `cancel` button
 
-<Canvas name="cancelButtonType" of={ConfirmStories.CancelButtonType} />
+<Canvas of={ConfirmStories.CancelButtonType} />
 
 ### Change confirm button type
 
 Allows to set variant which is supported in `<Button />` and it will be applied to the `confirm` button
 
-<Canvas name="confirmButtonType" of={ConfirmStories.ConfirmButtonType} />
+<Canvas of={ConfirmStories.ConfirmButtonType} />
 
 ### Change buttons icons
 
-<Canvas name="buttonsIcons" of={ConfirmStories.ButtonsIcons} />
+<Canvas of={ConfirmStories.ButtonsIcons} />
 
 ### Confirm button loading
 
-<Canvas name="isLoadingConfirm" of={ConfirmStories.IsLoadingConfirm} />
+<Canvas of={ConfirmStories.IsLoadingConfirm} />
 
 ### Confirm with Custom Data Tags
 
-<Canvas name="data tags" of={ConfirmStories.DefaultWithCustomDataTags} />
+<Canvas of={ConfirmStories.DefaultWithCustomDataTags} />
 
 ## Props
 

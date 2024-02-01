@@ -1,9 +1,9 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import Heading, { HeadingProps } from "./heading.component";
+import Heading from "./heading.component";
 import Box from "../box";
 import { Tile } from "../tile";
 import { Dl, Dt, Dd } from "../definition-list";
@@ -12,7 +12,7 @@ import Pill from "../pill/pill.component";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<HeadingProps>>;
+});
 
 const meta: Meta<typeof Heading> = {
   title: "Heading",

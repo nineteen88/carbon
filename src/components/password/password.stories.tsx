@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box/box.component";
 import CarbonProvider from "../carbon-provider";
-import Password, { PasswordProps } from ".";
+import Password from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<PasswordProps>>;
+});
 
 const meta: Meta<typeof Password> = {
   title: "Password",

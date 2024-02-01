@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import {
   Select,
@@ -7,7 +7,6 @@ import {
   OptionRow,
   OptionGroupHeader,
   CustomSelectChangeEvent,
-  SimpleSelectProps,
 } from "..";
 import Button from "../../button";
 import Icon from "../../icon";
@@ -20,7 +19,7 @@ import SimpleSelect from "./simple-select.component";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<SimpleSelectProps>>;
+});
 
 const meta: Meta<typeof SimpleSelect> = {
   title: "Select",

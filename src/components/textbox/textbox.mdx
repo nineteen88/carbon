@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as TextboxStories from "./textbox.stories";
@@ -46,14 +46,14 @@ import Textbox from "carbon-react/lib/components/textbox";
 
 ### Default
 
-<Canvas name="default" of={TextboxStories.Default} />
+<Canvas of={TextboxStories.Default} />
 
 ### Character counter
 
 If you use the `inputHint` prop to provide the user with a hint before the input, please use a full stop `.` at the end,
 as it forces a pause before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="character counter" of={TextboxStories.CharacterCounter} />
+<Canvas of={TextboxStories.CharacterCounter} />
 
 ### Character counter with translations
 
@@ -65,73 +65,71 @@ is over/under the set `characterLimit`. Please see below how this has been achie
 Include the formatted number count wherever makes sense for the language you're translating too.
 
 <Canvas
-  name="character counter with translations"
   of={TextboxStories.CharacterCounterTranslations}
 />
 
 ### Prefix
 
-<Canvas name="prefix" of={TextboxStories.Prefix} />
+<Canvas of={TextboxStories.Prefix} />
 
 ### Sizes
 
-<Canvas name="sizes" of={TextboxStories.Sizes} />
+<Canvas of={TextboxStories.Sizes} />
 
 ### Margins
 
-<Canvas name="margins" of={TextboxStories.Margins} />
+<Canvas of={TextboxStories.Margins} />
 
 ### AutoFocus
 
-<Canvas name="autoFocus" of={TextboxStories.AutoFocus} />
+<Canvas of={TextboxStories.AutoFocus} />
 
 ### Disabled
 
-<Canvas name="disabled" of={TextboxStories.Disabled} />
+<Canvas of={TextboxStories.Disabled} />
 
 ### ReadOnly
 
-<Canvas name="readOnly" of={TextboxStories.ReadOnly} />
+<Canvas of={TextboxStories.ReadOnly} />
 
 ### With labelInline
 
-<Canvas name="with labelInline" of={TextboxStories.WithLabelInline} />
+<Canvas of={TextboxStories.WithLabelInline} />
 
 ### With custom labelWidth and inputWidth
 
 <Canvas
-  name="with custom labelWidth and inputWidth"
   of={TextboxStories.WithCustomLabelWidthAndInputWidth}
 />
 
 ### With custom maxWidth
 
-<Canvas name="with custom maxWidth" of={TextboxStories.WithCustomMaxWidth} />
+<Canvas of={TextboxStories.WithCustomMaxWidth} />
 
 ### With fieldHelp
 
-<Canvas name="with fieldHelp" of={TextboxStories.WithFieldHelp} />
+<Canvas of={TextboxStories.WithFieldHelp} />
 
 ### With inputHint
 
 When the `inputHint` prop is passed, please use a full stop `.` at the end. This forces a pause
 before any other announcements, this well help screen reader users understand the hint fully.
 
-<Canvas name="with inputHint" of={TextboxStories.WithInputHint} />
+<Canvas of={TextboxStories.WithInputHint} />
 
 ### With labelHelp
 
-<Canvas name="with labelHelp" of={TextboxStories.WithLabelHelp} />
+<Canvas of={TextboxStories.WithLabelHelp} />
 
 ### Required
 
 You can use the `required` prop to indicate if the field is mandatory.
 
-<Canvas name="required" of={TextboxStories.Required} />
+<Canvas of={TextboxStories.Required} />
 
 ### LabelAlign
 
-<Canvas name="labelAlign" of={TextboxStories.LabelAlign} />
+<Canvas of={TextboxStories.LabelAlign} />
 
 ### Validations
 
@@ -146,42 +144,36 @@ For more information check our [Validations](?path=/docs/documentation-validatio
 #### As a string
 
 <Canvas
-  name="validations - string - component"
   of={TextboxStories.ValidationsAsAString}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - component"
   of={TextboxStories.ValidationsAsAStringWithTooltipCustom}
 />
 
 #### As a string, displayed on label
 
 <Canvas
-  name="validations - string - label"
   of={TextboxStories.ValidationsAsAStringDisplayedOnLabel}
 />
 
 #### New designs validation
 
 <Canvas
-  name="validations - string - new design"
   of={TextboxStories.NewDesignsValidation}
 />
 
 It is possible to use the `tooltipPosition` to override the default placement of tooltips rendered as part of this component.
 
 <Canvas
-  name="validations - string - with tooltipPosition overriden - label"
   of={TextboxStories.ValidationsAsAStringWithTooltipDefault}
 />
 
 #### As a boolean
 
 <Canvas
-  name="validations - boolean"
   of={TextboxStories.ValidationsAsABoolean}
 />
 

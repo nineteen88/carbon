@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as LinkPreviewStories from "./link-preview.stories.tsx";
 
@@ -30,14 +30,14 @@ By default the component will render an anchor element if it is not in a loading
 be focused via tabbing and pressing enter or clicking will open the target in a new tab. The component surfaces a range of
 props which can be seen in the table below. If no `image` props are passed a placeholder will be used.
 
-<Canvas name="default" of={LinkPreviewStories.DefaultStory} />
+<Canvas of={LinkPreviewStories.DefaultStory} />
 
 ### With loading state
 
 If no `url` is passed or the `isLoading` prop is true the component will display in a loading state. When in this state, it
 renders as a `div` element: it cannot be focused via tabbing and clicking will not trigger anything.
 
-<Canvas name="with loading state" of={LinkPreviewStories.LinkPreviewLoadingState} />
+<Canvas of={LinkPreviewStories.LinkPreviewLoadingState} />
 
 ### With close icon
 
@@ -45,7 +45,7 @@ If the component is rendered in edit mode as a `div` element, it is possible to 
 a close icon and pass the callback to it. The icon can be focused via tabbing and the callback will be triggered via click or
 via pressing enter or space when focused.
 
-<Canvas name="with close icon" of={LinkPreviewStories.LinkPreviewCloseIcon} />
+<Canvas of={LinkPreviewStories.LinkPreviewCloseIcon} />
 
 ## Props
 

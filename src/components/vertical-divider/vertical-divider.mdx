@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as VerticalDividerStories from "./vertical-divider.stories";
 
@@ -32,21 +32,21 @@ import VerticalDivider from "carbon-react/lib/components/vertical-divider";
 
 By default the VerticalDivider has a height of `100%` and padding of `24px`.
 
-<Canvas name="default" of={VerticalDividerStories.Default} />
+<Canvas of={VerticalDividerStories.Default} />
 
 ### In a flex container
 
 It is possible to set a custom height for the component by passing a value to the `h` prop as either a number or a string:
 if passing a number the height will be set in pixels; if passing a string you will need to ensure you provide the measurement unit.
 
-<Canvas name="in a flex container" of={VerticalDividerStories.InAFlexContainer} />
+<Canvas of={VerticalDividerStories.InAFlexContainer} />
 
 ### In a non-flex container
 
 When using the component in a non-flex container you can set the `displayInline` prop to true (default is false). This will
 add the css attribute `display: inline;` to the component.
 
-<Canvas name="in a non-flex container" of={VerticalDividerStories.InANonFlexContainer} />
+<Canvas of={VerticalDividerStories.InANonFlexContainer} />
 
 ### With custom spacing and height
 
@@ -55,7 +55,6 @@ the `pr` and `pr` props set the horizontal spacing. These props can be number mu
 theme spacing which is `8px`, or any valid CSS string. The default for the `p` prop is `3` and therefore `24px`.
 
 <Canvas
-  name="with custom spacing and height"
   of={VerticalDividerStories.WithCustomSpacingHeight}
 />
 
@@ -64,29 +63,29 @@ theme spacing which is `8px`, or any valid CSS string. The default for the `p` p
 It is possible to pass a value (any value between `1` and `100`) to the `tint` prop (default is `80`) to adjust the tint
 applied to the slate.
 
-<Canvas name="with custom tint" of={VerticalDividerStories.WithCustomTint} />
+<Canvas of={VerticalDividerStories.WithCustomTint} />
 
 ### In a Dialog
 
-<Canvas name="in a dialog" of={VerticalDividerStories.InADialog} />
+<Canvas of={VerticalDividerStories.InADialog} />
 
 ### In a Tile
 
-<Canvas name="in a tile" of={VerticalDividerStories.InATile} />
+<Canvas of={VerticalDividerStories.InATile} />
 
 ### In a grid container
 
 This example is best viewed in the Canvas tab using full-screen mode with device or viewport emulation.
 
-<Canvas name="in grid container" of={VerticalDividerStories.InGridContainer} />
+<Canvas of={VerticalDividerStories.InGridContainer} />
 
 ### In a table
 
-<Canvas name="in a table" of={VerticalDividerStories.InATable} />
+<Canvas of={VerticalDividerStories.InATable} />
 
 ### In a Menu
 
-<Canvas name="in a menu" of={VerticalDividerStories.InAMenu} />
+<Canvas of={VerticalDividerStories.InAMenu} />
 
 ## Props
 

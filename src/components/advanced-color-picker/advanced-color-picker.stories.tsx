@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
-import AdvancedColorPicker, { AdvancedColorPickerProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import AdvancedColorPicker from ".";
 import isChromatic from "../../../.storybook/isChromatic";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<AdvancedColorPickerProps>>;
+});
 
 const meta: Meta<typeof AdvancedColorPicker> = {
   title: "Advanced Color Picker",

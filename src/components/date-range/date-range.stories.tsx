@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
 import I18nProvider from "../i18n-provider";
 import { fr } from "../../locales/date-fns-locales";
 
-import DateRange, {
-  DateRangeChangeEvent,
-  DateRangeProps,
-} from "./date-range.component";
+import DateRange, { DateRangeChangeEvent } from "./date-range.component";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<DateRangeProps>>;
+});
 
 const meta: Meta<typeof DateRange> = {
   title: "Date Range",

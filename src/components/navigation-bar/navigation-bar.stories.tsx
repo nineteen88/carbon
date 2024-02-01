@@ -1,16 +1,16 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import NavigationBar, { NavigationBarProps } from "./navigation-bar.component";
+import NavigationBar from "./navigation-bar.component";
 import { Menu, MenuDivider, MenuItem } from "../menu";
 import Box from "../box";
 
 const styledSystemProps = generateStyledSystemProps({
   padding: true,
   flexBox: true,
-}) as Partial<ArgTypes<NavigationBarProps>>;
+});
 
 const meta: Meta<typeof NavigationBar> = {
   title: "Navigation Bar",

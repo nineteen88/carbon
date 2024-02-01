@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
-import { RadioButtonGroup, RadioButton, RadioButtonProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import { RadioButtonGroup, RadioButton } from ".";
 import Typography from "../typography";
 import CarbonProvider from "../carbon-provider";
 import Box from "../box";
@@ -9,7 +9,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<RadioButtonProps>>;
+});
 
 const meta: Meta<typeof RadioButton> = {
   title: "Radio Button",

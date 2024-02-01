@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as PageStories from "./page/page.stories";
 import * as PagesStories from "./pages.stories";
@@ -29,19 +29,19 @@ import Pages, { Page } from "carbon-react/lib/components/pages";
 
 ### Default
 
-<Canvas name="default" of={PagesStories.Default} />
+<Canvas of={PagesStories.Default} />
 
 ### Pages with Initial Page Index
 
-<Canvas name="with Initial Page Index" of={PagesStories.WithInitialPageIndex} />
+<Canvas of={PagesStories.WithInitialPageIndex} />
 
 ## Inside DialogFullScreen
 
-<Canvas name="inside DialogFullScreen" of={PagesStories.InsideDialogFullScreen} />
+<Canvas of={PagesStories.InsideDialogFullScreen} />
 
 ### Overriding content padding
 
-<Canvas name="overriding content padding" of={PagesStories.OverridingContentPadding} />
+<Canvas of={PagesStories.OverridingContentPadding} />
 
 ## Props
 

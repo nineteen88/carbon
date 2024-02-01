@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Meta, StoryObj } from "@storybook/react";
 
 import CarbonProvider from "../carbon-provider";
+import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import I18nProvider from "../i18n-provider";
 import Button from "../button";
@@ -12,9 +13,16 @@ import TextEditor, {
   TextEditorContentState as ContentState,
 } from "./text-editor.component";
 
+const styledSystemProps = generateStyledSystemProps({
+  margin: true,
+});
+
 const meta: Meta<typeof TextEditor> = {
   title: "Text Editor",
   component: TextEditor,
+  argTypes: {
+    ...styledSystemProps,
+  },
 };
 
 export default meta;

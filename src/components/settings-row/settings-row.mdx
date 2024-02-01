@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import * as SettingsRowStories from "./settings-row.stories.tsx";
 
@@ -34,13 +34,13 @@ The default `divider` line at the bottom of the row may be disabled by setting `
 
 All `children` are rendered in the input column to the right of the header column.
 
-<Canvas name="default" of={SettingsRowStories.Default} />
+<Canvas of={SettingsRowStories.Default} />
 
 ### with HeadingType
 
 The `headingType` prop sets the HTML heading element of the `title` within the component which is rendered on the page. It can take values `"h1"` up to `"h5"`.
 
-<Canvas name="headingType" of={SettingsRowStories.HeadingType} />
+<Canvas of={SettingsRowStories.HeadingType} />
 
 ## Props
 

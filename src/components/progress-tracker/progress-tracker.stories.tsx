@@ -1,14 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Box from "../box";
-import ProgressTracker, { ProgressTrackerProps } from ".";
+import ProgressTracker from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<ProgressTrackerProps>>;
+});
 
 const meta: Meta<typeof ProgressTracker> = {
   title: "Progress Tracker",

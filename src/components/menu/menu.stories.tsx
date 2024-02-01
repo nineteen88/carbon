@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import {
   Menu,
@@ -8,7 +8,6 @@ import {
   MenuSegmentTitle,
   ScrollableBlock,
   MenuFullscreen,
-  MenuProps,
 } from ".";
 import Box from "../box";
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -20,7 +19,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 const styledSystemProps = generateStyledSystemProps({
   flexBox: true,
   layout: true,
-}) as Partial<ArgTypes<MenuProps>>;
+});
 
 const meta: Meta<typeof Menu> = {
   title: "Menu",

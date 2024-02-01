@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import Form, { FormProps } from ".";
+import Form from ".";
 import Button from "../button";
 import { Tab, Tabs } from "../tabs";
 import Box from "../box";
@@ -23,7 +23,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   spacing: true,
-}) as Partial<ArgTypes<FormProps>>;
+});
 
 const meta: Meta<typeof Form> = {
   title: "Form",

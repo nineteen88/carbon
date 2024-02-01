@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 
 import LinkTo from "@storybook/addon-links/react";
 
@@ -40,30 +40,30 @@ import Icon from "carbon-react/lib/components/icon";
 
 ### Default
 
-<Canvas name="default" of={IconStories.Default} />
+<Canvas of={IconStories.Default} />
 
 ### Disabled
 
-<Canvas name="disabled" of={IconStories.Disabled} />
+<Canvas of={IconStories.Disabled} />
 
 ### With tooltip
 
 The Icon supports rendering tooltips internally, just pass a node to `tooltipMessage` to enable this feature. Other props,
 such as `tooltipPosition`, `tooltipVisible` , `tooltipBgColor`, `tooltipFontColor` and `tooltipFlipOverrides` are also surfaced.
 
-<Canvas name="with tooltip" of={IconStories.WithTooltip} />
+<Canvas of={IconStories.WithTooltip} />
 
 ### Various fontSizes
 
-<Canvas name="various fontSizes" of={IconStories.VariousFontSizes} />
+<Canvas of={IconStories.VariousFontSizes} />
 
 ### Various bgShapes
 
-<Canvas name="various bgShapes" of={IconStories.VariousBgShapes} />
+<Canvas of={IconStories.VariousBgShapes} />
 
 ### Various bgSizes
 
-<Canvas name="various bgSizes" of={IconStories.VariousBgSizes} />
+<Canvas of={IconStories.VariousBgSizes} />
 
 ### Custom colors
 

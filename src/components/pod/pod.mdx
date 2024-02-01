@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import LinkTo from "@storybook/addon-links/react";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
@@ -42,20 +42,19 @@ import Pod from "carbon-react/lib/components/pod";
 
 ### Default
 
-<Canvas name="default" of={PodStories.Default} />
+<Canvas of={PodStories.Default} />
 
 ### with title and subtitle passed as nodes
 
 A node can be passed as both the `title` and `subtitle` props, we recommend using `<Typography>`
 
 <Canvas
-  name="with title and subtitle passed as nodes"
   of={PodStories.WithTitleAndSubtitleNode}
 />
 
 ### Custom height
 
-<Canvas name="with custom height" of={PodStories.WithCustomHeight} />
+<Canvas of={PodStories.WithCustomHeight} />
 
 ### Even height
 
@@ -63,69 +62,64 @@ If you want to have the same height of the Pods based on the highest one, use `G
 and then set `height` prop to `100%` on each `Pod` so that it fills the entire height of `GridItem`
 
 <Canvas
-  name="even height multiple Pods"
   of={PodStories.EvenHeightMultiplePods}
 />
 
 ### With subtitle and footer
 
-<Canvas name="with subtitle and footer" of={PodStories.WithSubtitleAndFooter} />
+<Canvas of={PodStories.WithSubtitleAndFooter} />
 
 ### Without border
 
-<Canvas name="without border" of={PodStories.WithoutBorder} />
+<Canvas of={PodStories.WithoutBorder} />
 
 ### With edit button
 
-<Canvas name="with edit button" of={PodStories.WithEditButton} />
+<Canvas of={PodStories.WithEditButton} />
 
 ### With delete button
 
-<Canvas name="with delete button" of={PodStories.WithDeleteButton} />
+<Canvas of={PodStories.WithDeleteButton} />
 
 ### Soft delete state
 
-<Canvas name="soft delete state" of={PodStories.SoftDeleteState} />
+<Canvas of={PodStories.SoftDeleteState} />
 
 ### With edit button and displayEditButtonOnHover
 
 <Canvas
-  name="with displayEditButtonOnHover"
   of={PodStories.WithDisplayEditButtonOnHover}
 />
 
 ### With edit button and editContentFullWidth
 
 <Canvas
-  name="with editContentFullWidth"
   of={PodStories.WithEditContentFullWidth}
 />
 
 ### With internal edit button
 
 <Canvas
-  name="with internal edit button"
   of={PodStories.WithInternalEditButton}
 />
 
 ### With different variants
 
-<Canvas name="with different variants" of={PodStories.WithDifferentVariants} />
+<Canvas of={PodStories.WithDifferentVariants} />
 
 ### With different sizes
 
-<Canvas name="with different sizes" of={PodStories.WithDifferentSizes} />
+<Canvas of={PodStories.WithDifferentSizes} />
 
 ### With different title alignments
 
 <Canvas
-  name="with different title alignments"
   of={PodStories.WithDifferentTitleAlignments}
 />
 
 ### Address pod
 
-<Canvas name="address example" of={PodStories.AddressExample} />
+<Canvas of={PodStories.AddressExample} />
 
 ## Props
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
-import LoaderBar, { LoaderBarProps } from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import LoaderBar from ".";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<LoaderBarProps>>;
+});
 
 const meta: Meta<typeof LoaderBar> = {
   title: "Loader Bar",

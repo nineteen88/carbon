@@ -1,6 +1,6 @@
 // eslint-disable @typescript-eslint/no-unused-vars
 import React, { useState, useCallback, useMemo } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import {
   DuellingPicklist,
@@ -10,7 +10,6 @@ import {
   PicklistDivider,
   PicklistPlaceholder,
   PicklistGroup,
-  DuellingPicklistProps,
 } from ".";
 import Dialog from "../dialog/dialog.component";
 import Search from "../search";
@@ -23,7 +22,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<DuellingPicklistProps>>;
+});
 
 const meta: Meta<typeof DuellingPicklist> = {
   title: "Duelling Picklist",

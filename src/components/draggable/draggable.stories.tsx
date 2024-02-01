@@ -1,14 +1,14 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
-import { DraggableContainer, DraggableContainerProps, DraggableItem } from ".";
+import { DraggableContainer, DraggableItem } from ".";
 import { Checkbox } from "../checkbox";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<DraggableContainerProps>>;
+});
 
 const meta: Meta<typeof DraggableContainer> = {
   title: "Draggable",

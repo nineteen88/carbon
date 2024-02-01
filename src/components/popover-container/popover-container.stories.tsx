@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
@@ -12,13 +12,11 @@ import Pill from "../pill";
 import Badge from "../badge";
 import isChromatic from "../../../.storybook/isChromatic";
 import { Select, Option } from "../select";
-import PopoverContainer, {
-  PopoverContainerProps,
-} from "./popover-container.component";
+import PopoverContainer from "./popover-container.component";
 
 const styledSystemProps = generateStyledSystemProps({
   padding: true,
-}) as Partial<ArgTypes<PopoverContainerProps>>;
+});
 
 const meta: Meta<typeof PopoverContainer> = {
   title: "Popover Container",

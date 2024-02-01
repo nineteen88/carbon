@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import {
   FlexTileCell,
@@ -7,7 +7,6 @@ import {
   Tile,
   TileContent,
   TileFooter,
-  TileProps,
 } from ".";
 
 import { Dl, Dt, Dd } from "../definition-list";
@@ -30,7 +29,7 @@ const styledSystemProps = generateStyledSystemProps(
     width: true,
   },
   { p: 3 }
-) as Partial<ArgTypes<TileProps>>;
+);
 
 const meta: Meta<typeof Tile> = {
   title: "Tile",

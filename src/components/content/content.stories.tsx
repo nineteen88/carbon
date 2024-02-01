@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 import Content, { ContentProps } from ".";
@@ -7,7 +7,7 @@ import Typography from "../typography";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<ContentProps>>;
+});
 
 const meta: Meta<typeof Content> = {
   title: "Content",

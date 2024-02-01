@@ -1,7 +1,6 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
-import { FieldsetProps } from "__internal__/fieldset";
 import Fieldset from ".";
 import { Select, Option } from "../select";
 import Textbox from "../textbox";
@@ -12,7 +11,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<FieldsetProps>>;
+});
 
 const meta: Meta<typeof Fieldset> = {
   title: "Fieldset",

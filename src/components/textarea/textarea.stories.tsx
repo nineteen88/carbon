@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import Box from "../box";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 import I18nProvider from "../i18n-provider";
 
-import Textarea, { TextareaProps } from ".";
+import Textarea from ".";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<TextareaProps>>;
+});
 
 const meta: Meta<typeof Textarea> = {
   title: "Textarea",

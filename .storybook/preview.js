@@ -2,6 +2,7 @@ import withGlobalStyles from "./with-global-styles";
 import { withLocaleSelector } from "./locale-selector";
 import { withThemeProvider, globalThemeProvider } from "./withThemeProvider";
 import { withPortalProvider } from "./with-portal-provider";
+import sageStorybookTheme from "./sageStorybookTheme";
 
 import "../src/style/fonts.css";
 import "./style/story-root.css";
@@ -45,8 +46,7 @@ const customViewports = {
 };
 
 export const parameters = {
-  /* layout: "fullscreen", not sure what this was for but it's overriding the docs layout */
-  docs: { canvas: { layout: "padded" } },
+  docs: { canvas: { layout: "fullscreen" }, theme: sageStorybookTheme },
   a11y: {
     // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
     options: {

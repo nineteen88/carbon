@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import React, { useState, useRef } from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import useMediaQuery from "../../hooks/useMediaQuery";
 
-import FileInput, { FileInputProps, FileUploadStatusProps } from ".";
+import FileInput, { FileUploadStatusProps } from ".";
 import generateStyledSystemProps from "../../../.storybook/utils/styled-system-props";
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-}) as Partial<ArgTypes<FileInputProps>>;
+});
 
 const meta: Meta<typeof FileInput> = {
   title: "File Input",

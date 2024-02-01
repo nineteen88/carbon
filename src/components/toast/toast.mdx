@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from "@storybook/addon-docs";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
 import * as ToastStories from "./toast.stories";
@@ -80,47 +80,47 @@ Please note, by clicking a `toggle preview` button it will open example toast at
 
 Toast variant is `success` by default
 
-<Canvas name="default" of={ToastStories.Default} />
+<Canvas of={ToastStories.Default} />
 
 ### Horizontal Align - Left
 
-<Canvas name="horizontal left aligned" of={ToastStories.AlignedLeft} />
+<Canvas of={ToastStories.AlignedLeft} />
 
 ### Horizontal Align - Center
 
-<Canvas name="horizontal center aligned" of={ToastStories.AlignedCenter} />
+<Canvas of={ToastStories.AlignedCenter} />
 
 ### Horizontal Align - Right
 
-<Canvas name="horizontal right aligned" of={ToastStories.AlignedRight} />
+<Canvas of={ToastStories.AlignedRight} />
 
 ## Vertical Align - Top
 
-<Canvas name="vertical top aligned" of={ToastStories.AlignedYTop} />
+<Canvas of={ToastStories.AlignedYTop} />
 
 ### Vertical Align - Center
 
-<Canvas name="vertical center aligned" of={ToastStories.AlignedYCenter} />
+<Canvas of={ToastStories.AlignedYCenter} />
 
 ### Vertical Align - Bottom
 
-<Canvas name="vertical bottom aligned" of={ToastStories.AlignedYBottom} />
+<Canvas of={ToastStories.AlignedYBottom} />
 
 ### Info
 
-<Canvas name="info" of={ToastStories.Info} />
+<Canvas of={ToastStories.Info} />
 
 ### Neutral
 
-<Canvas name="neutral" of={ToastStories.Neutral} />
+<Canvas of={ToastStories.Neutral} />
 
 ### Error
 
-<Canvas name="error" of={ToastStories.Error} />
+<Canvas of={ToastStories.Error} />
 
 ### Warning
 
-<Canvas name="warning" of={ToastStories.Warning} />
+<Canvas of={ToastStories.Warning} />
 
 ### Notice
 
@@ -128,35 +128,33 @@ When the "notice" variant is set, the Toast component is rendered at the bottom 
 The "isCenter" and "maxWidth" props will be ignored in this variant.
 To render it at the top of the screen use the "alignY" prop set to "top".
 
-<Canvas name="notice" of={ToastStories.Notice} />
+<Canvas of={ToastStories.Notice} />
 
 ### Notification
 
-<Canvas name="notification" of={ToastStories.Notification} />
+<Canvas of={ToastStories.Notification} />
 
 ### Variant Left Aligned
 
-<Canvas name="left aligned" of={ToastStories.LeftAligned} />
+<Canvas of={ToastStories.LeftAligned} />
 
 ### Custom max width
 
-<Canvas name="custom-max-width" of={ToastStories.CustomMaxWidth} />
+<Canvas of={ToastStories.CustomMaxWidth} />
 
 ### Dismissible
 
-<Canvas name="dismissible" of={ToastStories.Dismissible} />
+<Canvas of={ToastStories.Dismissible} />
 
 ### Dismissible with timeout
 
 <Canvas
-  name="dismissible-with-timeout"
   of={ToastStories.DismissibleWithTimeout}
 />
 
 ### Dismissible without autoFocus
 
 <Canvas
-  name="dismissible without autoFocus"
   of={ToastStories.DismissibleWithoutAutoFocus}
 />
 
@@ -164,13 +162,13 @@ To render it at the top of the screen use the "alignY" prop set to "top".
 
 One second delay
 
-<Canvas name="stacked-delayed" of={ToastStories.StackedDelayed} />
+<Canvas of={ToastStories.StackedDelayed} />
 
 ### Grouped (stacking)
 
 Please use `targetPortalId` prop to group multiple toasts so that they stack.
 
-<Canvas name="stacked" of={ToastStories.Stacked} />
+<Canvas of={ToastStories.Stacked} />
 
 ## Props
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { ArgTypes, Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 
 import Box, { BoxProps } from ".";
 import Button from "../button";
@@ -12,7 +12,7 @@ const styledSystemProps = generateStyledSystemProps({
   grid: true,
   layout: true,
   position: true,
-}) as Partial<ArgTypes<BoxProps>>;
+});
 
 const meta: Meta<typeof Box> = {
   title: "Box",
