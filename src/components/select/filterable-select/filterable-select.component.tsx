@@ -442,19 +442,20 @@ export const FilterableSelect = React.forwardRef(
     }, [handleGlobalClick]);
 
     useEffect(() => {
+      const trimmed = filterText?.trimStart();
       const textStartsWithFilter = textValue
         ?.toLowerCase()
-        .startsWith(filterText?.trim().toLowerCase());
+        .startsWith(trimmed.toLowerCase());
       const isTextboxActive = !disabled && !readOnly;
 
       if (
         isTextboxActive &&
         textboxRef &&
-        filterText?.trimStart().length &&
-        textValue?.length > filterText?.trimStart().length &&
+        trimmed.length &&
+        textValue?.length > trimmed.length &&
         textStartsWithFilter
       ) {
-        textboxRef.selectionStart = filterText.trimStart().length;
+        textboxRef.selectionStart = trimmed.length;
       }
     }, [textValue, filterText, textboxRef, disabled, readOnly]);
 
