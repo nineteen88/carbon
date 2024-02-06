@@ -36,7 +36,7 @@ export const Controlled: ComponentStory<typeof ButtonToggleGroup> = () => {
         label="Controlled example"
         labelHelp="help message"
         helpAriaLabel="Help"
-        fieldHelp="field help mesage"
+        fieldHelp="field help message"
         onChange={onChangeHandler}
         value={value}
       >
@@ -48,29 +48,6 @@ export const Controlled: ComponentStory<typeof ButtonToggleGroup> = () => {
   );
 };
 
-export const Grouped: ComponentStory<typeof ButtonToggleGroup> = () => (
-  <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
-    <ButtonToggleGroup
-      id="button-toggle-group-grouped-id"
-      label="Grouped example"
-      labelHelp="help message"
-      helpAriaLabel="Help"
-      fieldHelp="field help mesage"
-      onChange={() => {}}
-    >
-      <ButtonToggle value="foo" grouped>
-        Foo
-      </ButtonToggle>
-      <ButtonToggle value="bar" grouped>
-        Bar
-      </ButtonToggle>
-      <ButtonToggle value="baz" grouped>
-        Baz
-      </ButtonToggle>
-    </ButtonToggleGroup>
-  </Box>
-);
-
 export const FullWidth: ComponentStory<typeof ButtonToggleGroup> = () => (
   <Box margin={4}>
     <ButtonToggleGroup
@@ -79,18 +56,26 @@ export const FullWidth: ComponentStory<typeof ButtonToggleGroup> = () => (
       label="fullWidth example"
       labelHelp="help message"
       helpAriaLabel="Help"
-      fieldHelp="field help mesage"
+      fieldHelp="field help message"
       onChange={() => {}}
     >
-      <ButtonToggle value="foo" grouped>
-        Foo
-      </ButtonToggle>
-      <ButtonToggle value="bar" grouped>
-        Bar
-      </ButtonToggle>
-      <ButtonToggle value="baz" grouped>
-        Baz
-      </ButtonToggle>
+      <ButtonToggle value="foo">Foo</ButtonToggle>
+      <ButtonToggle value="bar">Bar</ButtonToggle>
+      <ButtonToggle value="baz">Baz</ButtonToggle>
+    </ButtonToggleGroup>
+  </Box>
+);
+
+export const InputHint: ComponentStory<typeof ButtonToggle> = () => (
+  <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
+    <ButtonToggleGroup
+      id="button-toggle-group-id"
+      label="inputHint example"
+      inputHint="Hint text"
+    >
+      <ButtonToggle value="foo">Foo</ButtonToggle>
+      <ButtonToggle value="bar">Bar</ButtonToggle>
+      <ButtonToggle value="baz">Baz</ButtonToggle>
     </ButtonToggleGroup>
   </Box>
 );
@@ -102,7 +87,7 @@ export const FieldHelp: ComponentStory<typeof ButtonToggleGroup> = () => (
       label="FieldHelp inline example"
       labelHelp="help message"
       helpAriaLabel="Help"
-      fieldHelp="field help mesage"
+      fieldHelp="field help message"
       fieldHelpInline
       onChange={() => {}}
     >
@@ -114,14 +99,15 @@ export const FieldHelp: ComponentStory<typeof ButtonToggleGroup> = () => (
 );
 
 export const LabelInline: ComponentStory<typeof ButtonToggleGroup> = () => (
-  <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
+  <Box margin={4} display="flex" flexWrap="nowrap">
     <ButtonToggleGroup
       id="button-toggle-group-label-inline-id"
       label="Label inline example"
       labelHelp="help message"
       helpAriaLabel="Help"
-      fieldHelp="field help mesage"
+      fieldHelp="field help message"
       labelInline
+      labelWidth={40}
       onChange={() => {}}
     >
       <ButtonToggle value="foo">Foo</ButtonToggle>
@@ -145,12 +131,11 @@ export const AllowDeselection: ComponentStory<
     <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
       <ButtonToggleGroup
         id="button-toggle-group-allowDeselect-id"
-        label="deselection example"
+        label="Deselection example"
         onChange={onChangeHandler}
         value={value}
         allowDeselect
         fieldHelp="Select an option, you can clear a selected option by selecting it again"
-        fieldHelpInline
       >
         <ButtonToggle value="foo">Foo</ButtonToggle>
         <ButtonToggle value="bar">Bar</ButtonToggle>
@@ -184,3 +169,47 @@ export const AriaLabel: ComponentStory<typeof ButtonToggleGroup> = () => {
     </Box>
   );
 };
+
+export const DisabledGroup: ComponentStory<typeof ButtonToggleGroup> = () => (
+  <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
+    <ButtonToggleGroup
+      id="button-toggle-group-disabled-id"
+      label="Disabled Group"
+      inputHint="Hint text"
+      disabled
+    >
+      <ButtonToggle value="foo">Foo</ButtonToggle>
+      <ButtonToggle value="bar">Bar</ButtonToggle>
+      <ButtonToggle value="baz">Baz</ButtonToggle>
+    </ButtonToggleGroup>
+  </Box>
+);
+
+export const WrappedButtons: ComponentStory<typeof ButtonToggleGroup> = () => (
+  <Box width="350px" display="flex" flexWrap="nowrap">
+    <ButtonToggleGroup
+      m={4}
+      id="button-toggle-group-wrapped-id"
+      label="Wrapped Group"
+    >
+      <ButtonToggle value="add" buttonIcon="add">
+        Add
+      </ButtonToggle>
+      <ButtonToggle value="share" buttonIcon="share">
+        Share
+      </ButtonToggle>
+      <ButtonToggle value="tick" buttonIcon="tick">
+        Tick
+      </ButtonToggle>
+      <ButtonToggle value="email" buttonIcon="email">
+        Email
+      </ButtonToggle>
+      <ButtonToggle value="alert" buttonIcon="alert">
+        Alert
+      </ButtonToggle>
+      <ButtonToggle value="calendar" buttonIcon="calendar">
+        Calendar
+      </ButtonToggle>
+    </ButtonToggleGroup>
+  </Box>
+);

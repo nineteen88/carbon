@@ -7,6 +7,7 @@ import { TagProps } from "../../../__internal__/utils/helpers/tags";
 import guid from "../../../__internal__/utils/helpers/guid";
 import StyledButtonToggleGroup, {
   StyledButtonToggleGroupWrapper,
+  StyledHintText,
 } from "./button-toggle-group.style";
 import { ButtonToggle } from "..";
 import { filterStyledSystemMarginProps } from "../../../style/utils";
@@ -37,6 +38,8 @@ export interface ButtonToggleGroupProps extends MarginProps, TagProps {
   labelHelp?: React.ReactNode;
   /** Spacing between label and a field for inline label, given number will be multiplied by base spacing unit (8) */
   labelSpacing?: 1 | 2;
+  /** A hint string rendered before the input but after the label. Intended to describe the purpose or content of the input. */
+  inputHint?: React.ReactNode;
   /** The percentage width of the ButtonToggleGroup. */
   inputWidth?: number | string;
   /** The text for the field help. */
@@ -59,8 +62,10 @@ export interface ButtonToggleGroupProps extends MarginProps, TagProps {
   value?: string;
   /** Aria label for rendered help component */
   helpAriaLabel?: string;
-  /** set this to true to allow the buttons within the group to be deselected when already selected, leaving no selected button */
+  /** Allow buttons within the group to be deselected when already selected, leaving no selected button */
   allowDeselect?: boolean;
+  /** Disable all user interaction. */
+  disabled?: boolean;
   /**
    * @private @ignore
    * Set a class on the component
@@ -80,6 +85,7 @@ type ButtonToggleGroupContextType = {
   name?: string;
   allowDeselect?: boolean;
   isInGroup: boolean;
+  isDisabled?: boolean;
   firstButton?: HTMLButtonElement;
   childButtonCallbackRef?: (button: HTMLButtonElement | null) => void;
 };
@@ -95,6 +101,7 @@ export const ButtonToggleGroupContext = createContext<ButtonToggleGroupContextTy
     pressedButtonValue: undefined,
     allowDeselect: false,
     isInGroup: false,
+    isDisabled: false,
   }
 );
 
@@ -106,6 +113,7 @@ const ButtonToggleGroup = ({
   label,
   labelHelp,
   labelSpacing,
+  inputHint,
   inputWidth,
   fullWidth,
   labelInline,
@@ -119,6 +127,7 @@ const ButtonToggleGroup = ({
   helpAriaLabel,
   id,
   allowDeselect,
+  disabled,
   className,
   ...props
 }: ButtonToggleGroupProps) => {
@@ -228,6 +237,7 @@ const ButtonToggleGroup = ({
           data-element={dataElement}
           id={id}
           labelAs="span"
+          disabled={disabled}
           {...filterStyledSystemMarginProps(props)}
         >
           <ButtonToggleGroupContext.Provider
@@ -239,10 +249,14 @@ const ButtonToggleGroup = ({
               name,
               allowDeselect,
               isInGroup: true,
+              isDisabled: disabled,
               firstButton,
               childButtonCallbackRef,
             }}
           >
+            {inputHint && (
+              <StyledHintText isDisabled={disabled}>{inputHint}</StyledHintText>
+            )}
             <StyledButtonToggleGroupWrapper
               labelInline={labelInline}
               ref={wrapperRef}
@@ -258,8 +272,8 @@ const ButtonToggleGroup = ({
                 data-role={dataRole}
                 data-element={dataElement}
                 id={id}
-                {...filterStyledSystemMarginProps(props)}
                 className={className}
+                disabled={disabled}
               >
                 {children}
               </StyledButtonToggleGroup>
