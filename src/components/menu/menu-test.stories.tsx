@@ -35,9 +35,7 @@ export const MenuFullScreenStory = ({
   searchButton,
 }: MenuFullScreenStoryProps) => {
   const [isOpen, setIsOpen] = useState(true);
-  const onClose = (
-    evt: React.KeyboardEvent<HTMLElement> | React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const onClose = (evt: KeyboardEvent | MouseEvent) => {
     setIsOpen(false);
     action("close icon clicked")(evt);
   };
