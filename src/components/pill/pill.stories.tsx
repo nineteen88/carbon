@@ -678,7 +678,7 @@ export const CustomColors: Story = () => {
 CustomColors.storyName = "Custom Colors";
 CustomColors.parameters = { chromatic: { disableSnapshot: true } };
 
-export const DarkBackground: ComponentStory<typeof Pill> = () => {
+export const DarkBackground: Story = () => {
   const noop = () => {};
   return (
     <>
@@ -874,3 +874,4 @@ export const DarkBackground: ComponentStory<typeof Pill> = () => {
     </>
   );
 };
+DarkBackground.storyName = "Dark Background";

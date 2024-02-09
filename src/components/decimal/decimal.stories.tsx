@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Meta, StoryObj } from "@storybook/react";
+import { ArgTypes, Meta, StoryObj } from "@storybook/react";
 
 import Decimal, { DecimalProps, CustomEvent } from ".";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
@@ -7,7 +7,7 @@ import generateStyledSystemProps from "../../../.storybook/utils/styled-system-p
 
 const styledSystemProps = generateStyledSystemProps({
   margin: true,
-});
+}) as Partial<ArgTypes<DecimalProps>>;
 
 const meta: Meta<typeof Decimal> = {
   title: "Decimal Input",

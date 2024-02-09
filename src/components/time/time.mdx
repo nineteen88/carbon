@@ -1,16 +1,15 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs";
-import StyledSystemProps from "../../../.storybook/utils/styled-system-props";
+import { Meta, ArgTypes, Canvas } from "@storybook/blocks";
+
 import TranslationKeysTable from "../../../.storybook/utils/translation-keys-table";
 
-import {Time} from ".";
-
-import * as stories from "./time.stories";
+import * as TimeStories from "./time.stories";
 
 <Meta
   title="Time"
   parameters={{
     info: { disable: true },
   }}
+  of={TimeStories}
 />
 
 # Time
@@ -34,73 +33,53 @@ import {Time} from "carbon-react/lib/components/time";
 The component needs to be controlled via `value` and `onChange` props. The `value` prop accepts an object 
 with `hours` and `minutes` properties that correspond to the relevant input.
 
-<Canvas>
-  <Story name="default" story={stories.Default} />
-</Canvas>
+<Canvas of={TimeStories.Default} />
 
 ### AM/PM toggle
 
 In order to render the AM/PM toggle controls you should set the `period` property in the `value` object.
 
-<Canvas>
-  <Story name="am/pm toggle" story={stories.AmPmToggle} />
-</Canvas>
+<Canvas of={TimeStories.AmPmToggle} />
 
 ### Input hint
 
 Passing a string to the `inputHint` prop will render some additional hint text above the inputs.
 
-<Canvas>
-  <Story name="input hint" story={stories.InputHint} />
-</Canvas>
+<Canvas of={TimeStories.InputHint} />
 
 ### Required
 
-<Canvas>
-  <Story name="required" story={stories.Required} />
-</Canvas>
+<Canvas of={TimeStories.Required} />
 
 ### Is optional
 
-<Canvas>
-  <Story name="is optional" story={stories.IsOptional} />
-</Canvas>
+<Canvas of={TimeStories.IsOptional} />
 
 ### Disabled
 
-<Canvas>
-  <Story name="disabled" story={stories.Disabled} />
-</Canvas>
+<Canvas of={TimeStories.Disabled} />
 
 ### Read only
 
-<Canvas>
-  <Story name="read only" story={stories.ReadOnly} />
-</Canvas>
+<Canvas of={TimeStories.ReadOnly} />
 
 ### Sizes
 
-<Canvas>
-  <Story name="sizes" story={stories.Sizes} />
-</Canvas>
+<Canvas of={TimeStories.Sizes} />
 
 ### Validation
 
 It is possible to set the validation states on either both or individual inputs by using the `error` 
 and `warning` props passed via the `hoursInputProps` and `minutesInputProps` respectively.
 
-<Canvas>
-  <Story name="validation" story={stories.Validation} />
-</Canvas>
+<Canvas of={TimeStories.Validation} />
 
 ### Focusing the inputs programmatically
 
 The component exposes `focusHoursInput` and `focusMinutesInput` functions that support programmatically 
 focusing the hours and minutes inputs which can be called by passing a `ref` to the component.
 
-<Canvas>
-  <Story name="focusing inputs programmatically" story={stories.FocusingInputs} />
-</Canvas>
+<Canvas of={TimeStories.FocusingInputs} />
 
 ### Locale override
 
@@ -108,13 +87,11 @@ It is possible to override the translations applied to this component, see the [
 for the available keys. It is also possible to have more granular control of the label overrides via the 
 `label` and `aria-label` props passed via the `hoursInputProps` and `minutesInputProps` respectively.
 
-<Canvas>
-  <Story name="locale override" story={stories.LocaleOverride} />
-</Canvas>
+<Canvas of={TimeStories.LocaleOverride} />
 
 ## Props
 
-<StyledSystemProps of={Time} margin noHeader />
+<ArgTypes of={TimeStories} />
 
 ## Translation keys
 

@@ -186,7 +186,6 @@
     "@styled-system/prop-types": "^5.1.5",
     "@tanstack/react-virtual": "^3.0.0-beta.68",
     "@types/styled-system": "^5.1.22",
-    "assert": "^2.0.0",
     "chalk": "^4.1.2",
     "ci-info": "^3.8.0",
     "classnames": "~2.3.2",

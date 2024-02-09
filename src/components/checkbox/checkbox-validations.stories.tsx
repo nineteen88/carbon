@@ -6,6 +6,7 @@ import CarbonProvider from "../carbon-provider/carbon-provider.component";
 const meta: Meta<typeof Checkbox> = {
   title: "Checkbox/Validations",
   component: Checkbox,
+  tags: ["hideInSidebar"],
 };
 
 export default meta;
