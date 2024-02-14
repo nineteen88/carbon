@@ -1,0 +1,89 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { LoaderSpinner } from "."
+import * as stories from "./loader-spinner.stories.tsx";
+import StyledSystemProps from "../../../.storybook/utils/styled-system-props";
+
+<Meta
+  title="LoaderSpinner"
+  parameters={{ info: { disable: true }, controls: { disabled: true } }}
+/>
+
+# Loader Spinner
+
+<a
+  target="_blank"
+  href="https://zeroheight.com/2ccf2b601/p/734c86-step-flow/b/83830f"
+  style={{ color: '#007E45', fontWeight: 'bold', textDecoration: 'underline' }}
+>
+  Product Design System component
+</a>
+
+Something here
+
+## Contents
+
+- [Quick Start](#quick-start)
+- [Examples](#examples)
+- [Props](#props)
+
+## Quick Start
+
+```js
+import LoaderSpinner from "carbon-react/lib/components/loader-spinner";
+```
+
+## Examples
+
+### Default
+
+<Canvas>
+  <Story name="default" story={stories.DefaultStory}/>
+</Canvas>
+
+### Sizes
+
+Please find an examples of all spinner sizes below.
+
+<Canvas>
+  <Story name="sizes" story={stories.Sizes}/>
+</Canvas>
+
+### Colors
+
+Please find an examples of all spinner colours below. Shown against the ligher background are the colors `action` and `neutral`.
+Against the darker background are the `inverse` and `gradient` colors.
+
+<Canvas>
+  <Story name="colors" story={stories.Colors}/>
+</Canvas>
+
+### Motion
+
+When the `motion` prop is set to `false`, the motion will become static, and no animation will trigger.
+
+<Canvas>
+  <Story name="motion" story={stories.Motion}/>
+</Canvas>
+
+### Tracked
+
+When the `tracked` prop is set to `true`, the spinner will become tracked, for specific use cases where wait/loading times
+need to be predictable.
+
+<Canvas>
+  <Story name="tracked" story={stories.Tracked}/>
+</Canvas>
+
+### Animation time
+
+The `animationTime` prop can also be set to any number, which will extend the animation time to that number in seconds.
+
+<Canvas>
+  <Story name="animation time" story={stories.AnimationTime}/>
+</Canvas>
+
+## Props
+
+### Content
+
+<StyledSystemProps of={LoaderSpinner} margin noHeader />
