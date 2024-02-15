@@ -81,24 +81,12 @@ When the `fullWidth` prop is `true`, the buttons will expand in size to take up 
   <Story name="fullWidth" story={groupStories.FullWidth} />
 </Canvas>
 
-### With field help inline
-
-<Canvas>
-  <Story name="fieldhelp inline" story={groupStories.FieldHelp} />
-</Canvas>
-
-### With label inline
-
-<Canvas>
-  <Story name="label inline" story={groupStories.LabelInline} />
-</Canvas>
-
 ### Allowing deselection
 
 By default, in a `ButtonToggleGroup` there is no way to deselect the currently-selected toggle button except by selecting another one.
 The `allowDeselect` prop changes this behaviour, making it possible for there to be no selection.
 
-If you use this, you should include text in the `fieldHelp` prop which makes clear that deselection is allowed, as in the example below.
+If you use this, you should include text in the `inputHint` prop which makes clear that deselection is allowed, as in the example below.
 
 <Canvas>
   <Story name="allowDeselect" story={groupStories.AllowDeselection} />

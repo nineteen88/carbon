@@ -34,9 +34,6 @@ export const Controlled: ComponentStory<typeof ButtonToggleGroup> = () => {
       <ButtonToggleGroup
         id="button-toggle-group-controlled-id"
         label="Controlled example"
-        labelHelp="help message"
-        helpAriaLabel="Help"
-        fieldHelp="field help message"
         onChange={onChangeHandler}
         value={value}
       >
@@ -54,9 +51,6 @@ export const FullWidth: ComponentStory<typeof ButtonToggleGroup> = () => (
       id="button-toggle-group-fullWidth-id"
       fullWidth
       label="fullWidth example"
-      labelHelp="help message"
-      helpAriaLabel="Help"
-      fieldHelp="field help message"
       onChange={() => {}}
     >
       <ButtonToggle value="foo">Foo</ButtonToggle>
@@ -72,43 +66,6 @@ export const InputHint: ComponentStory<typeof ButtonToggle> = () => (
       id="button-toggle-group-id"
       label="inputHint example"
       inputHint="Hint text"
-    >
-      <ButtonToggle value="foo">Foo</ButtonToggle>
-      <ButtonToggle value="bar">Bar</ButtonToggle>
-      <ButtonToggle value="baz">Baz</ButtonToggle>
-    </ButtonToggleGroup>
-  </Box>
-);
-
-export const FieldHelp: ComponentStory<typeof ButtonToggleGroup> = () => (
-  <Box margin={4} width="250px" display="flex" flexWrap="nowrap">
-    <ButtonToggleGroup
-      id="button-toggle-group-help-inline-id"
-      label="FieldHelp inline example"
-      labelHelp="help message"
-      helpAriaLabel="Help"
-      fieldHelp="field help message"
-      fieldHelpInline
-      onChange={() => {}}
-    >
-      <ButtonToggle value="foo">Foo</ButtonToggle>
-      <ButtonToggle value="bar">Bar</ButtonToggle>
-      <ButtonToggle value="baz">Baz</ButtonToggle>
-    </ButtonToggleGroup>
-  </Box>
-);
-
-export const LabelInline: ComponentStory<typeof ButtonToggleGroup> = () => (
-  <Box margin={4} display="flex" flexWrap="nowrap">
-    <ButtonToggleGroup
-      id="button-toggle-group-label-inline-id"
-      label="Label inline example"
-      labelHelp="help message"
-      helpAriaLabel="Help"
-      fieldHelp="field help message"
-      labelInline
-      labelWidth={40}
-      onChange={() => {}}
     >
       <ButtonToggle value="foo">Foo</ButtonToggle>
       <ButtonToggle value="bar">Bar</ButtonToggle>
@@ -135,7 +92,7 @@ export const AllowDeselection: ComponentStory<
         onChange={onChangeHandler}
         value={value}
         allowDeselect
-        fieldHelp="Select an option, you can clear a selected option by selecting it again"
+        inputHint="Select an option, you can clear a selected option by selecting it again"
       >
         <ButtonToggle value="foo">Foo</ButtonToggle>
         <ButtonToggle value="bar">Bar</ButtonToggle>

@@ -16,10 +16,12 @@ import StyledButtonToggleGroup, {
 } from "./button-toggle-group.style";
 import FormFieldStyle from "../../../__internal__/form-field/form-field.style";
 import Label from "../../../__internal__/label";
+import Help from "../../../components/help";
 import StyledLabel from "../../../__internal__/label/label.style";
 import FieldHelp from "../../../__internal__/field-help";
 import StyledHelp from "../../help/help.style";
 import Logger from "../../../__internal__/utils/logger";
+import CarbonProvider from "../../carbon-provider/carbon-provider.component";
 
 const mockedGuid = "guid-12345";
 
@@ -61,7 +63,7 @@ describe("ButtonToggleGroup", () => {
     );
   });
 
-  it("when inputHint prop is passed, renders component with hint text", () => {
+  it("renders component with hint text when inputHint prop is passed", () => {
     const wrapper = render({ inputHint: "Hint text" });
 
     expect(wrapper.find(StyledHintText).text()).toBe("Hint text");
@@ -87,7 +89,7 @@ describe("ButtonToggleGroup", () => {
       );
     });
 
-    it("children are disabled", () => {
+    it("should render children as disabled", () => {
       const buttons = wrapper.find(StyledButtonToggle);
       expect(buttons.at(0).getDOMNode()).toHaveAttribute("disabled");
       expect(buttons.at(1).getDOMNode()).toHaveAttribute("disabled");
@@ -291,6 +293,23 @@ describe("ButtonToggleGroup", () => {
         expect(wrapper.find(Label).prop(passedPropName)).toBe(propValue);
       });
     });
+
+    it("should not render labelHelp tooltip when validationRedesignOptIn is true", () => {
+      const wrapper = mount(
+        <CarbonProvider validationRedesignOptIn>
+          <ButtonToggleGroup
+            id="button-toggle-group-id"
+            label="test"
+            labelHelp="test"
+          >
+            <ButtonToggle value="foo">Foo</ButtonToggle>
+            <ButtonToggle value="bar">Bar</ButtonToggle>
+          </ButtonToggleGroup>
+        </CarbonProvider>
+      );
+
+      expect(wrapper.find(Help).exists()).toBe(false);
+    });
   });
 
   describe("FieldHelp", () => {
@@ -323,6 +342,23 @@ describe("ButtonToggleGroup", () => {
           expect(wrapper.find(FieldHelp).prop(propName)).toBe(propValue);
         });
       });
+    });
+
+    it("should not render fieldHelp when validationRedesignOptIn is true", () => {
+      const wrapper = mount(
+        <CarbonProvider validationRedesignOptIn>
+          <ButtonToggleGroup
+            id="button-toggle-group-id"
+            label="test"
+            fieldHelp="test"
+          >
+            <ButtonToggle value="foo">Foo</ButtonToggle>
+            <ButtonToggle value="bar">Bar</ButtonToggle>
+          </ButtonToggleGroup>
+        </CarbonProvider>
+      );
+
+      expect(wrapper.find(FieldHelp).exists()).toBe(false);
     });
   });
 

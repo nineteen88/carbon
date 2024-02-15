@@ -66,7 +66,7 @@ describe("ButtonToggle", () => {
       loggerSpy.mockClear();
     });
 
-    it("there is a deprecation warning for uncontrolled behaviour which is triggered only once", () => {
+    it("should display a deprecation warning for uncontrolled behaviour which is triggered only once", () => {
       renderButtonToggle();
 
       expect(loggerSpy).toHaveBeenCalledWith(
@@ -76,7 +76,7 @@ describe("ButtonToggle", () => {
       expect(loggerSpy).toHaveBeenCalledTimes(1);
     });
 
-    it("there is a deprecation warning for the checked prop which is triggered only once", () => {
+    it("should display a deprecation warning for the checked prop which is triggered only once", () => {
       const wrapper = renderButtonToggle({ checked: true });
 
       expect(loggerSpy).toHaveBeenCalledWith(
@@ -89,7 +89,7 @@ describe("ButtonToggle", () => {
       expect(loggerSpy).toHaveBeenCalledTimes(1);
     });
 
-    it("there is a deprecation warning for the name prop which is triggered only once", () => {
+    it("should display a deprecation warning for the name prop which is triggered only once", () => {
       const wrapper = renderButtonToggle({ name: "foo" });
 
       expect(loggerSpy).toHaveBeenCalledWith(
@@ -103,7 +103,7 @@ describe("ButtonToggle", () => {
       expect(loggerSpy).toHaveBeenCalledTimes(1);
     });
 
-    it("there is a deprecation warning for the grouped prop which is triggered only once", () => {
+    it("should display a deprecation warning for the grouped prop which is triggered only once", () => {
       const wrapper = renderButtonToggle({ grouped: true });
 
       expect(loggerSpy).toHaveBeenCalledWith(
