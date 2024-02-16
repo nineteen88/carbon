@@ -153,6 +153,14 @@ const enGB: Locale = {
       close: () => "Close",
     },
   },
+  sort: {
+    accessibleName: (children, sortType) =>
+      `Sort all ${children ? `${children}s` : "contents"}${
+        sortType
+          ? ` in an ${sortType} order.`
+          : " in an ascending or descending order."
+      }`,
+  },
   splitButton: {
     ariaLabel: () => "Show more",
   },

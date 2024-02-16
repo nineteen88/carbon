@@ -212,6 +212,14 @@ const plPL: Locale = {
       close: () => "Zamknij",
     },
   },
+  sort: {
+    accessibleName: (children, sortType) =>
+      `Sortuj wszystko ${children ? `${children}s` : "zawartość"}${
+        sortType
+          ? ` w ${sortType} zamówieniu.`
+          : " w porządku rosnącym lub malejącym."
+      }`,
+  },
   splitButton: {
     ariaLabel: () => "Pokaż więcej",
   },
