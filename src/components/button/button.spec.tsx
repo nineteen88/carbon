@@ -62,18 +62,6 @@ describe("Button", () => {
     loggerSpy.mockClear();
   });
 
-  describe("Dashed Button", () => {
-    it("should display deprecation warning once", () => {
-      mount(<Button buttonType="dashed">Button</Button>);
-
-      expect(loggerSpy).toHaveBeenCalledWith(
-        "The `dashed` variant of the `buttonType` prop for `Button` component is deprecated and will soon be removed."
-      );
-
-      expect(loggerSpy).toHaveBeenCalledTimes(1);
-    });
-  });
-
   describe("ButtonWithForwardRef", () => {
     it("should display deprecation warning when the component is used once", () => {
       wrapper = mount(<ButtonWithForwardRef>Button</ButtonWithForwardRef>);
@@ -319,19 +307,14 @@ describe("Button", () => {
         assertStyleMatch(
           {
             background:
-              variant === "secondary" ||
-              variant === "tertiary" ||
-              variant === "dashed"
+              variant === "secondary" || variant === "tertiary"
                 ? "transparent"
                 : "var(--colorsActionDisabled500)",
             borderColor:
-              variant === "secondary" || variant === "dashed"
+              variant === "secondary"
                 ? "var(--colorsActionDisabled500)"
                 : "transparent",
-            color:
-              variant === "dashed"
-                ? "var(--colorsActionMinorYin030)"
-                : "var(--colorsActionMajorYin030)",
+            color: "var(--colorsActionMajorYin030)",
           },
           wrapper
         );
@@ -501,19 +484,14 @@ describe("Button", () => {
             assertStyleMatch(
               {
                 background:
-                  variant === "secondary" ||
-                  variant === "tertiary" ||
-                  variant === "dashed"
+                  variant === "secondary" || variant === "tertiary"
                     ? "transparent"
                     : "var(--colorsActionDisabled500)",
                 borderColor:
-                  variant === "secondary" || variant === "dashed"
+                  variant === "secondary"
                     ? "var(--colorsActionDisabled500)"
                     : "transparent",
-                color:
-                  variant === "dashed"
-                    ? "var(--colorsActionMinorYin030)"
-                    : "var(--colorsActionMajorYin030)",
+                color: "var(--colorsActionMajorYin030)",
                 fontSize:
                   size === "large"
                     ? "var(--fontSizes200)"
@@ -539,19 +517,14 @@ describe("Button", () => {
             assertStyleMatch(
               {
                 background:
-                  variant === "secondary" ||
-                  variant === "tertiary" ||
-                  variant === "dashed"
+                  variant === "secondary" || variant === "tertiary"
                     ? "transparent"
                     : "var(--colorsActionDisabled500)",
                 borderColor:
-                  variant === "secondary" || variant === "dashed"
+                  variant === "secondary"
                     ? "var(--colorsActionDisabled500)"
                     : "transparent",
-                color:
-                  variant === "dashed"
-                    ? "var(--colorsActionMinorYin030)"
-                    : "var(--colorsActionMajorYin030)",
+                color: "var(--colorsActionMajorYin030)",
                 fontSize:
                   size === "large"
                     ? "var(--fontSizes200)"

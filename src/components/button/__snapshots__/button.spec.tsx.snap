@@ -36,7 +36,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c4 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c4:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c4 .c2 {
@@ -61,10 +65,12 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c5 .c2 {
   margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
   height: 20px;
   width: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .c5 .c2 svg {
@@ -72,21 +78,15 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c6 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c6:hover .c2 {
   color: var(--colorsActionMajorYang100);
 }
 
 .c6 .c2 {
   margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
   height: 20px;
   width: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .c6 .c2 svg {
@@ -318,6 +318,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c21 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c21:hover .c2 {
   color: var(--colorsActionMajorYang100);
 }
 
@@ -934,7 +938,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c52 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c52:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c52 .c2 {
@@ -950,7 +958,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c53 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c53:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c53 .c2 {
@@ -966,7 +978,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c54 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c54:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c54 .c2 {
@@ -982,7 +998,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c55 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c55:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c55 .c2 {
@@ -998,7 +1018,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c56 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c56:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c56 .c2 {
@@ -1014,7 +1038,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c57 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c57:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c57 .c2 {
@@ -1030,7 +1058,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c58 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c58:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c58 .c2 {
@@ -1046,7 +1078,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c59 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c59:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c59 .c2 {
@@ -1062,7 +1098,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c60 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c60:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c60 .c2 {
@@ -1078,7 +1118,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c61 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c61:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c61 .c2 {
@@ -1094,7 +1138,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c62 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c62:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c62 .c2 {
@@ -1110,7 +1158,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c63 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c63:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c63 .c2 {
@@ -1126,7 +1178,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c64 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c64:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c64 .c2 {
@@ -1142,7 +1198,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c65 .c2 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c65:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c65 .c2 {
@@ -1158,10 +1218,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c66 .c2 {
-  color: var(--colorsActionMinor500);
-}
-
-.c66 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1171,14 +1227,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c66 .c2 svg {
   margin-top: 0;
-}
-
-.c67 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c67:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c67 .c2 {
@@ -1194,14 +1242,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c68 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c68:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c68 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1211,14 +1251,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c68 .c2 svg {
   margin-top: 0;
-}
-
-.c69 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c69:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c69 .c2 {
@@ -1234,14 +1266,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c70 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c70:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c70 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1251,14 +1275,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c70 .c2 svg {
   margin-top: 0;
-}
-
-.c71 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c71:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c71 .c2 {
@@ -1274,14 +1290,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c72 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c72:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c72 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1291,14 +1299,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c72 .c2 svg {
   margin-top: 0;
-}
-
-.c73 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c73:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c73 .c2 {
@@ -1314,14 +1314,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c74 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c74:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c74 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1331,14 +1323,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c74 .c2 svg {
   margin-top: 0;
-}
-
-.c75 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c75:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c75 .c2 {
@@ -1354,14 +1338,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c76 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c76:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c76 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1371,14 +1347,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c76 .c2 svg {
   margin-top: 0;
-}
-
-.c77 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c77:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c77 .c2 {
@@ -1394,14 +1362,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c78 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c78:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c78 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1411,14 +1371,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c78 .c2 svg {
   margin-top: 0;
-}
-
-.c79 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c79:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c79 .c2 {
@@ -1434,14 +1386,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c80 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c80:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c80 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1451,14 +1395,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c80 .c2 svg {
   margin-top: 0;
-}
-
-.c81 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c81:hover .c2 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c81 .c2 {
@@ -1642,11 +1578,21 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c96 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c96:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c96 .c2 {
   margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
   height: 20px;
   width: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .c96 .c2 svg {
@@ -1654,15 +1600,33 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c97 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c97:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c97 .c2 {
   margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
   height: 20px;
   width: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .c97 .c2 svg {
   margin-top: 0;
+}
+
+.c98 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c98:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c98 .c2 {
@@ -1678,6 +1642,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c99 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c99:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c99 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1687,6 +1659,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c99 .c2 svg {
   margin-top: 0;
+}
+
+.c100 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c100:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c100 .c2 {
@@ -1702,6 +1682,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c101 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c101:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c101 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1711,6 +1699,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c101 .c2 svg {
   margin-top: 0;
+}
+
+.c102 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c102:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c102 .c2 {
@@ -1726,6 +1722,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c103 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c103:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c103 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1735,6 +1739,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c103 .c2 svg {
   margin-top: 0;
+}
+
+.c104 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c104:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c104 .c2 {
@@ -1750,6 +1762,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c105 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c105:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c105 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1759,6 +1779,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c105 .c2 svg {
   margin-top: 0;
+}
+
+.c106 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c106:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c106 .c2 {
@@ -1774,6 +1802,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c107 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c107:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c107 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1783,6 +1819,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c107 .c2 svg {
   margin-top: 0;
+}
+
+.c108 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c108:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c108 .c2 {
@@ -1798,6 +1842,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c109 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c109:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c109 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1810,6 +1862,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c110 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c110:hover .c2 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c110 .c2 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -1819,6 +1879,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c110 .c2 svg {
   margin-top: 0;
+}
+
+.c111 .c2 {
+  color: var(--colorsActionMajor500);
+}
+
+.c111:hover .c2 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c111 .c2 {
@@ -1843,12 +1911,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c112 .c2 {
   margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
   height: 20px;
   width: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .c112 .c2 svg {
@@ -1865,12 +1931,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c113 .c2 {
   margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
   height: 20px;
   width: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .c113 .c2 svg {
@@ -2117,326 +2181,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   margin-top: 0;
 }
 
-.c126 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c126:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c126 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c126 .c2 svg {
-  margin-top: 0;
-}
-
-.c127 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c127:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c127 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c127 .c2 svg {
-  margin-top: 0;
-}
-
-.c128 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c128:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c128 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c128 .c2 svg {
-  margin-top: 0;
-}
-
-.c129 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c129:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c129 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c129 .c2 svg {
-  margin-top: 0;
-}
-
-.c130 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c130:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c130 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c130 .c2 svg {
-  margin-top: 0;
-}
-
-.c131 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c131:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c131 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c131 .c2 svg {
-  margin-top: 0;
-}
-
-.c132 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c132:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c132 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c132 .c2 svg {
-  margin-top: 0;
-}
-
-.c133 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c133:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c133 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c133 .c2 svg {
-  margin-top: 0;
-}
-
-.c134 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c134:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c134 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c134 .c2 svg {
-  margin-top: 0;
-}
-
-.c135 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c135:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c135 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c135 .c2 svg {
-  margin-top: 0;
-}
-
-.c136 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c136:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c136 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c136 .c2 svg {
-  margin-top: 0;
-}
-
-.c137 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c137:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c137 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c137 .c2 svg {
-  margin-top: 0;
-}
-
-.c138 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c138:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c138 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c138 .c2 svg {
-  margin-top: 0;
-}
-
-.c139 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c139:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c139 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c139 .c2 svg {
-  margin-top: 0;
-}
-
-.c140 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c140:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c140 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c140 .c2 svg {
-  margin-top: 0;
-}
-
-.c141 .c2 {
-  color: var(--colorsActionMajor500);
-}
-
-.c141:hover .c2 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c141 .c2 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c141 .c2 svg {
-  margin-top: 0;
-}
-
 .c0 {
   padding-left: var(--spacing300);
   padding-right: var(--spacing300);
@@ -2483,7 +2227,7 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   color: var(--colorsActionMajor500);
 }
 
-.c0 .c142 {
+.c0 .c126 {
   background-color: var(--colorsActionMajor500);
 }
 
@@ -2497,7 +2241,7 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   color: var(--colorsActionMajorYang100);
 }
 
-.c0:hover .c142 {
+.c0:hover .c126 {
   background-color: var(--colorsActionMajorYang100);
 }
 
@@ -2589,22 +2333,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   display: block;
 }
 
-.c4 .c1 {
-  color: var(--colorsActionMinor500);
-}
-
-.c4 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c4 .c1 svg {
-  margin-top: 0;
-}
-
 .c0 {
   padding-left: var(--spacing300);
   padding-right: var(--spacing300);
@@ -2651,7 +2379,7 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   color: var(--colorsActionMajor500);
 }
 
-.c0 .c141 {
+.c0 .c125 {
   background-color: var(--colorsActionMajor500);
 }
 
@@ -2665,7 +2393,7 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   color: var(--colorsActionMajorYang100);
 }
 
-.c0:hover .c141 {
+.c0:hover .c125 {
   background-color: var(--colorsActionMajorYang100);
 }
 
@@ -2681,15 +2409,15 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   margin-top: 0;
 }
 
-.c5 .c1 {
+.c4 .c1 {
   color: var(--colorsActionMajor500);
 }
 
-.c5:hover .c1 {
+.c4:hover .c1 {
   color: var(--colorsActionMajorYang100);
 }
 
-.c5 .c1 {
+.c4 .c1 {
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 1px;
@@ -2697,6 +2425,22 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
   width: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.c4 .c1 svg {
+  margin-top: 0;
+}
+
+.c5 .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c5 .c1 {
+  margin-left: 0px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
+  height: 20px;
+  width: 20px;
 }
 
 .c5 .c1 svg {
@@ -2928,6 +2672,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c20 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c20:hover .c1 {
   color: var(--colorsActionMajorYang100);
 }
 
@@ -3544,7 +3292,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c51 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c51:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c51 .c1 {
@@ -3560,7 +3312,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c52 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c52:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c52 .c1 {
@@ -3576,7 +3332,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c53 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c53:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c53 .c1 {
@@ -3592,7 +3352,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c54 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c54:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c54 .c1 {
@@ -3608,7 +3372,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c55 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c55:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c55 .c1 {
@@ -3624,7 +3392,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c56 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c56:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c56 .c1 {
@@ -3640,7 +3412,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c57 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c57:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c57 .c1 {
@@ -3656,7 +3432,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c58 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c58:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c58 .c1 {
@@ -3672,7 +3452,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c59 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c59:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c59 .c1 {
@@ -3688,7 +3472,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c60 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c60:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c60 .c1 {
@@ -3704,7 +3492,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c61 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c61:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c61 .c1 {
@@ -3720,7 +3512,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c62 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c62:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c62 .c1 {
@@ -3736,7 +3532,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c63 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c63:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c63 .c1 {
@@ -3752,7 +3552,11 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c64 .c1 {
-  color: var(--colorsActionMinor500);
+  color: var(--colorsActionMajor500);
+}
+
+.c64:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c64 .c1 {
@@ -3768,10 +3572,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c65 .c1 {
-  color: var(--colorsActionMinor500);
-}
-
-.c65 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3781,14 +3581,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c65 .c1 svg {
   margin-top: 0;
-}
-
-.c66 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c66:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c66 .c1 {
@@ -3804,14 +3596,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c67 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c67:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c67 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3821,14 +3605,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c67 .c1 svg {
   margin-top: 0;
-}
-
-.c68 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c68:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c68 .c1 {
@@ -3844,14 +3620,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c69 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c69:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c69 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3861,14 +3629,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c69 .c1 svg {
   margin-top: 0;
-}
-
-.c70 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c70:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c70 .c1 {
@@ -3884,14 +3644,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c71 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c71:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c71 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3901,14 +3653,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c71 .c1 svg {
   margin-top: 0;
-}
-
-.c72 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c72:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c72 .c1 {
@@ -3924,14 +3668,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c73 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c73:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c73 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3941,14 +3677,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c73 .c1 svg {
   margin-top: 0;
-}
-
-.c74 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c74:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c74 .c1 {
@@ -3964,14 +3692,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c75 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c75:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c75 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -3981,14 +3701,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c75 .c1 svg {
   margin-top: 0;
-}
-
-.c76 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c76:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c76 .c1 {
@@ -4004,14 +3716,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c77 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c77:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c77 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4021,14 +3725,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c77 .c1 svg {
   margin-top: 0;
-}
-
-.c78 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c78:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c78 .c1 {
@@ -4044,14 +3740,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c79 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c79:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c79 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4061,14 +3749,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c79 .c1 svg {
   margin-top: 0;
-}
-
-.c80 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c80:hover .c1 {
-  color: var(--colorsActionMajorYang100);
 }
 
 .c80 .c1 {
@@ -4252,11 +3932,21 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c95 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c95:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c95 .c1 {
   margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
   height: 20px;
   width: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .c95 .c1 svg {
@@ -4264,15 +3954,33 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c96 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c96:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c96 .c1 {
   margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-bottom: 1px;
   height: 20px;
   width: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .c96 .c1 svg {
   margin-top: 0;
+}
+
+.c97 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c97:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c97 .c1 {
@@ -4288,6 +3996,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c98 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c98:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c98 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4297,6 +4013,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c98 .c1 svg {
   margin-top: 0;
+}
+
+.c99 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c99:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c99 .c1 {
@@ -4312,6 +4036,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c100 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c100:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c100 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4321,6 +4053,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c100 .c1 svg {
   margin-top: 0;
+}
+
+.c101 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c101:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c101 .c1 {
@@ -4336,6 +4076,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c102 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c102:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c102 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4345,6 +4093,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c102 .c1 svg {
   margin-top: 0;
+}
+
+.c103 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c103:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c103 .c1 {
@@ -4360,6 +4116,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c104 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c104:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c104 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4369,6 +4133,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c104 .c1 svg {
   margin-top: 0;
+}
+
+.c105 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c105:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c105 .c1 {
@@ -4384,6 +4156,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c106 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c106:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c106 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4393,6 +4173,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c106 .c1 svg {
   margin-top: 0;
+}
+
+.c107 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c107:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c107 .c1 {
@@ -4408,6 +4196,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c108 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c108:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c108 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4420,6 +4216,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c109 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c109:hover .c1 {
+  color: var(--colorsActionMajorYang100);
+}
+
+.c109 .c1 {
   margin-left: 0px;
   margin-right: var(--spacing100);
   margin-bottom: 0px;
@@ -4429,6 +4233,14 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c109 .c1 svg {
   margin-top: 0;
+}
+
+.c110 .c1 {
+  color: var(--colorsActionMajor500);
+}
+
+.c110:hover .c1 {
+  color: var(--colorsActionMajorYang100);
 }
 
 .c110 .c1 {
@@ -4453,12 +4265,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c111 .c1 {
   margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
   height: 20px;
   width: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .c111 .c1 svg {
@@ -4475,12 +4285,10 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 
 .c112 .c1 {
   margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 1px;
+  margin-right: var(--spacing100);
+  margin-bottom: 0px;
   height: 20px;
   width: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .c112 .c1 svg {
@@ -4724,326 +4532,6 @@ exports[`Button when only the "iconPosition" and "iconType" props are passed int
 }
 
 .c124 .c1 svg {
-  margin-top: 0;
-}
-
-.c125 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c125:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c125 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c125 .c1 svg {
-  margin-top: 0;
-}
-
-.c126 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c126:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c126 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c126 .c1 svg {
-  margin-top: 0;
-}
-
-.c127 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c127:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c127 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c127 .c1 svg {
-  margin-top: 0;
-}
-
-.c128 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c128:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c128 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c128 .c1 svg {
-  margin-top: 0;
-}
-
-.c129 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c129:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c129 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c129 .c1 svg {
-  margin-top: 0;
-}
-
-.c130 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c130:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c130 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c130 .c1 svg {
-  margin-top: 0;
-}
-
-.c131 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c131:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c131 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c131 .c1 svg {
-  margin-top: 0;
-}
-
-.c132 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c132:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c132 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c132 .c1 svg {
-  margin-top: 0;
-}
-
-.c133 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c133:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c133 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c133 .c1 svg {
-  margin-top: 0;
-}
-
-.c134 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c134:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c134 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c134 .c1 svg {
-  margin-top: 0;
-}
-
-.c135 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c135:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c135 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c135 .c1 svg {
-  margin-top: 0;
-}
-
-.c136 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c136:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c136 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c136 .c1 svg {
-  margin-top: 0;
-}
-
-.c137 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c137:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c137 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c137 .c1 svg {
-  margin-top: 0;
-}
-
-.c138 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c138:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c138 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c138 .c1 svg {
-  margin-top: 0;
-}
-
-.c139 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c139:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c139 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c139 .c1 svg {
-  margin-top: 0;
-}
-
-.c140 .c1 {
-  color: var(--colorsActionMajor500);
-}
-
-.c140:hover .c1 {
-  color: var(--colorsActionMajorYang100);
-}
-
-.c140 .c1 {
-  margin-left: 0px;
-  margin-right: var(--spacing100);
-  margin-bottom: 0px;
-  height: 20px;
-  width: 20px;
-}
-
-.c140 .c1 svg {
   margin-top: 0;
 }
 

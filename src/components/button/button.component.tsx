@@ -20,7 +20,6 @@ export type ButtonTypes =
   | "primary"
   | "secondary"
   | "tertiary"
-  | "dashed"
   | "darkBackground"
   | "gradient-grey"
   | "gradient-white";
@@ -103,11 +102,10 @@ interface RenderChildrenProps
     | "iconTooltipPosition"
   > {
   buttonType: ButtonTypes;
-  tooltipTarget?: HTMLElement;
+  tooltipTarget?: HTMLButtonElement;
 }
 
 function renderChildren({
-  /* eslint-disable react/prop-types */
   iconType,
   iconPosition,
   size,
@@ -118,8 +116,7 @@ function renderChildren({
   iconTooltipMessage,
   iconTooltipPosition,
   tooltipTarget,
-}: /* eslint-enable */
-RenderChildrenProps) {
+}: RenderChildrenProps) {
   const iconColor = () => {
     if (buttonType === "primary") {
       return "--colorsActionMajorYang100";
@@ -184,7 +181,6 @@ RenderChildrenProps) {
 }
 
 let deprecatedForwardRefWarnTriggered = false;
-let deprecatedDashedButtonWarnTriggered = false;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -240,13 +236,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       deprecatedForwardRefWarnTriggered = true;
       Logger.deprecate(
         "The `forwardRef` prop in `Button` component is deprecated and will soon be removed. Please use `ref` instead."
-      );
-    }
-
-    if (!deprecatedDashedButtonWarnTriggered && buttonType === "dashed") {
-      deprecatedDashedButtonWarnTriggered = true;
-      Logger.deprecate(
-        "The `dashed` variant of the `buttonType` prop for `Button` component is deprecated and will soon be removed."
       );
     }
 
