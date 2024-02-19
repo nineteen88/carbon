@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
-
 import { ButtonToggle, ButtonToggleGroup, ButtonToggleProps } from ".";
 
 export default {
@@ -74,79 +73,3 @@ export const WithoutGroup = (args: Partial<ButtonToggleProps>) => (
 );
 
 WithoutGroup.storyName = "without group";
-
-export const ButtonToggleGroupComponent = ({ ...props }) => {
-  return (
-    <div>
-      <ButtonToggleGroup
-        id="button-toggle-group-default-id"
-        name="button-toggle-group-default"
-        label="Default example"
-        labelHelp="help message"
-        helpAriaLabel="Help"
-        fieldHelp="field help message"
-        onChange={function noRefCheck() {
-          ("");
-        }}
-        {...props}
-      >
-        <ButtonToggle key="foo" value="foo">
-          Foo
-        </ButtonToggle>
-        <ButtonToggle key="bar" value="bar">
-          Bar
-        </ButtonToggle>
-        <ButtonToggle key="baz" value="baz">
-          Baz
-        </ButtonToggle>
-      </ButtonToggleGroup>
-    </div>
-  );
-};
-
-export const ButtonToggleComponent = ({
-  // eslint-disable-next-line react/prop-types
-  children = "This is an example of an alert",
-  ...props
-}: ButtonToggleProps) => {
-  return (
-    <div>
-      <ButtonToggle
-        name="button-toggle-one"
-        onBlur={function noRefCheck() {
-          ("");
-        }}
-        onFocus={function noRefCheck() {
-          ("");
-        }}
-        {...props}
-      >
-        {children}
-      </ButtonToggle>
-      <ButtonToggle
-        name="button-toggle-two"
-        onBlur={function noRefCheck() {
-          ("");
-        }}
-        onFocus={function noRefCheck() {
-          ("");
-        }}
-        {...props}
-      >
-        Second
-      </ButtonToggle>
-      <ButtonToggle
-        name="button-toggle-three"
-        onBlur={function noRefCheck() {
-          ("");
-        }}
-        onFocus={function noRefCheck() {
-          ("");
-        }}
-        {...props}
-      >
-        Third
-      </ButtonToggle>
-    </div>
-  );
-};
