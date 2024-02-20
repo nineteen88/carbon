@@ -200,8 +200,14 @@ const StyledMenuItemWrapper = styled.a.attrs({
         ${!hasInput && `color: ${menuConfigVariants[menuType].color};`}
       }
 
-      ${StyledIcon} {
-        display: inline-block;
+      ${
+        !inFullscreenView &&
+        css`
+          a > ${StyledIcon}, button > ${StyledIcon} {
+            bottom: 3px;
+            display: inline-block;
+          }
+        `
       }
     }
 

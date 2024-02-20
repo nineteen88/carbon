@@ -1482,6 +1482,9 @@ test.describe("Prop tests for Menu Fullscreen component", () => {
     const searchInput = searchDefaultInput(page);
     await expect(searchInput).toBeFocused();
     await page.keyboard.press("Tab");
+    const button = searchButton(page);
+    await expect(button).toBeFocused();
+    await page.keyboard.press("Tab");
     const item2 = menuItem(page).last().locator("a");
     await expect(item2).toBeFocused();
   });
