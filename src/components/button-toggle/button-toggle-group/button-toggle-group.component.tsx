@@ -82,6 +82,8 @@ type ButtonToggleGroupContextType = {
   isInGroup: boolean;
   firstButton?: HTMLButtonElement;
   childButtonCallbackRef?: (button: HTMLButtonElement | null) => void;
+  /** Identifier for the hint text of the button group  */
+  hintTextId?: string;
 };
 
 let deprecateNameWarnTriggered = false;
@@ -141,6 +143,7 @@ const ButtonToggleGroup = ({
   );
 
   const labelId = useRef(guid());
+  const hintTextId = useRef(guid());
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -219,6 +222,7 @@ const ButtonToggleGroup = ({
           labelHelp={labelHelp}
           labelSpacing={labelSpacing}
           fieldHelp={fieldHelp}
+          fieldHelpId={hintTextId.current}
           fieldHelpInline={fieldHelpInline}
           labelInline={labelInline}
           labelWidth={labelWidth}
@@ -241,6 +245,7 @@ const ButtonToggleGroup = ({
               isInGroup: true,
               firstButton,
               childButtonCallbackRef,
+              hintTextId: fieldHelp ? hintTextId.current : undefined,
             }}
           >
             <StyledButtonToggleGroupWrapper
