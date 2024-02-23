@@ -1,5 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
+import { userEvent, within } from "@storybook/testing-library";
 
 import Button, { ButtonProps } from ".";
 import Box from "../box";
@@ -13,6 +14,7 @@ import { ButtonIconPosition, ButtonTypes } from "./button.component";
 
 export default {
   title: "Button/Test",
+  component: Button,
   excludeStories: [
     "ButtonDifferentTypes",
     "generateButtons",
@@ -596,4 +598,25 @@ export const ButtonDifferentTypes = (props: Partial<ButtonProps>) => {
       </Button>
     </div>
   );
+};
+
+// Storybook Play Function Stories
+
+export const ButtonClickStory = {
+  render: () => {
+    // Render component as a function that returns the component
+    const RenderComponent = () => (
+      <Button onClick={action("click")}>Button</Button>
+    );
+
+    return <RenderComponent />;
+  },
+
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    const testButton = canvas.getByRole("button");
+
+    await userEvent.click(testButton);
+  },
 };

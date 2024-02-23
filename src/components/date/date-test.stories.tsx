@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
 
+import { userEvent, within } from "@storybook/testing-library";
 import DateInput, { DateChangeEvent } from "./date.component";
 import {
   CommonTextboxArgs,
@@ -12,6 +13,7 @@ import CarbonProvider from "../carbon-provider/carbon-provider.component";
 
 export default {
   title: "Date Input/Test",
+  component: DateInput,
   parameters: {
     info: { disable: true },
     chromatic: {
@@ -86,4 +88,49 @@ NewValidationStory.args = {
   allowEmptyValue: false,
   mt: 0,
   ...getCommonTextboxArgs(),
+};
+
+// Storybook Play Function Stories
+export const DateClickStory = {
+  render: () => {
+    // Render component as a function that returns the component
+    const RenderComponent = () => {
+      const [state, setState] = useState("2019-04-04");
+      const setValue = (ev: DateChangeEvent) => {
+        action("onChange")(ev.target.value);
+        setState(ev.target.value.formattedValue);
+      };
+
+      return (
+        <DateInput
+          name="dateinput"
+          label="Label"
+          value={state}
+          onChange={setValue}
+          onBlur={(ev) => {
+            action("onBlur")(ev.target.value);
+          }}
+          onKeyDown={(ev) =>
+            action("onKeyDown")((ev.target as HTMLInputElement).value)
+          }
+          onClick={(ev) =>
+            action("onClick")((ev.target as HTMLInputElement).value)
+          }
+        />
+      );
+    };
+
+    return <RenderComponent />;
+  },
+  // Defines the play function and interactions
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    const textboxInput = canvas.getByLabelText("Label");
+    await userEvent.click(textboxInput);
+    const nextMonthButton = canvas.getByLabelText("Next month", {
+      selector: "button",
+    });
+    await userEvent.click(nextMonthButton);
+  },
 };

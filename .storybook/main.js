@@ -27,6 +27,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "@storybook/addon-links",
     "@storybook/addon-toolbars",
+    "@storybook/addon-interactions",
   ],
   staticDirs: ["../.assets", "../logo"],
   webpackFinal: async (config, { configType }) => {

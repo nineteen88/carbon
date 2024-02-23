@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
+import { userEvent, within } from "@storybook/testing-library";
 import Textbox, { TextboxProps } from ".";
 import CarbonProvider from "../carbon-provider/carbon-provider.component";
 import { ICONS } from "../icon/icon-config";
@@ -103,13 +104,20 @@ export const commonTextboxArgTypes = (isNewValidation?: boolean) => ({
 
 export default {
   title: "Textbox/Test",
+  component: Textbox,
   parameters: {
     info: { disable: true },
     chromatic: {
       disableSnapshot: true,
     },
   },
-  includeStories: ["Default", "Multiple", "NewValidation", "PrefixWithSizes"],
+  includeStories: [
+    "Default",
+    "Multiple",
+    "NewValidation",
+    "PrefixWithSizes",
+    "TextboxTypingStory",
+  ],
 };
 
 export const Default = (args: CommonTextboxArgs) => {
@@ -191,3 +199,39 @@ export const PrefixWithSizes = () => {
 };
 
 PrefixWithSizes.storyName = "prefix with sizes";
+
+// Storybook Play Function Stories
+export const TextboxTypingStory = {
+  render: () => {
+    const RenderComponent = () => {
+      const [state, setState] = useState("");
+      const setValue = ({
+        target: { value },
+      }: React.ChangeEvent<HTMLInputElement>) => {
+        setState(value);
+      };
+      return (
+        <Textbox
+          label="Label"
+          m={2}
+          onClick={action("onClick")}
+          maxWidth="70%"
+          iconOnClick={action("iconOnClick")}
+          value={state}
+          onChange={setValue}
+        />
+      );
+    };
+
+    return <RenderComponent />;
+  },
+
+  play: async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+    const canvas = within(canvasElement);
+
+    const textboxInput = canvas.getByLabelText("Label");
+
+    await userEvent.click(textboxInput);
+    await userEvent.type(textboxInput, "Hello, World!");
+  },
+};
