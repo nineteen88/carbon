@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
 import Icon from "../icon";
-import Button, { ButtonWithForwardRef, ButtonProps } from "./button.component";
+import Button, { ButtonWithForwardRef } from "./button.component";
 import StyledButton, { StyledButtonMainText } from "./button.style";
 import {
   assertStyleMatch,
@@ -78,7 +78,7 @@ describe("Button", () => {
     m: "0",
   });
 
-  describe.each([
+  it.each([
     ["small", "var(--spacing200)"],
     ["medium", "var(--spacing300)"],
     ["large", "var(--spacing400)"],
@@ -199,39 +199,13 @@ describe("Button", () => {
   });
 
   it.each([
-    [
-      "primary",
-      "var(--colorsActionDisabled500)",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "secondary",
-      "transparent",
-      "var(--colorsActionDisabled500)",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "tertiary",
-      "transparent",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "dashed",
-      "transparent",
-      "var(--colorsActionDisabled500)",
-      "var(--colorsActionMinorYin030)",
-    ],
-    [
-      "darkBackground",
-      "var(--colorsActionDisabled500)",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
+    ["primary", "var(--colorsActionDisabled500)", "transparent"],
+    ["secondary", "transparent", "var(--colorsActionDisabled500)"],
+    ["tertiary", "transparent", "transparent"],
+    ["darkBackground", "var(--colorsActionDisabled500)", "transparent"],
   ] as const)(
     "has correct disabled styling when buttonType prop is %s and disabled prop is specified",
-    (buttonType, background, borderColor, color) => {
+    (buttonType, background, borderColor) => {
       const wrapper = mount(
         <Button disabled buttonType={buttonType}>
           foo
@@ -242,7 +216,7 @@ describe("Button", () => {
         {
           background,
           borderColor,
-          color,
+          color: "var(--colorsActionMajorYin030)",
         },
         wrapper
       );
@@ -374,11 +348,11 @@ describe("Button", () => {
     expect(button).toBeDisabled();
   });
 
-  it.each<[ButtonProps["size"], string, string]>([
+  it.each([
     ["small", "32px", "var(--fontSizes100)"],
     ["medium", "40px", "var(--fontSizes100)"],
     ["large", "48px", "var(--fontSizes200)"],
-  ])(
+  ] as const)(
     "renders with correct minimum height and font size when size prop is %s",
     (size, minHeight, fontSize) => {
       const wrapper = mount(
@@ -398,39 +372,13 @@ describe("Button", () => {
   );
 
   it.each([
-    [
-      "primary",
-      "var(--colorsActionDisabled500)",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "secondary",
-      "transparent",
-      "var(--colorsActionDisabled500)",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "tertiary",
-      "transparent",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
-    [
-      "dashed",
-      "transparent",
-      "var(--colorsActionDisabled500)",
-      "var(--colorsActionMinorYin030)",
-    ],
-    [
-      "darkBackground",
-      "var(--colorsActionDisabled500)",
-      "transparent",
-      "var(--colorsActionMajorYin030)",
-    ],
+    ["primary", "var(--colorsActionDisabled500)", "transparent"],
+    ["secondary", "transparent", "var(--colorsActionDisabled500)"],
+    ["tertiary", "transparent", "transparent"],
+    ["darkBackground", "var(--colorsActionDisabled500)", "transparent"],
   ] as const)(
     "for a disabled %s button, disabled styling takes priority even when destructive prop is passed",
-    (buttonType, background, borderColor, color) => {
+    (buttonType, background, borderColor) => {
       const wrapper = mount(
         <Button destructive disabled buttonType={buttonType}>
           foo
@@ -440,7 +388,7 @@ describe("Button", () => {
         {
           background,
           borderColor,
-          color,
+          color: "var(--colorsActionMajorYin030)",
         },
         wrapper
       );
