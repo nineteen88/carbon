@@ -84,7 +84,7 @@ test.describe("When focused", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchButtonElement = searchButton(page);
     await searchButtonElement.click({
       force: true,
@@ -108,7 +108,7 @@ test.describe("When focused", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchButtonElement = searchButton(page);
     await searchButtonElement.click({
       force: true,
@@ -132,7 +132,7 @@ test.describe("When focused", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     await searchDefaultInputElement.press("Tab");
     const searchCrossIconElementParent = searchCrossIcon(page).locator("..");
 
@@ -154,7 +154,7 @@ test.describe("When focused", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     await searchDefaultInputElement.press("Tab");
     const searchCrossIconElementParent = searchCrossIcon(page).locator("..");
 
@@ -246,7 +246,7 @@ test.describe("Prop tests for Search component", () => {
     );
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchButtonElement = searchButton(page);
 
     await expect(searchButtonElement).toHaveAttribute(
@@ -551,7 +551,7 @@ test.describe("Functionality tests for Search component", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchButtonElement = searchButton(page);
     await searchButtonElement.click({
       force: true,
@@ -570,7 +570,7 @@ test.describe("Functionality tests for Search component", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchCrossIconElement = searchCrossIcon(page);
     await searchCrossIconElement.click({
       force: true,
@@ -588,7 +588,7 @@ test.describe("Functionality tests for Search component", () => {
 
     const searchDefaultInputElement = searchDefaultInput(page);
     await searchDefaultInputElement.clear();
-    await searchDefaultInputElement.type(testDataStandard);
+    await searchDefaultInputElement.fill(testDataStandard);
     const searchCrossIconElementParent = searchCrossIcon(page).locator("..");
     await searchCrossIconElementParent.focus();
     await searchCrossIconElementParent.press("Enter");
@@ -634,7 +634,7 @@ test.describe("Event tests for Search component", () => {
     );
 
     const searchDefaultInputElement = searchDefaultInput(page);
-    await searchDefaultInputElement.type("1");
+    await searchDefaultInputElement.fill("1");
 
     await expect(callbackCount).toEqual(1);
   });

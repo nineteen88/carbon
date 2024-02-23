@@ -13,7 +13,7 @@ import StyledTextInput from "../../__internal__/input/input-presentation.style";
 import StyledInputIconToggle from "../../__internal__/input-icon-toggle/input-icon-toggle.style";
 import StyledIcon from "../icon/icon.style";
 import Icon from "../icon";
-import TextBox from "../textbox";
+import Textbox from "../textbox";
 import { rootTagTest } from "../../__internal__/utils/helpers/tags/tags-specs";
 import Logger from "../../__internal__/utils/logger";
 import StyledInput from "../../__internal__/input/input.style";
@@ -287,7 +287,7 @@ describe("Search", () => {
     });
   });
 
-  it("should not render an icon in textbox when seachButton is passed a truthy boolean value", () => {
+  it("should not render an icon in textbox when searchButton is passed a truthy boolean value", () => {
     wrapper = renderSearch({
       value: "",
       searchButton: true,
@@ -296,6 +296,7 @@ describe("Search", () => {
     });
     const searchButton = wrapper.find(Button);
     const icon = wrapper
+      .find(Textbox)
       .find(Icon)
       .findWhere((n) => n.props().type === "search")
       .hostNodes();
@@ -305,10 +306,10 @@ describe("Search", () => {
     });
     wrapper.update();
     expect(searchButton.text()).toBe("Search");
-    expect(icon.props().value).toEqual(undefined);
+    expect(icon.exists()).toBe(false);
   });
 
-  it("should not render an icon in textbox when seachButton is passed a string value", () => {
+  it("should not render an icon in textbox when searchButton is passed a string value", () => {
     wrapper = renderSearch({
       value: "",
       searchButton: "Foo",
@@ -317,6 +318,7 @@ describe("Search", () => {
     });
     const searchButton = wrapper.find(Button);
     const icon = wrapper
+      .find(Textbox)
       .find(Icon)
       .findWhere((n) => n.props().type === "search")
       .hostNodes();
@@ -326,10 +328,10 @@ describe("Search", () => {
     });
     wrapper.update();
     expect(searchButton.text()).toBe("Foo");
-    expect(icon.props().value).toEqual(undefined);
+    expect(icon.exists()).toBe(false);
   });
 
-  it("should render an icon in textbox when seachButton is passed a falsy value", () => {
+  it("should render an icon in textbox when searchButton is passed a falsy value", () => {
     wrapper = renderSearch({
       value: "",
       searchButton: false,
@@ -338,6 +340,7 @@ describe("Search", () => {
     });
     const searchButton = wrapper.find(Button);
     const icon = wrapper
+      .find(Textbox)
       .find(Icon)
       .findWhere((n) => n.props().type === "search")
       .hostNodes();
@@ -606,7 +609,7 @@ describe("Search", () => {
         id: "Search",
         name: "Search",
       });
-      const input = wrapper.find(TextBox);
+      const input = wrapper.find(Textbox);
       expect(input.prop("iconTabIndex")).toEqual(0);
     });
 
@@ -616,7 +619,7 @@ describe("Search", () => {
         id: "Search",
         name: "Search",
       });
-      const input = wrapper.find(TextBox);
+      const input = wrapper.find(Textbox);
       expect(input.prop("iconTabIndex")).toEqual(-1);
     });
   });
@@ -710,7 +713,7 @@ describe("Search", () => {
   describe("aria-label", () => {
     it("has a default aria-label passed to Search", () => {
       wrapper = renderSearch({ defaultValue: "foo" });
-      const search = wrapper.find(TextBox);
+      const search = wrapper.find(Textbox);
       expect(search.prop("aria-label")).toEqual("search");
     });
 

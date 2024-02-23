@@ -168,6 +168,7 @@ const StyledSearch = styled.div<StyledSearchProps>`
       ${StyledIcon} {
         :not([data-element="search"]) {
           ${darkVariant &&
+          !showSearchButton &&
           css`
             color: var(--colorsUtilityYang080);
 

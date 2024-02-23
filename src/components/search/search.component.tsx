@@ -201,7 +201,7 @@ export const Search = React.forwardRef(
       typeof searchButton === "string"
         ? searchButton
         : locale.search.searchButtonText();
-    const searchHasvalue = !isControlled
+    const searchHasValue = !isControlled
       ? !!searchValue?.length
       : !!value?.length;
 
@@ -211,7 +211,7 @@ export const Search = React.forwardRef(
         isFocused={isFocused}
         searchWidth={searchWidth}
         maxWidth={maxWidth}
-        searchHasValue={searchHasvalue}
+        searchHasValue={searchHasValue}
         showSearchButton={!!searchButton}
         variant={variant}
         mb={0}
