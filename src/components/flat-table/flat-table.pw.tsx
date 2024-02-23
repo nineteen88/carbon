@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 /* eslint-disable jest/no-disabled-tests */
 import React from "react";
 import { test, expect } from "@playwright/experimental-ct-react17";
@@ -86,10 +85,11 @@ import {
   checkAccessibility,
   getStyle,
   waitForAnimationEnd,
+  continuePressingTAB,
 } from "../../../playwright/support/helper";
 import { HooksConfig } from "../../../playwright";
 
-const sizes = [
+const sizes: [FlatTableProps["size"], string, string, number][] = [
   ["compact", "8px", "13px", 24],
   ["small", "16px", "14px", 32],
   ["medium", "16px", "14px", 40],
@@ -102,8 +102,21 @@ const borderSizeMedium = "2px";
 const borderSizeLarge = "4px";
 
 const heightWidth = [150, 250, 600, 1000];
+const heights = [150, 249, 250, 251, 300];
+const overflows = ["visible", "hidden", "clip", "scroll", "auto"];
+const arrowsToPress = ["ArrowLeft", "ArrowRight"];
+const itemsPerPage = [
+  [1, 0],
+  [5, 1],
+];
+const tableSorting: ["first" | "second", string, number, number][] = [
+  ["first", "desc", 1, 0],
+  ["first", "asc", 2, 0],
+  ["second", "desc", 1, 1],
+  ["second", "asc", 2, 1],
+];
 
-const colorThemes = [
+const colorThemes: [FlatTableProps["colorTheme"], string, string][] = [
   ["dark", "rgb(51, 91, 112)", "rgb(102, 132, 148)"],
   ["light", "rgb(204, 214, 219)", "rgb(179, 194, 201)"],
   ["transparent-base", "rgb(242, 245, 246)", "rgb(242, 245, 246)"],
@@ -141,6 +154,9 @@ const checkNewFocusStyling = async (locator: Locator) => {
   );
   expect(outlineValue).toBe(`rgba(0, 0, 0, 0) solid 3px`);
 };
+
+const indexes = (length: number, start = 0) =>
+  Array.from({ length: length - start }).map((_, index) => index + start);
 
 test.describe("Prop tests", () => {
   test(`should render with ariaDescribedBy`, async ({ mount, page }) => {
@@ -190,7 +206,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableComponent />);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(flatTableHeaderCellsIcon(page).nth(i)).toHaveAttribute(
         "data-component",
         "icon"
@@ -231,7 +247,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableComponent />);
 
-    for (let i = 0; i < 6; i++) {
+    for await (const i of indexes(6)) {
       await expect(flatTableBodyRows(page).nth(i)).toHaveCount(1);
     }
   });
@@ -242,7 +258,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableSpanComponent />);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(
         flatTableBodyRowByPosition(page, 0).locator("td").nth(i)
       ).toHaveCount(1);
@@ -255,7 +271,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableSpanComponent />);
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i !== 1) {
         await expect(
           flatTableHeader(page).nth(0).locator("th").nth(i)
@@ -338,7 +354,7 @@ test.describe("Prop tests", () => {
       "sticky"
     );
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i === 3 || i === 4) {
         await expect(flatTableBodyRowByPosition(page, i)).not.toBeInViewport();
       } else {
@@ -349,7 +365,7 @@ test.describe("Prop tests", () => {
     const wrapperElement = flatTableWrapper(page);
     await wrapperElement.evaluate((wrapper) => wrapper.scrollBy(0, 150));
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i === 0 || i === 1) {
         await expect(flatTableBodyRowByPosition(page, i)).not.toBeInViewport();
       } else {
@@ -384,7 +400,7 @@ test.describe("Prop tests", () => {
       "sticky"
     );
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i === 4) {
         await expect(flatTableBodyRowByPosition(page, i)).not.toBeInViewport();
       } else {
@@ -400,7 +416,7 @@ test.describe("Prop tests", () => {
     await expect(flatTableHeaderCells(page).first()).not.toBeInViewport();
     await expect(pagerParent).toBeInViewport();
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i === 0) {
         await expect(flatTableBodyRowByPosition(page, i)).not.toBeInViewport();
       } else {
@@ -409,18 +425,14 @@ test.describe("Prop tests", () => {
     }
   });
 
-  ([...colorThemes] as [
-    FlatTableProps["colorTheme"],
-    string,
-    string
-  ][]).forEach(([colorTheme, bgColor, brColor]) => {
+  [...colorThemes].forEach(([colorTheme, bgColor, brColor]) => {
     test(`should render in the ${colorTheme} theme`, async ({
       mount,
       page,
     }) => {
       await mount(<FlatTableComponent colorTheme={colorTheme} />);
 
-      for (let i = 0; i < 4; i++) {
+      for await (const i of indexes(4)) {
         const headerCells = flatTableHeaderCells(page).nth(i);
         await expect(headerCells).toHaveCSS("background-color", bgColor);
         await checkCSSOutline(
@@ -437,7 +449,7 @@ test.describe("Prop tests", () => {
   test(`should render with zebra stripes`, async ({ mount, page }) => {
     await mount(<FlatTableComponent isZebra />);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       if (i === 0 || i === 2) {
         await expect(
           flatTableBodyRowByPosition(page, i).locator("td").nth(0)
@@ -450,29 +462,27 @@ test.describe("Prop tests", () => {
     }
   });
 
-  ([...sizes] as [FlatTableProps["size"], string, string, number][]).forEach(
-    ([sizeName, padding, fontSize, rowHeight]) => {
-      test(`should render as ${sizeName} size`, async ({ mount, page }) => {
-        await mount(<FlatTableComponent size={sizeName} />);
+  [...sizes].forEach(([sizeName, padding, fontSize, rowHeight]) => {
+    test(`should render as ${sizeName} size`, async ({ mount, page }) => {
+      await mount(<FlatTableComponent size={sizeName} />);
 
-        await assertCssValueIsApproximately(
-          flatTableHeader(page),
-          "height",
-          rowHeight
-        );
+      await assertCssValueIsApproximately(
+        flatTableHeader(page),
+        "height",
+        rowHeight
+      );
 
-        for (let i = 0; i < 4; i++) {
-          const headerCells = flatTableHeaderCells(page)
-            .nth(i)
-            .locator("div")
-            .nth(0);
-          await expect(headerCells).toHaveCSS("padding-left", padding);
-          await expect(headerCells).toHaveCSS("padding-right", padding);
-          await expect(headerCells).toHaveCSS("font-size", fontSize);
-        }
-      });
-    }
-  );
+      for await (const i of indexes(4)) {
+        const headerCells = flatTableHeaderCells(page)
+          .nth(i)
+          .locator("div")
+          .nth(0);
+        await expect(headerCells).toHaveCSS("padding-left", padding);
+        await expect(headerCells).toHaveCSS("padding-right", padding);
+        await expect(headerCells).toHaveCSS("font-size", fontSize);
+      }
+    });
+  });
 
   heightWidth.forEach((height) => {
     test(`should render with ${height}px as a height parameter`, async ({
@@ -489,7 +499,7 @@ test.describe("Prop tests", () => {
     });
   });
 
-  [150, 249, 250, 251, 300].forEach((height) => {
+  [heights].forEach(([height]) => {
     test(`should render with ${height}px as a height parameter and minHeight set to 250px`, async ({
       mount,
       page,
@@ -531,7 +541,7 @@ test.describe("Prop tests", () => {
     });
   });
 
-  ["visible", "hidden", "clip", "scroll", "auto"].forEach((overflow) => {
+  [overflows].forEach(([overflow]) => {
     test(`should render with %${overflow} as a overflowX parameter and width set to 500px`, async ({
       mount,
       page,
@@ -551,7 +561,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableSpanComponent width="500px" />);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       if (i !== 2) {
         await expect(
           flatTableHeaderRowByPosition(page, 0).locator("th").nth(i)
@@ -566,7 +576,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableSpanComponent width="500px" />);
 
-    for (let i = 2; i < 5; i++) {
+    for await (const i of indexes(5, 2)) {
       if (i === 2 || i === 4) {
         await expect(
           flatTableHeaderRowByPosition(page, 0).locator("th").nth(i)
@@ -618,7 +628,7 @@ test.describe("Prop tests", () => {
       flatTableBodyRowByPosition(page, 1).locator("td").nth(7)
     ).toHaveCSS("position", "sticky");
 
-    for (let i = 1; i < 7; i++) {
+    for await (const i of indexes(7, 1)) {
       await waitForAnimationEnd(flatTable(page));
       if (i < 4) {
         await expect(
@@ -635,7 +645,7 @@ test.describe("Prop tests", () => {
     const position6 = flatTableBodyRowByPosition(page, 1).locator("td").nth(6);
     await position6.scrollIntoViewIfNeeded();
 
-    for (let i = 1; i < 7; i++) {
+    for await (const i of indexes(7, 1)) {
       if (i > 2) {
         await expect(
           flatTableBodyRowByPosition(page, 1).locator("td").nth(i)
@@ -740,7 +750,7 @@ test.describe("Prop tests", () => {
       borderSizeLarge
     );
 
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       const position1 = flatTableBodyRowByPosition(page, i)
         .locator("td")
         .nth(0);
@@ -776,7 +786,7 @@ test.describe("Prop tests", () => {
     );
     await expect(headerPosition1).toHaveCSS("border-right-color", lightBlue);
 
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       const bodyPosition1 = flatTableBodyRowByPosition(page, i).locator("th");
       await expect(bodyPosition1).toHaveCSS(
         "border-right-width",
@@ -785,7 +795,7 @@ test.describe("Prop tests", () => {
       await expect(bodyPosition1).toHaveCSS("border-right-color", black);
     }
 
-    for (let i = 3; i < 6; i++) {
+    for await (const i of indexes(6, 3)) {
       const bodyPosition2 = flatTableBodyRowByPosition(page, i).locator("th");
       await expect(bodyPosition2).toHaveCSS(
         "border-right-width",
@@ -794,7 +804,7 @@ test.describe("Prop tests", () => {
       await expect(bodyPosition2).toHaveCSS("border-right-color", lightGold);
     }
 
-    for (let i = 6; i < 9; i++) {
+    for await (const i of indexes(9, 6)) {
       const bodyPosition3 = flatTableBodyRowByPosition(page, i).locator("th");
       await expect(bodyPosition3).toHaveCSS(
         "border-right",
@@ -809,7 +819,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableCustomBordersComponent />);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(
         flatTableBodyRowByPosition(page, 0).locator("td").nth(i)
       ).toHaveCSS("border-bottom", `${borderSizeMedium} solid ${lightGold}`);
@@ -860,7 +870,7 @@ test.describe("Prop tests", () => {
       flatTableBodyRowByPosition(page, 1).locator("td").first()
     ).toHaveCSS("background-color", lightGrey);
     await expect(batchSelectionCounter(page)).toHaveText("1 selected");
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       await expect(
         batchSelectionComponent(page).locator("button").nth(i).locator("span")
       ).toHaveCSS("color", greyBlack);
@@ -893,7 +903,7 @@ test.describe("Prop tests", () => {
     ).toHaveCSS("background-color", lightGrey);
 
     await expect(batchSelectionCounter(page)).toHaveText("1 selected");
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       await expect(
         batchSelectionComponent(page).locator("button").nth(i).locator("span")
       ).toHaveCSS("color", greyBlack);
@@ -930,13 +940,13 @@ test.describe("Prop tests", () => {
         .locator("..")
         .locator("div:nth-child(2)")
     ).toHaveCSS("box-shadow", `${gold} 0px 0px 0px 3px`);
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(
         flatTableCheckboxCell(page, i).locator("input")
       ).toBeChecked();
     }
 
-    for (let i = 1; i < 5; i++) {
+    for await (const i of indexes(5, 1)) {
       await expect(
         flatTableBodyRowByPosition(page, 0).locator("td").nth(i)
       ).toHaveCSS("background-color", green);
@@ -952,7 +962,7 @@ test.describe("Prop tests", () => {
     }
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       await expect(
         batchSelectionComponent(page).locator("button").nth(i).locator("span")
       ).toHaveCSS("color", greyBlack);
@@ -978,13 +988,13 @@ test.describe("Prop tests", () => {
       "box-shadow",
       "rgb(255, 188, 25) 0px 0px 0px 3px, rgba(0, 0, 0, 0.9) 0px 0px 0px 6px"
     );
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(
         flatTableCheckboxCell(page, i).locator("input")
       ).toBeChecked();
     }
 
-    for (let i = 1; i < 5; i++) {
+    for await (const i of indexes(5, 1)) {
       await expect(
         flatTableBodyRowByPosition(page, 0).locator("td").nth(i)
       ).toHaveCSS("background-color", green);
@@ -1000,7 +1010,7 @@ test.describe("Prop tests", () => {
     }
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       await expect(
         batchSelectionComponent(page).locator("button").nth(i).locator("span")
       ).toHaveCSS("color", greyBlack);
@@ -1027,13 +1037,13 @@ test.describe("Prop tests", () => {
       "box-shadow",
       "rgb(255, 188, 25) 0px 0px 0px 3px, rgba(0, 0, 0, 0.9) 0px 0px 0px 6px"
     );
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(
         flatTableCheckboxCell(page, i).locator("input")
       ).toBeChecked();
     }
 
-    for (let i = 1; i < 5; i++) {
+    for await (const i of indexes(5, 1)) {
       await expect(
         flatTableBodyRowByPosition(page, 0).locator("td").nth(i)
       ).toHaveCSS("background-color", green);
@@ -1049,7 +1059,7 @@ test.describe("Prop tests", () => {
     }
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
-    for (let i = 0; i < 3; i++) {
+    for await (const i of indexes(3)) {
       await expect(
         batchSelectionComponent(page).locator("button").nth(i).locator("span")
       ).toHaveCSS("color", greyBlack);
@@ -1159,7 +1169,7 @@ test.describe("Prop tests", () => {
 
     await expect(rowHeader).toHaveText(truncHead);
     await expect(rowHeader).toHaveCSS("text-overflow", "ellipsis");
-    for (let i = 1; i < 4; i++) {
+    for await (const i of indexes(4, 1)) {
       const rowHeaders = flatTableRowHeader(page).nth(i).locator("div");
       await expect(rowHeaders).toHaveText(truncRow);
       await expect(rowHeaders).toHaveCSS("text-overflow", "ellipsis");
@@ -1295,293 +1305,281 @@ test.describe("Prop tests", () => {
     });
   });
 
-  ([
-    ["first", "desc", 1, 0],
-    ["first", "asc", 2, 0],
-    ["second", "desc", 1, 1],
-    ["second", "asc", 2, 1],
-  ] as ["first" | "second", string, number, number][]).forEach(
-    ([colPosition, sortOrder, times, posNumber]) => {
-      test(`should sort ${colPosition} column in ${sortOrder} order with mouse click`, async ({
-        mount,
-        page,
-      }) => {
-        await mount(<FlatTableSortingComponent />);
+  [...tableSorting].forEach(([colPosition, sortOrder, times, posNumber]) => {
+    test(`should sort ${colPosition} column in ${sortOrder} order with mouse click`, async ({
+      mount,
+      page,
+    }) => {
+      await mount(<FlatTableSortingComponent />);
 
-        for (let i = 0; i < times; i++) {
-          await flatTableSortable(page).nth(posNumber).click();
-        }
+      if (times === 1) {
+        await flatTableSortable(page).nth(posNumber).click();
+      } else {
+        await flatTableSortable(page).nth(posNumber).click();
+        await flatTableSortable(page).nth(posNumber).click();
+      }
 
-        const valueOne = "Tyler Webb";
-        const valueTwo = "Monty Parker";
-        const valueThree = "Jason Atkinson";
-        const valueFour = "Blake Sutton";
-        const totalOne = "280";
-        const totalTwo = "1349";
-        const totalThree = "849";
-        const totalFour = "3840";
-        const headerCellsIcon = flatTableHeaderCellsIcon(page);
-        const cell1 = flatTableCell(page, 0);
-        const cell2 = flatTableCell(page, 1);
-        const cell3 = flatTableCell(page, 2);
-        const cell4 = flatTableCell(page, 3);
-        const cell5 = flatTableCell(page, 4);
-        const cell6 = flatTableCell(page, 5);
-        const cell7 = flatTableCell(page, 6);
-        const cell8 = flatTableCell(page, 7);
+      const valueOne = "Tyler Webb";
+      const valueTwo = "Monty Parker";
+      const valueThree = "Jason Atkinson";
+      const valueFour = "Blake Sutton";
+      const totalOne = "280";
+      const totalTwo = "1349";
+      const totalThree = "849";
+      const totalFour = "3840";
+      const headerCellsIcon = flatTableHeaderCellsIcon(page);
+      const cell1 = flatTableCell(page, 0);
+      const cell2 = flatTableCell(page, 1);
+      const cell3 = flatTableCell(page, 2);
+      const cell4 = flatTableCell(page, 3);
+      const cell5 = flatTableCell(page, 4);
+      const cell6 = flatTableCell(page, 5);
+      const cell7 = flatTableCell(page, 6);
+      const cell8 = flatTableCell(page, 7);
 
-        if (colPosition === "first" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueOne);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueTwo);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueThree);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueFour);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "first" && sortOrder === "asc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueFour);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueThree);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueTwo);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueOne);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "second" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalFour);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalTwo);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalThree);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalOne);
-          await expect(cell8).toBeVisible();
-        } else {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalOne);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalThree);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalTwo);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalFour);
-          await expect(cell8).toBeVisible();
-        }
-      });
-    }
-  );
+      if (colPosition === "first" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueOne);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueTwo);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueThree);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueFour);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "first" && sortOrder === "asc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueFour);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueThree);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueTwo);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueOne);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "second" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalFour);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalTwo);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalThree);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalOne);
+        await expect(cell8).toBeVisible();
+      } else {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalOne);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalThree);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalTwo);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalFour);
+        await expect(cell8).toBeVisible();
+      }
+    });
+  });
 
-  ([
-    ["first", "desc", 1, 0],
-    ["first", "asc", 2, 0],
-    ["second", "desc", 1, 1],
-    ["second", "asc", 2, 1],
-  ] as ["first" | "second", string, number, number][]).forEach(
-    ([colPosition, sortOrder, times, posNumber]) => {
-      test(`should sort ${colPosition} column in ${sortOrder} order with Spacebar`, async ({
-        mount,
-        page,
-      }) => {
-        await mount(<FlatTableSortingComponent />);
+  [...tableSorting].forEach(([colPosition, sortOrder, times, posNumber]) => {
+    test(`should sort ${colPosition} column in ${sortOrder} order with Spacebar`, async ({
+      mount,
+      page,
+    }) => {
+      await mount(<FlatTableSortingComponent />);
 
-        for (let i = 0; i < times; i++) {
-          await flatTableSortable(page).nth(posNumber).press("Space");
-        }
+      if (times === 1) {
+        await flatTableSortable(page).nth(posNumber).press("Space");
+      } else {
+        await flatTableSortable(page).nth(posNumber).press("Space");
+        await flatTableSortable(page).nth(posNumber).press("Space");
+      }
 
-        const valueOne = "Tyler Webb";
-        const valueTwo = "Monty Parker";
-        const valueThree = "Jason Atkinson";
-        const valueFour = "Blake Sutton";
-        const totalOne = "280";
-        const totalTwo = "1349";
-        const totalThree = "849";
-        const totalFour = "3840";
-        const headerCellsIcon = flatTableHeaderCellsIcon(page);
-        const cell1 = flatTableCell(page, 0);
-        const cell2 = flatTableCell(page, 1);
-        const cell3 = flatTableCell(page, 2);
-        const cell4 = flatTableCell(page, 3);
-        const cell5 = flatTableCell(page, 4);
-        const cell6 = flatTableCell(page, 5);
-        const cell7 = flatTableCell(page, 6);
-        const cell8 = flatTableCell(page, 7);
+      const valueOne = "Tyler Webb";
+      const valueTwo = "Monty Parker";
+      const valueThree = "Jason Atkinson";
+      const valueFour = "Blake Sutton";
+      const totalOne = "280";
+      const totalTwo = "1349";
+      const totalThree = "849";
+      const totalFour = "3840";
+      const headerCellsIcon = flatTableHeaderCellsIcon(page);
+      const cell1 = flatTableCell(page, 0);
+      const cell2 = flatTableCell(page, 1);
+      const cell3 = flatTableCell(page, 2);
+      const cell4 = flatTableCell(page, 3);
+      const cell5 = flatTableCell(page, 4);
+      const cell6 = flatTableCell(page, 5);
+      const cell7 = flatTableCell(page, 6);
+      const cell8 = flatTableCell(page, 7);
 
-        if (colPosition === "first" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueOne);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueTwo);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueThree);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueFour);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "first" && sortOrder === "asc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueFour);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueThree);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueTwo);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueOne);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "second" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalFour);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalTwo);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalThree);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalOne);
-          await expect(cell8).toBeVisible();
-        } else {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalOne);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalThree);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalTwo);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalFour);
-          await expect(cell8).toBeVisible();
-        }
-      });
-    }
-  );
+      if (colPosition === "first" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueOne);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueTwo);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueThree);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueFour);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "first" && sortOrder === "asc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueFour);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueThree);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueTwo);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueOne);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "second" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalFour);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalTwo);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalThree);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalOne);
+        await expect(cell8).toBeVisible();
+      } else {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalOne);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalThree);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalTwo);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalFour);
+        await expect(cell8).toBeVisible();
+      }
+    });
+  });
 
-  ([
-    ["first", "desc", 1, 0],
-    ["first", "asc", 2, 0],
-    ["second", "desc", 1, 1],
-    ["second", "asc", 2, 1],
-  ] as ["first" | "second", string, number, number][]).forEach(
-    ([colPosition, sortOrder, times, posNumber]) => {
-      test(`should sort ${colPosition} column in ${sortOrder} order with Enter key`, async ({
-        mount,
-        page,
-      }) => {
-        await mount(<FlatTableSortingComponent />);
+  [...tableSorting].forEach(([colPosition, sortOrder, times, posNumber]) => {
+    test(`should sort ${colPosition} column in ${sortOrder} order with Enter key`, async ({
+      mount,
+      page,
+    }) => {
+      await mount(<FlatTableSortingComponent />);
 
-        for (let i = 0; i < times; i++) {
-          await flatTableSortable(page).nth(posNumber).press("Enter");
-        }
+      if (times === 1) {
+        await flatTableSortable(page).nth(posNumber).press("Enter");
+      } else {
+        await flatTableSortable(page).nth(posNumber).press("Enter");
+        await flatTableSortable(page).nth(posNumber).press("Enter");
+      }
 
-        const valueOne = "Tyler Webb";
-        const valueTwo = "Monty Parker";
-        const valueThree = "Jason Atkinson";
-        const valueFour = "Blake Sutton";
-        const totalOne = "280";
-        const totalTwo = "1349";
-        const totalThree = "849";
-        const totalFour = "3840";
-        const headerCellsIcon = flatTableHeaderCellsIcon(page);
-        const cell1 = flatTableCell(page, 0);
-        const cell2 = flatTableCell(page, 1);
-        const cell3 = flatTableCell(page, 2);
-        const cell4 = flatTableCell(page, 3);
-        const cell5 = flatTableCell(page, 4);
-        const cell6 = flatTableCell(page, 5);
-        const cell7 = flatTableCell(page, 6);
-        const cell8 = flatTableCell(page, 7);
+      const valueOne = "Tyler Webb";
+      const valueTwo = "Monty Parker";
+      const valueThree = "Jason Atkinson";
+      const valueFour = "Blake Sutton";
+      const totalOne = "280";
+      const totalTwo = "1349";
+      const totalThree = "849";
+      const totalFour = "3840";
+      const headerCellsIcon = flatTableHeaderCellsIcon(page);
+      const cell1 = flatTableCell(page, 0);
+      const cell2 = flatTableCell(page, 1);
+      const cell3 = flatTableCell(page, 2);
+      const cell4 = flatTableCell(page, 3);
+      const cell5 = flatTableCell(page, 4);
+      const cell6 = flatTableCell(page, 5);
+      const cell7 = flatTableCell(page, 6);
+      const cell8 = flatTableCell(page, 7);
 
-        if (colPosition === "first" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueOne);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueTwo);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueThree);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueFour);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "first" && sortOrder === "asc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell1).toHaveText(valueFour);
-          await expect(cell1).toBeVisible();
-          await expect(cell3).toHaveText(valueThree);
-          await expect(cell3).toBeVisible();
-          await expect(cell5).toHaveText(valueTwo);
-          await expect(cell5).toBeVisible();
-          await expect(cell7).toHaveText(valueOne);
-          await expect(cell7).toBeVisible();
-        } else if (colPosition === "second" && sortOrder === "desc") {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_down"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalFour);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalTwo);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalThree);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalOne);
-          await expect(cell8).toBeVisible();
-        } else {
-          await expect(headerCellsIcon).toHaveAttribute(
-            "data-element",
-            "sort_up"
-          );
-          await expect(headerCellsIcon).toBeVisible();
-          await expect(cell2).toHaveText(totalOne);
-          await expect(cell2).toBeVisible();
-          await expect(cell4).toHaveText(totalThree);
-          await expect(cell4).toBeVisible();
-          await expect(cell6).toHaveText(totalTwo);
-          await expect(cell6).toBeVisible();
-          await expect(cell8).toHaveText(totalFour);
-          await expect(cell8).toBeVisible();
-        }
-      });
-    }
-  );
+      if (colPosition === "first" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueOne);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueTwo);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueThree);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueFour);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "first" && sortOrder === "asc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell1).toHaveText(valueFour);
+        await expect(cell1).toBeVisible();
+        await expect(cell3).toHaveText(valueThree);
+        await expect(cell3).toBeVisible();
+        await expect(cell5).toHaveText(valueTwo);
+        await expect(cell5).toBeVisible();
+        await expect(cell7).toHaveText(valueOne);
+        await expect(cell7).toBeVisible();
+      } else if (colPosition === "second" && sortOrder === "desc") {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_down"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalFour);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalTwo);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalThree);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalOne);
+        await expect(cell8).toBeVisible();
+      } else {
+        await expect(headerCellsIcon).toHaveAttribute(
+          "data-element",
+          "sort_up"
+        );
+        await expect(headerCellsIcon).toBeVisible();
+        await expect(cell2).toHaveText(totalOne);
+        await expect(cell2).toBeVisible();
+        await expect(cell4).toHaveText(totalThree);
+        await expect(cell4).toBeVisible();
+        await expect(cell6).toHaveText(totalTwo);
+        await expect(cell6).toBeVisible();
+        await expect(cell8).toHaveText(totalFour);
+        await expect(cell8).toBeVisible();
+      }
+    });
+  });
 
   test(`should render with expandable rows expanded by mouse and subrows not accessible when focusRedesignOptOut is true`, async ({
     mount,
@@ -1856,7 +1854,7 @@ test.describe("Prop tests", () => {
     );
     expect(getRotationAngle(transformValue)).toBe(-90);
 
-    for (let i = 0; i < 4; i++) {
+    for await (const i of indexes(4)) {
       await expect(flatTableSubrows(page)).toHaveCount(0);
       await flatTableCell(page, i).click();
       await expect(flatTableSubrows(page)).toHaveCount(2);
@@ -1877,7 +1875,7 @@ test.describe("Prop tests", () => {
     expect(getRotationAngle(transformValue)).toBe(-90);
     await expect(flatTableSubrows(page)).toHaveCount(0);
 
-    for (let i = 1; i < 4; i++) {
+    for await (const i of indexes(4, 1)) {
       await flatTableCell(page, i).click();
       await expect(flatTableSubrows(page)).toHaveCount(0);
     }
@@ -2281,10 +2279,7 @@ test.describe("Prop tests", () => {
       hooksConfig: { focusRedesignOptOut: true },
     });
 
-    await page.keyboard.press("Tab");
-    for (let i = 0; i < 5; i++) {
-      await page.keyboard.press("Tab");
-    }
+    await continuePressingTAB(page, 6);
 
     await checkFocus(flatTableBodyRowByPosition(page, 0));
     await page.keyboard.press("Tab");
@@ -2307,10 +2302,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableAllSubrowSelectableComponent />);
 
-    await page.keyboard.press("Tab");
-    for (let i = 0; i < 5; i++) {
-      await page.keyboard.press("Tab");
-    }
+    await continuePressingTAB(page, 6);
 
     await checkNewFocusStyling(flatTableBodyRowByPosition(page, 0));
     await page.keyboard.press("Tab");
@@ -2373,7 +2365,7 @@ test.describe("Prop tests", () => {
     await checkNewFocusStyling(flatTableBodyRowByPosition(page, 0));
   });
 
-  ["ArrowLeft", "ArrowRight"].forEach((arrow) => {
+  [arrowsToPress].forEach(([arrow]) => {
     test(`should render with rows not accessible using ${arrow} keys when focusRedesignOptOut is true`, async ({
       mount,
       page,
@@ -2382,10 +2374,7 @@ test.describe("Prop tests", () => {
         hooksConfig: { focusRedesignOptOut: true },
       });
 
-      await page.keyboard.press("Tab");
-      for (let i = 0; i < 5; i++) {
-        await page.keyboard.press("Tab");
-      }
+      await continuePressingTAB(page, 6);
 
       const bodyRowByPos = flatTableBodyRowByPosition(page, 0);
       await checkFocus(bodyRowByPos);
@@ -2394,17 +2383,14 @@ test.describe("Prop tests", () => {
     });
   });
 
-  ["ArrowLeft", "ArrowRight"].forEach((arrow) => {
+  [arrowsToPress].forEach(([arrow]) => {
     test(`should render with rows not accessible using ${arrow} keys when focusRedesignOptOut is false`, async ({
       mount,
       page,
     }) => {
       await mount(<FlatTableAllSubrowSelectableComponent />);
 
-      await page.keyboard.press("Tab");
-      for (let i = 0; i < 5; i++) {
-        await page.keyboard.press("Tab");
-      }
+      await continuePressingTAB(page, 6);
 
       const bodyRowByPos = flatTableBodyRowByPosition(page, 0);
       await checkNewFocusStyling(bodyRowByPos);
@@ -2706,10 +2692,7 @@ test.describe("Prop tests", () => {
     }
   );
 
-  ([
-    [1, 0],
-    [5, 1],
-  ] as const).forEach(([numberOfItems, option]) => {
+  [...itemsPerPage].forEach(([numberOfItems, option]) => {
     test(`should render with ${numberOfItems} items when selected with the mouse`, async ({
       mount,
       page,
@@ -2730,10 +2713,7 @@ test.describe("Prop tests", () => {
     });
   });
 
-  ([
-    [1, 0],
-    [5, 1],
-  ] as const).forEach(([numberOfItems, option]) => {
+  [...itemsPerPage].forEach(([numberOfItems, option]) => {
     test(`should open Show Items selector with the Spacebar and select ${numberOfItems} items per page`, async ({
       mount,
       page,
@@ -2756,10 +2736,7 @@ test.describe("Prop tests", () => {
   });
 
   // Skipped because of FE-6381 - Enter key does not open Pager dropdowns in Flat-table.
-  ([
-    [1, 0],
-    [5, 1],
-  ] as const).forEach(([numberOfItems, option]) => {
+  [...itemsPerPage].forEach(([numberOfItems, option]) => {
     test.skip(`should open Show Items selector with the Enter key and select ${numberOfItems} items per page`, async ({
       mount,
       page,
@@ -2790,7 +2767,7 @@ test.describe("Prop tests", () => {
     const currentPageInput = flatTableCurrentPageInput(page);
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2812,7 +2789,7 @@ test.describe("Prop tests", () => {
     const currentPageInput = flatTableCurrentPageInput(page);
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2835,7 +2812,7 @@ test.describe("Prop tests", () => {
     const currentPageInput = flatTableCurrentPageInput(page);
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2862,7 +2839,7 @@ test.describe("Prop tests", () => {
     await flatTablePageSelectPrevious(page).click();
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2901,7 +2878,7 @@ test.describe("Prop tests", () => {
     await page.keyboard.press("Enter");
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2918,7 +2895,7 @@ test.describe("Prop tests", () => {
 
     await expect(flatTableCurrentPageInput(page)).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2951,7 +2928,7 @@ test.describe("Prop tests", () => {
     await page.keyboard.press("Tab");
     await expect(currentPageInput).toHaveAttribute("value", "1");
 
-    for (let i = 0; i < 5; i++) {
+    for await (const i of indexes(5)) {
       if (i < 4) {
         await expect(flatTableBodyRowByPosition(page, i)).toBeInViewport();
       } else {
@@ -2968,7 +2945,7 @@ test.describe("Prop tests", () => {
       hooksConfig: { focusRedesignOptOut: true },
     });
 
-    for (let i = 0; i < 6; i++) {
+    for await (const i of indexes(6)) {
       const rowByPos = flatTableBodyRowByPosition(page, i);
       await rowByPos.click();
       await checkFocus(rowByPos);
@@ -2981,7 +2958,7 @@ test.describe("Prop tests", () => {
   }) => {
     await mount(<FlatTableComponent />);
 
-    for (let i = 0; i < 6; i++) {
+    for await (const i of indexes(6)) {
       const rowByPos = flatTableBodyRowByPosition(page, i);
       await rowByPos.click();
       await checkNewFocusStyling(rowByPos);
@@ -2995,7 +2972,7 @@ test.describe("Prop tests", () => {
     }) => {
       await mount(<FlatTableCheckboxComponent as={asPropVal} />);
 
-      for (let i = 0; i < 4; i++) {
+      for await (const i of indexes(4)) {
         await expect(
           flatTableCheckboxAsProp(page, i, asPropVal).first()
         ).toHaveAttribute("data-element", "flat-table-checkbox-header");
@@ -3171,11 +3148,7 @@ test.describe("Accessibility tests", () => {
     await checkAccessibility(page);
   });
 
-  ([...colorThemes] as [
-    FlatTableProps["colorTheme"],
-    string,
-    string
-  ][]).forEach(([colorTheme]) => {
+  [...colorThemes].forEach(([colorTheme]) => {
     test(`should render in the ${colorTheme} theme for accessibility tests`, async ({
       mount,
       page,
@@ -3195,7 +3168,7 @@ test.describe("Accessibility tests", () => {
     await checkAccessibility(page);
   });
 
-  ([...sizes] as [FlatTableProps["size"]][]).forEach(([sizeName]) => {
+  [...sizes].forEach(([sizeName]) => {
     test(`should render with in ${sizeName} size for accessibility tests`, async ({
       mount,
       page,
@@ -3217,7 +3190,7 @@ test.describe("Accessibility tests", () => {
     });
   });
 
-  [150, 249, 250, 251, 300].forEach((height) => {
+  [heights].forEach(([height]) => {
     test(`should render with ${height}px as a height parameter and minHeight set to 250px for accessibility tests`, async ({
       mount,
       page,
@@ -3250,7 +3223,7 @@ test.describe("Accessibility tests", () => {
     });
   });
 
-  ["visible", "hidden", "clip", "scroll", "auto"].forEach((overflow) => {
+  [overflows].forEach(([overflow]) => {
     test(`should render with ${overflow} as a overflowX parameter and width set to 500px for accessibility tests`, async ({
       mount,
       page,
