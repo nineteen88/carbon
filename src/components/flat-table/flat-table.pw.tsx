@@ -41,7 +41,7 @@ import Icon from "../icon";
 import { getDataElementByValue } from "../../../playwright/components";
 import {
   batchSelectionCounter,
-  batchSelectionButtonsByPosition,
+  batchSelectionComponent,
 } from "../../../playwright/components/batch-selection/index";
 import {
   actionPopover,
@@ -113,7 +113,7 @@ const colorThemes = [
 const gold = "rgb(255, 188, 25)";
 const black = "rgba(0, 0, 0, 0.9)";
 const lightGold = "rgb(255, 188, 26)";
-const greyBlack = "rgb(0, 0, 0)";
+const greyBlack = "rgba(0, 0, 0, 0.65)";
 const darkGrey = "rgb(102, 132, 148)";
 const mediumGrey = "rgb(204, 214, 219)";
 const lightGrey = "rgb(217, 224, 228)";
@@ -602,7 +602,7 @@ test.describe("Prop tests", () => {
     mount,
     page,
   }) => {
-    await page.setViewportSize({ width: 700, height: 700 });
+    await page.setViewportSize({ width: 670, height: 700 });
     await mount(<FlatTableMultipleStickyComponent />);
 
     await expect(
@@ -861,10 +861,9 @@ test.describe("Prop tests", () => {
     ).toHaveCSS("background-color", lightGrey);
     await expect(batchSelectionCounter(page)).toHaveText("1 selected");
     for (let i = 0; i < 3; i++) {
-      await expect(batchSelectionButtonsByPosition(page, i)).toHaveCSS(
-        "color",
-        greyBlack
-      );
+      await expect(
+        batchSelectionComponent(page).locator("button").nth(i).locator("span")
+      ).toHaveCSS("color", greyBlack);
     }
   });
 
@@ -895,10 +894,9 @@ test.describe("Prop tests", () => {
 
     await expect(batchSelectionCounter(page)).toHaveText("1 selected");
     for (let i = 0; i < 3; i++) {
-      await expect(batchSelectionButtonsByPosition(page, i)).toHaveCSS(
-        "color",
-        greyBlack
-      );
+      await expect(
+        batchSelectionComponent(page).locator("button").nth(i).locator("span")
+      ).toHaveCSS("color", greyBlack);
     }
   });
 
@@ -955,10 +953,9 @@ test.describe("Prop tests", () => {
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
     for (let i = 0; i < 3; i++) {
-      await expect(batchSelectionButtonsByPosition(page, i)).toHaveCSS(
-        "color",
-        greyBlack
-      );
+      await expect(
+        batchSelectionComponent(page).locator("button").nth(i).locator("span")
+      ).toHaveCSS("color", greyBlack);
     }
   });
 
@@ -1004,10 +1001,9 @@ test.describe("Prop tests", () => {
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
     for (let i = 0; i < 3; i++) {
-      await expect(batchSelectionButtonsByPosition(page, i)).toHaveCSS(
-        "color",
-        greyBlack
-      );
+      await expect(
+        batchSelectionComponent(page).locator("button").nth(i).locator("span")
+      ).toHaveCSS("color", greyBlack);
     }
   });
 
@@ -1054,10 +1050,9 @@ test.describe("Prop tests", () => {
 
     await expect(batchSelectionCounter(page)).toHaveText("4 selected");
     for (let i = 0; i < 3; i++) {
-      await expect(batchSelectionButtonsByPosition(page, i)).toHaveCSS(
-        "color",
-        greyBlack
-      );
+      await expect(
+        batchSelectionComponent(page).locator("button").nth(i).locator("span")
+      ).toHaveCSS("color", greyBlack);
     }
   });
 
@@ -2760,7 +2755,7 @@ test.describe("Prop tests", () => {
     });
   });
 
-  // SKIPPED - Enter key does not open Pager dropdowns.
+  // Skipped because of FE-6381 - Enter key does not open Pager dropdowns in Flat-table.
   ([
     [1, 0],
     [5, 1],
@@ -3123,7 +3118,7 @@ test.describe("Accessibility tests", () => {
     }
   );
 
-  // a11y error!scrollable-region-focusable on 1 Node. Ticket FE-5604 logged to investigate
+  // a11y error!scrollable-region-focusable on 1 Node. Ticket FE-5764 logged to investigate
   test.skip(`should render row with cell nodes as children for accessibility tests`, async ({
     mount,
     page,
@@ -3266,7 +3261,7 @@ test.describe("Accessibility tests", () => {
     });
   });
 
-  // a11y error!scrollable-region-focusable on 1 Node. Ticket FE-5604 logged to investigate
+  // a11y error!scrollable-region-focusable on 1 Node. Ticket FE-5764 logged to investigate
   test.skip(`should render with rowSpan set to make header cells span 2 rows for accessibility tests`, async ({
     mount,
     page,
