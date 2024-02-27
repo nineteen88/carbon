@@ -204,7 +204,6 @@ const StyledMenuItemWrapper = styled.a.attrs({
         !inFullscreenView &&
         css`
           a > ${StyledIcon}, button > ${StyledIcon} {
-            bottom: 3px;
             display: inline-block;
           }
         `
