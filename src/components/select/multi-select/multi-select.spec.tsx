@@ -39,13 +39,31 @@ function getSelect(props: Partial<MultiSelectProps> = {}) {
 }
 
 function renderSelect(props = {}, renderer = mount, opts = {}) {
-  return renderer(getSelect(props), opts);
+  return renderer(getSelect(props), {
+    attachTo: document.getElementById("enzymeContainer"),
+    ...opts,
+  });
 }
 
 jest.mock("../../../__internal__/utils/logger");
 
 describe("MultiSelect", () => {
   let loggerSpy: jest.SpyInstance<void, [message: string]> | jest.Mock;
+  let container: HTMLDivElement | null;
+
+  beforeEach(() => {
+    container = document.createElement("div");
+    container.id = "enzymeContainer";
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    if (container && container.parentNode) {
+      container.parentNode.removeChild(container);
+    }
+
+    container = null;
+  });
 
   describe("Deprecation warning for uncontrolled", () => {
     beforeEach(() => {
@@ -131,12 +149,9 @@ describe("MultiSelect", () => {
 
   describe("when an HTML element is clicked", () => {
     let wrapper: ReactWrapper;
-    let domNode: HTMLElement;
 
     beforeEach(() => {
-      wrapper = mount(getSelect({ openOnFocus: true }));
-      domNode = wrapper.getDOMNode();
-      document.body.appendChild(domNode);
+      wrapper = renderSelect({ openOnFocus: true });
     });
 
     describe("and that element is part of the Select", () => {
@@ -170,10 +185,6 @@ describe("MultiSelect", () => {
           wrapper.find(StyledSelectListContainer).getDOMNode()
         ).not.toBeVisible();
       });
-    });
-
-    afterEach(() => {
-      document.body.removeChild(domNode);
     });
   });
 
@@ -296,15 +307,6 @@ describe("MultiSelect", () => {
         { maxHeight: "120px" },
         wrapper.find(StyledSelectListContainer)
       );
-    });
-  });
-
-  describe("disablePortal", () => {
-    it("renders SelectList with a disablePortal prop assigned", () => {
-      const wrapper = renderSelect({ disablePortal: true });
-
-      simulateDropdownEvent(wrapper, "click");
-      expect(wrapper.find(SelectList).props().disablePortal).toBe(true);
     });
   });
 

@@ -40,7 +40,10 @@ function getSelect(props: Partial<SimpleSelectProps> = {}) {
 }
 
 function renderSelect(props = {}, renderer = mount, opts = {}) {
-  return renderer(getSelect(props), opts);
+  return renderer(getSelect(props), {
+    attachTo: document.getElementById("enzymeContainer"),
+    ...opts,
+  });
 }
 
 function simulateKeyDown(
@@ -63,6 +66,21 @@ jest.mock("../../../__internal__/utils/logger");
 
 describe("SimpleSelect", () => {
   let loggerSpy: jest.SpyInstance<void, [message: string]> | jest.Mock;
+  let container: HTMLDivElement | null;
+
+  beforeEach(() => {
+    container = document.createElement("div");
+    container.id = "enzymeContainer";
+    document.body.appendChild(container);
+  });
+
+  afterEach(() => {
+    if (container && container.parentNode) {
+      container.parentNode.removeChild(container);
+    }
+
+    container = null;
+  });
 
   describe("Deprecation warning for uncontrolled", () => {
     beforeEach(() => {
@@ -125,12 +143,9 @@ describe("SimpleSelect", () => {
 
   describe("when an HTML element is clicked when the SelectList is open", () => {
     let wrapper: ReactWrapper;
-    let domNode: HTMLElement;
 
     beforeEach(() => {
-      wrapper = mount(getSelect());
-      domNode = wrapper.getDOMNode();
-      document.body.appendChild(domNode);
+      wrapper = renderSelect();
     });
 
     describe("and that element is an Option of the Select List", () => {
@@ -168,19 +183,6 @@ describe("SimpleSelect", () => {
           wrapper.find(StyledSelectListContainer).getDOMNode()
         ).not.toBeVisible();
       });
-    });
-
-    afterEach(() => {
-      document.body.removeChild(domNode);
-    });
-  });
-
-  describe("disablePortal", () => {
-    it("renders SelectList with a disablePortal prop assigned", () => {
-      const wrapper = renderSelect({ disablePortal: true });
-
-      simulateDropdownEvent(wrapper, "click");
-      expect(wrapper.find(SelectList).props().disablePortal).toBe(true);
     });
   });
 
@@ -254,7 +256,6 @@ describe("SimpleSelect", () => {
 
   describe("when listMaxHeight prop is provided", () => {
     it("overrides default list max-height", () => {
-      mount(getSelect());
       const wrapper = renderSelect({ listMaxHeight: 120, openOnFocus: true });
 
       simulateSelectTextboxEvent(wrapper, "focus");
@@ -743,9 +744,10 @@ describe("SimpleSelect", () => {
     });
 
     describe('with "selectionType" as "navigationKey"', () => {
-      const wrapper = renderSelect();
+      let wrapper: ReactWrapper;
 
-      beforeAll(() => {
+      beforeEach(() => {
+        wrapper = renderSelect();
         simulateSelectTextboxEvent(wrapper, "click");
         act(() => {
           wrapper.find(SelectList).prop("onSelect")(navigationKeyOptionObject);
@@ -754,9 +756,9 @@ describe("SimpleSelect", () => {
       });
 
       it("the SelectList should be open", () => {
-        expect(
-          wrapper.find(StyledSelectListContainer).getDOMNode()
-        ).toBeVisible();
+        wrapper
+          .find(Option)
+          .forEach((option) => expect(option.getDOMNode()).toBeVisible());
       });
 
       it("the expected value should be selected", () => {

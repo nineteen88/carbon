@@ -951,14 +951,8 @@ describe("SelectList", () => {
         name: "flip",
       });
     });
-    it("renders SelectList as a child of Popover with disablePortal=undefined by default", () => {
+    it("renders SelectList as a child of Popover with disablePortal=true", () => {
       const wrapper = renderSelectList();
-      expect(wrapper.find(Popover).find(StyledSelectList).exists()).toBe(true);
-      expect(wrapper.find(Popover).props().disablePortal).toBe(undefined);
-    });
-
-    it("renders SelectList as a child of Popover with disablePortal=true when disablePortal prop is passed", () => {
-      const wrapper = renderSelectList({ disablePortal: true });
       expect(wrapper.find(Popover).find(StyledSelectList).exists()).toBe(true);
       expect(wrapper.find(Popover).props().disablePortal).toBe(true);
     });
